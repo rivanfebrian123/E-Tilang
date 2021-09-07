@@ -20,48 +20,37 @@ function judulify(teks) {
 }
 
 function render(nama, kendaraan, noTilang, denda, pasal, bukti) {
-  const elNama = document.createElement("h3");
-  elNama.textContent = nama;
-
-  const elKendaraanNoTilang = document.createElement("p");
-  elKendaraanNoTilang.textContent = kendaraan.replace(/spm/gi, "Sepeda Motor").replace(/l.truck/gi, "Light Truck") + ' | ' + noTilang;
-
-  const elDenda = document.createElement("p");
-  elDenda.textContent = angkaify(denda);
-
-  const elPasal = document.createElement("p");
-  elPasal.textContent = pasal;
-
-  const elBukti = document.createElement("p");
-  elBukti.textContent = bukti;
-
-  const container = document.createElement("article");
-  container.append(elNama, elKendaraanNoTilang, elDenda, elPasal, elBukti);
-  container.classList.add("item");
-
-  return container;
+  return $(`
+    <article>
+      <h3>${nama}</h3>
+      <p>${kendaraan.replace(/spm/gi, "Sepeda Motor").replace(/l.truck/gi, "Light Truck") + ' | ' + noTilang}</p>
+      <p>${angkaify(denda)}</p>
+      <p>${pasal}</p>
+      <p>${bukti}</p>
+    </article>
+  `).addClass('item');
 }
 
 function cari() {
-  const kunci = kuncify(document.getElementById("kunci").value);
-  const daftarItem = document.querySelectorAll(".item");
+  const kunci = kuncify($("#kunci").val());
+  const daftarItem = $(".item");
 
-  for (item of daftarItem) {
-    const kunci1 = kuncify(item.children[0].textContent);
-    const kunci2 = kuncify(item.children[1].textContent);
+  daftarItem.each(function() {
+    const kunci1 = kuncify($(this).children().eq(0).text());
+    const kunci2 = kuncify($(this).children().eq(1).text());
 
     if (kunci1.indexOf(kunci) != -1 || kunci2.indexOf(kunci) != -1) {
-      item.style.display = "block";
+      $(this).show();
     } else {
-      item.style.display = "none";
+      $(this).hide();
     }
-  }
+  });
 }
 
 http.onload = function() {
-  const elDaftar = document.getElementById('daftar');
-  const elCari = document.getElementById("cari");
-  const elSidang = document.getElementById("sidang");
+  const elDaftar = $('#daftar');
+  const elCari = $("#cari");
+  const elSidang = $("#sidang");
   var excel = XLSX.read(http.response, {
     type: 'array'
   });
@@ -74,17 +63,16 @@ http.onload = function() {
       }));
     }
 
-    elSidang.textContent = "Sidang: " + judulify(hasil[2][3].replace("SIDANG PADA TANGGAL ", ""));
+    elSidang.text("Sidang: " + judulify(hasil[2][3].replace("SIDANG PADA TANGGAL ", "")));
 
     for (i of hasil) {
-      console.log(i)
       // nama, kendaraan, noTilang, denda, pasal, bukti
       if (typeof i[0] === 'number' && typeof i[2] === 'string') {
         elDaftar.append(render(i[2], i[4], i[1], i[7] + i[8], i[5], i[6]))
       }
     }
 
-    elCari.addEventListener("submit", function(event) {
+    elCari.on("submit", function(event) {
       event.preventDefault();
       cari();
     });
@@ -93,4 +81,6 @@ http.onload = function() {
   }
 }
 
-http.send();
+$(function() {
+  http.send()
+});
