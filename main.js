@@ -20,15 +20,17 @@ function judulify(teks) {
 }
 
 function render(nama, kendaraan, noTilang, denda, pasal, bukti) {
-  return $(`
-    <article>
+  kendaraan_id = kendaraan.replace(/spm/gi, "Sepeda Motor").replace(/l.truck/gi, "Light Truck") + ' | ' + noTilang
+
+  return `<div class="item result"><div class="top-content">
       <h3>${nama}</h3>
-      <p>${kendaraan.replace(/spm/gi, "Sepeda Motor").replace(/l.truck/gi, "Light Truck") + ' | ' + noTilang}</p>
-      <p>${angkaify(denda)}</p>
-      <p>${pasal}</p>
-      <p>${bukti}</p>
-    </article>
-  `).addClass('item');
+      <h4>${kendaraan_id}</h4>
+    </div>
+    <div class="bottom-content">
+      <p><span><img src="images/uang.svg"/></span>${angkaify(denda)}</p>
+      <p><span><img src="images/palu.svg"/></span>${pasal}</p>
+      <p><span><img src="images/dompet.svg"/></span>${bukti}</p>
+    </div></div>`;
 }
 
 function cari() {

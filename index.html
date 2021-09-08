@@ -8,16 +8,28 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.6.1/es5-shim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.core.min.js"></script>
   <script src="main.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 
 <body>
+  <header>
+    <nav>
+      <p id="sidang" class="bubble"></p>
+      <img src="images/logo.svg" width="200px"/>
+    </nav>
+  </header>
+
   <form id="cari">
-    <input id="kunci" type="text"/>
-    <button id="submit" type="submit">Cari</button>
+    <input id="kunci" type="text" placeholder="Cari nama / no. tilang"/>
+    <button type="submit" class="icon">
+      <img src="images/cari.svg" width="20px" />
+    </button>
   </form>
   <br/>
 
-  <div id="sidang"></div>
   <div id="daftar"></div>
 </body>
 </html>
