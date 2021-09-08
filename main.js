@@ -1,8 +1,7 @@
 // NOTE: Perhatikan fitur2 baru Javascript yang tidak bisa ditutup dengan polyfill;
 //       yaitu fitur2 yang berkaitan langsung dengan sintaks, bukan hanya variabel,
-//       objek, dan fungsi; misal fitur for...of dan template string (backtick)
-import 'core-js';
-
+//       objek, dan fungsi; misal fitur for...of, spread (...) dan template string
+//       (backtick [`])
 var http = new XMLHttpRequest();
 http.open("GET", 'data.xls', true);
 http.responseType = 'arraybuffer'
@@ -73,9 +72,11 @@ http.onload = function() {
 
   if (http.readyState == 4 || http.status == 200) {
     excel.SheetNames.forEach(function(nama) {
-      hasil.push(...XLSX.utils.sheet_to_json(excel.Sheets[nama], {
+      XLSX.utils.sheet_to_json(excel.Sheets[nama], {
         header: 1
-      }));
+      }).forEach(function(kolom) {
+        hasil.push(kolom);
+      });
     });
 
     elSidang.text("Sidang: " + judulify(hasil[2][3].replace("SIDANG PADA TANGGAL ", "")));
