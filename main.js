@@ -1,4 +1,6 @@
-// NOTE: Jangan gunakan backtick (template literals). IE tidak mendukung itu
+// NOTE: Perhatikan fitur2 baru Javascript yang tidak bisa ditutup dengan polyfill;
+//       yaitu fitur2 yang berkaitan langsung dengan sintaks, bukan hanya variabel,
+//       objek, dan fungsi; misal fitur for...of dan template string (backtick)
 
 var http = new XMLHttpRequest();
 http.open("GET", 'data.xls', true);
@@ -69,20 +71,20 @@ http.onload = function() {
   var hasil = [];
 
   if (http.readyState == 4 || http.status == 200) {
-    for (name of excel.SheetNames) {
-      hasil.push(...XLSX.utils.sheet_to_json(excel.Sheets[name], {
+    excel.SheetNames.forEach(function(nama) {
+      hasil.push(...XLSX.utils.sheet_to_json(excel.Sheets[nama], {
         header: 1
       }));
-    }
+    });
 
     elSidang.text("Sidang: " + judulify(hasil[2][3].replace("SIDANG PADA TANGGAL ", "")));
 
-    for (i of hasil) {
+    hasil.forEach(function(i) {
       // nama, kendaraan, noTilang, denda, pasal, bukti
       if (typeof i[0] === 'number' && typeof i[2] === 'string') {
         elDaftar.append(render(i[2], i[4], i[1], i[7] + i[8], i[5], i[6]))
       }
-    }
+    });
 
     elCari.on("submit", function(event) {
       event.preventDefault();
@@ -95,5 +97,4 @@ http.onload = function() {
 
 $(function() {
   http.send()
-  console.log("DEBUG ====")
 });
