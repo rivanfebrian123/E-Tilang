@@ -1,6 +1,7 @@
 // NOTE: Perhatikan fitur2 baru Javascript yang tidak bisa ditutup dengan polyfill;
 //       yaitu fitur2 yang berkaitan langsung dengan sintaks, bukan hanya variabel,
 //       objek, dan fungsi; misal fitur for...of dan template string (backtick)
+import 'core-js';
 
 var http = new XMLHttpRequest();
 http.open("GET", 'data.xls', true);
