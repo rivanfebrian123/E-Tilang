@@ -19,7 +19,7 @@ header {
 
 .bubble {
   position: relative;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   color: white;
   padding: 10px;
   left: 75px;
@@ -31,14 +31,15 @@ header {
   width: -ms-fit-content;
   width: fit-content;
   font-size: 15px;
+  font-weight: bold;
 }
 
 .bubble::after {
   content: "";
   position: absolute;
   top: 100%;
-  left: 25px;
-  border-top: 10px solid rgba(0, 0, 0, 0.5);
+  left: 35px;
+  border-top: 10px solid rgba(0, 0, 0, 0.6);
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
 }
@@ -62,14 +63,14 @@ header {
 .top-content h3 {
   margin-bottom: 12px;
   margin-left: 6px;
-  font-weight: unset;
+  font-weight: normal;
   font-size: 18px;
 }
 
 .top-content h4 {
   color: #9a9996;
   font-size: 14px;
-  font-weight: unset;
+  font-weight: normal;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -116,10 +117,12 @@ span img {
   outline: 0;
   padding: 0 45px 4px 18px;
   font-size: 18px;
+  color: #3d3846;
 }
 
 input::placeholder {
   font-size: 15px;
+  color: #9a9996;
 }
 
 #cari .icon {

@@ -20,7 +20,13 @@ function judulify(teks) {
 }
 
 function render(nama, kendaraan, noTilang, denda, pasal, bukti) {
-  kendaraan_id = kendaraan.replace(/spm/gi, "Sepeda Motor").replace(/l.truck/gi, "Light Truck") + ' | ' + noTilang
+  kendaraan_id = kendaraan.replace(
+    /spm/gi, "Sepeda Motor").replace(
+    /l.truck/gi, "Light Truck") + ' | ' + noTilang
+  bukti = bukti.replace(
+    /ran/gi, "Kendaraan").replace(
+    /tnp/gi, "Tanpa").replace(
+    /plat/gi, "Plat")
 
   return `<div class="item result"><div class="top-content">
       <h3>${nama}</h3>
@@ -38,8 +44,10 @@ function cari() {
   const daftarItem = $(".item");
 
   daftarItem.each(function() {
-    const kunci1 = kuncify($(this).children().eq(0).text());
-    const kunci2 = kuncify($(this).children().eq(1).text());
+    const kepala = $(this).children().eq(0).children()
+    const kunci1 = kuncify(kepala.eq(0).text());
+    const kunci2_ = kepala.eq(1).text().split('|');
+    const kunci2 = kuncify(typeof kunci2_[1] == 'undefined' ? kunci2_[0] : kunci2_[1]);
 
     if (kunci1.indexOf(kunci) != -1 || kunci2.indexOf(kunci) != -1) {
       $(this).show();
