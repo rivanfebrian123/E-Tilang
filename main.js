@@ -93,4 +93,5 @@ http.onload = function() {
 
 $(function() {
   http.send()
+  console.log("DEBUG ====")
 });
