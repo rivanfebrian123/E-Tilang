@@ -1,3 +1,5 @@
+// NOTE: Jangan gunakan backtick (template literals). IE tidak mendukung itu
+
 var http = new XMLHttpRequest();
 http.open("GET", 'data.xls', true);
 http.responseType = 'arraybuffer'
@@ -28,15 +30,15 @@ function render(nama, kendaraan, noTilang, denda, pasal, bukti) {
     /tnp/gi, "Tanpa").replace(
     /plat/gi, "Plat")
 
-  return `<div class="item result"><div class="top-content">
-      <h3>${nama}</h3>
-      <h4>${kendaraan_id}</h4>
-    </div>
-    <div class="bottom-content">
-      <p><span><img src="images/uang.svg"/></span>${angkaify(denda)}</p>
-      <p><span><img src="images/palu.svg"/></span>${pasal}</p>
-      <p><span><img src="images/dompet.svg"/></span>${bukti}</p>
-    </div></div>`;
+  return '<div class="item result"><div class="top-content">' +
+    '  <h3>' + nama + '</h3>' +
+    '  <h4>' + kendaraan_id + '</h4>' +
+    '</div>' +
+    '<div class="bottom-content">' +
+    '  <p><span><img src="images/uang.svg"/></span>' + angkaify(denda) + '</p>' +
+    '  <p><span><img src="images/palu.svg"/></span>' + pasal + '</p>' +
+    '  <p><span><img src="images/dompet.svg"/></span>' + bukti + '</p>' +
+    '</div></div>';
 }
 
 function cari() {
