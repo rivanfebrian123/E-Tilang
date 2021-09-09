@@ -116,21 +116,6 @@ span img {
   color: #3d3846;
 }
 
-input::placeholder {
-  font-size: 15px;
-  color: #9a9996;
-}
-
-input::-webkit-input-placeholder {
-  font-size: 15px;
-  color: #9a9996;
-}
-
-input:-ms-input-placeholder {
-  font-size: 15px;
-  color: #9a9996;
-}
-
 #cari .icon {
   position: absolute;
   right: 10px;
@@ -142,4 +127,28 @@ input:-ms-input-placeholder {
 
 #cari button:hover {
   cursor: pointer;
+}
+
+input::placeholder {
+  font-size: 15px;
+  color: #9a9996;
+  opacity: 100%;
+}
+
+input::-moz-placeholder {
+  font-size: 15px;
+  color: #9a9996;
+  opacity: 100%;
+}
+
+input::-webkit-input-placeholder {
+  font-size: 15px;
+  color: #9a9996;
+  opacity: 100%;
+}
+
+input:-ms-input-placeholder {
+  font-size: 15px !important;
+  color: #9a9996 !important;
+  opacity: 100% !important;
 }
