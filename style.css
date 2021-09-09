@@ -5,7 +5,11 @@
 }
 
 body {
-  background: linear-gradient(135deg, #62a0ea, #57e389) fixed;
+  background-image: -webkit-gradient(linear, left top, right top, from(#62a0ea), to(#57e389));
+  background-image: -webkit-linear-gradient(135deg, #62a0ea, #57e389);
+  background-image: -o-linear-gradient(315deg, #62a0ea, #57e389);
+  background-image: linear-gradient(135deg, #62a0ea, #57e389);
+  background-attachment: fixed;
   background-size: contain;
   font-family: "Open Sans";
 }
@@ -49,50 +53,49 @@ header {
   color: #3d3846;
 }
 
-.top-content {
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 20px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-.top-content h3 {
+.baseline {
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+
+.elipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+}
+
+.atas h3 {
   margin-bottom: 12px;
   margin-left: 6px;
   font-weight: normal;
   font-size: 18px;
 }
 
-.top-content h4 {
+.atas h4 {
   color: #9a9996;
   font-size: 14px;
   font-weight: normal;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
   margin-right: 6px;
 }
 
-.bottom-content {
-  display: flex;
-  justify-content: space-between;
-}
-
-.bottom-content p {
+.bawah p {
   font-size: 12px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
   margin-left: 6px;
   margin-right: 6px;
 }
 
-span {
-  display: inline-block;
-  vertical-align: center;
-}
-
-span img {
+.bawah span img {
   max-width: 12px;
   margin-right: 5px;
 }
@@ -111,7 +114,7 @@ span img {
   border-radius: 25px;
   border: none;
   outline: 0;
-  padding: 0 45px 4px 18px;
+  padding: 0 45px 2px 18px;
   font-size: 18px;
   color: #3d3846;
 }
@@ -129,26 +132,26 @@ span img {
   cursor: pointer;
 }
 
-input::placeholder {
+#cari input::-webkit-input-placeholder {
   font-size: 15px;
   color: #9a9996;
-  opacity: 100%;
+  opacity: 1;
 }
 
-input::-moz-placeholder {
+#cari input::-moz-placeholder {
   font-size: 15px;
   color: #9a9996;
-  opacity: 100%;
+  opacity: 1;
 }
 
-input::-webkit-input-placeholder {
+#cari input:-ms-input-placeholder {
   font-size: 15px;
   color: #9a9996;
-  opacity: 100%;
+  opacity: 1;
 }
 
-input:-ms-input-placeholder {
-  font-size: 15px !important;
-  color: #9a9996 !important;
-  opacity: 100% !important;
+#cari input::placeholder {
+  font-size: 15px;
+  color: #9a9996;
+  opacity: 1;
 }

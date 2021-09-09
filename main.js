@@ -32,11 +32,11 @@ function render(nama, kendaraan, noTilang, denda, pasal, bukti) {
     /tnp/gi, "Tanpa").replace(
     /plat/gi, "Plat")
 
-  return '<div class="item result"><div class="top-content">' +
+  return '<div class="item result"><div class="atas flex baseline">' +
     '  <h3>' + nama + '</h3>' +
     '  <h4>' + kendaraan_id + '</h4>' +
     '</div>' +
-    '<div class="bottom-content">' +
+    '<div class="bawah flex">' +
     '  <p><span><img src="images/uang.svg"/></span>' + angkaify(denda) + '</p>' +
     '  <p><span><img src="images/palu.svg"/></span>' + pasal + '</p>' +
     '  <p><span><img src="images/dompet.svg"/></span>' + bukti + '</p>' +
