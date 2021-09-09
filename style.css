@@ -5,10 +5,10 @@
 }
 
 body {
-  background-image: -webkit-gradient(linear, left top, right top, from(#62a0ea), to(#57e389));
-  background-image: -webkit-linear-gradient(135deg, #62a0ea, #57e389);
-  background-image: -o-linear-gradient(315deg, #62a0ea, #57e389);
-  background-image: linear-gradient(135deg, #62a0ea, #57e389);
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#62a0ea), to(#57e389));
+  background-image: -webkit-linear-gradient(right bottom, #57e389, #62a0ea);
+  background-image: -o-linear-gradient(right bottom, #57e389, #62a0ea);
+  background-image: linear-gradient(to right bottom, #62a0ea, #57e389);
   background-attachment: fixed;
   background-size: contain;
   font-family: "Open Sans";
