@@ -11,7 +11,11 @@ body {
   background-image: -o-linear-gradient(right bottom, #57e389, #62a0ea);
   background-image: linear-gradient(to right bottom, #62a0ea, #57e389);
   background-attachment: fixed;
+  background-size: 100% 100%;
   font-family: "Open Sans";
+  transform: scale(1.25);
+  transform-origin: top;
+  width: 75%;
 }
 
 header {
@@ -28,7 +32,7 @@ header img {
   background: rgba(0, 0, 0, 0.6);
   color: white;
   padding: 8.5px 10px 8.5px 10px;
-  left: 75px;
+  left: 60px;
   margin-bottom: -7.5px;
   border-radius: 6px;
   display: table;
