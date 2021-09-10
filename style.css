@@ -16,19 +16,23 @@ body {
 
 header {
   text-align: center;
-  margin-top: 32px;
+  margin-top: 50px;
+}
+
+header img {
+  width: 125.7px;
 }
 
 .bubble {
   position: relative;
   background: rgba(0, 0, 0, 0.6);
   color: white;
-  padding: 10px;
+  padding: 8.5px 10px 8.5px 10px;
   left: 75px;
-  margin-bottom: -15px;
+  margin-bottom: -7.5px;
   border-radius: 6px;
   display: table;
-  font-size: 15px;
+  font-size: 8.7pt;
   font-weight: bold;
 }
 
@@ -37,17 +41,17 @@ header {
   position: absolute;
   top: 100%;
   left: 35px;
-  border-top: 10px solid rgba(0, 0, 0, 0.6);
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
+  border-top: 8.5px solid rgba(0, 0, 0, 0.6);
+  border-left: 8.5px solid transparent;
+  border-right: 8.5px solid transparent;
 }
 
 .hasil {
   background-color: white;
-  max-width: 450px;
+  max-width: 266.6px;
   border-radius: 20px;
   padding: 12px 17px 12px 17px;
-  margin-top: 32px;
+  margin-bottom: 18px;
   color: #3d3846;
 }
 
@@ -58,16 +62,13 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .flex * {
   margin: 0;
-}
-
-.baseline {
-  -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
 }
 
 .elipsis {
@@ -83,29 +84,44 @@ header {
 
 .atas h3 {
   font-weight: normal;
-  font-size: 18px;
+  font-size: 12.3pt;
+  margin-right: 5px;
 }
 
 .atas h4 {
   color: #9a9996;
-  font-size: 14px;
+  font-size: 8.2pt;
   font-weight: normal;
+  max-width: 35%;
 }
 
-.bawah p {
-  font-size: 12px;
+.bawah {
+  font-size: 7.8pt;
+  white-space: nowrap;
 }
 
-.bawah span img {
-  max-width: 12px;
+.bawah * {
+  margin-left: 12px;
+}
+
+.bawah *:first-child {
+  margin-left: 0;
+}
+
+.bawah img {
+  max-width: 13.8px;
+  max-height: 13.1px;
+  margin-top: -3.2px;
   margin-right: 5px;
+  vertical-align: middle;
 }
 
 #cari {
   position: relative;
-  height: 40px;
-  width: 300px;
-  margin-top: 32px;
+  height: 33.5px;
+  width: 232.6px;
+  margin-top: 35px;
+  margin-bottom: 30.5px;
 }
 
 #cari input {
@@ -116,17 +132,20 @@ header {
   border: none;
   outline: 0;
   padding: 0 45px 2px 18px;
-  font-size: 18px;
+  font-size: 9.3pt;
   color: #3d3846;
 }
 
 #cari .icon {
   position: absolute;
   right: 10px;
-  top: 9px;
-  width: 25px;
+  top: 10px;
   background-color: transparent;
   border: none;
+}
+
+#cari img {
+  height: 13.9px;
 }
 
 #cari .icon:hover {
@@ -134,25 +153,21 @@ header {
 }
 
 #cari input::-webkit-input-placeholder {
-  font-size: 15px;
   color: #9a9996;
   opacity: 1;
 }
 
 #cari input::-moz-placeholder {
-  font-size: 15px;
   color: #9a9996;
   opacity: 1;
 }
 
 #cari input:-ms-input-placeholder {
-  font-size: 15px;
   color: #9a9996;
   opacity: 1;
 }
 
 #cari input::placeholder {
-  font-size: 15px;
   color: #9a9996;
   opacity: 1;
 }
