@@ -1,39 +1,32 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>E-Tilang Kejaksaan Negeri Tegal</title>
-
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com"/>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.slim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/3.17.2/minified.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.core.min.js"></script>
   <script src="main.js"></script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css"/>
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 
 <body>
-  <div id="isi">
-    <header>
-      <nav>
-        <p id="sidang" class="bubble"></p>
-        <img src="images/logo.svg"/>
-      </nav>
-    </header>
-
-    <form id="cari">
-      <input id="kunci" type="text" placeholder="Cari nama / no. tilang" autocomplete="off"/>
-      <button type="submit" class="icon">
-        <img src="images/cari.svg" width="20px" />
-      </button>
-    </form>
-
-    <div id="daftar"></div>
-  </div>
+  <header>
+    <nav>
+      <p id="sidang" class="bubble"></p>
+      <img src="images/logo.svg" />
+    </nav>
+  </header>
+  <form id="cari">
+    <input id="kunci" type="text" placeholder="Cari nama / no. tilang" autocomplete="off" />
+    <button type="submit" class="icon"> <img src="images/cari.svg" width="20px" /> </button>
+  </form>
+  <div id="daftar"></div>
 </body>
+
 </html>
