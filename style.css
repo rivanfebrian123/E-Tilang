@@ -17,6 +17,11 @@ body {
 }
 
 #isi {
+  padding-left: 6.5vmin;
+  padding-right: 6.5vmin;
+}
+
+/*
   -webkit-transform: scale(1.25);
       -ms-transform: scale(1.25);
           transform: scale(1.25);
@@ -24,30 +29,27 @@ body {
       -ms-transform-origin: top;
           transform-origin: top;
   width: 75%;
-  padding-bottom: 4.5px;
-  padding-left: 9px;
-  padding-right: 9px;
-}
+*/
 
 header {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 17vmin;
 }
 
 header img {
-  width: 125.7px;
+  width: 44vmin;
 }
 
 .bubble {
   position: relative;
   background: rgba(0, 0, 0, 0.6);
   color: white;
-  padding: 8.5px 10px 8.5px 10px;
-  left: 55px;
-  margin-bottom: -7.5px;
-  border-radius: 6px;
+  padding: 3vmin 4vmin 3vmin 4vmin;
+  left: 19.2vmin;
+  margin-bottom: −2.63vmin;
+  border-radius: 2.1vmin;
   display: table;
-  font-size: 8.7pt;
+  font-size: 4vmin;
   font-weight: bold;
 }
 
@@ -55,17 +57,17 @@ header img {
   content: "";
   position: absolute;
   top: 100%;
-  left: 40px;
-  border-top: 8.5px solid rgba(0, 0, 0, 0.6);
-  border-left: 8.5px solid transparent;
-  border-right: 8.5px solid transparent;
+  left: 14vmin;
+  border-top: 3vmin solid rgba(0, 0, 0, 0.6);
+  border-left: 3vmin solid transparent;
+  border-right: 3vmin solid transparent;
 }
 
 .hasil {
   background-color: white;
-  border-radius: 11.2px;
-  padding: 10px 14px 10px 14px;
-  margin-bottom: 18px;
+  border-radius: 4vmin;
+  padding: 3.9vmin 4.2vmin 3.9vmin 4.2vmin;
+  margin-bottom: 6.5vmin;
   color: #3d3846;
 }
 
@@ -93,29 +95,29 @@ header img {
 }
 
 .atas {
-  margin-bottom: 5.4px;
+  margin-bottom: 2vmin;
 }
 
 .atas h3 {
   font-weight: normal;
-  font-size: 12.3pt;
-  margin-right: 5px;
+  font-size: 5.8vmin;
+  margin-right: 3.5vmin;
 }
 
 .atas h4 {
   color: #9a9996;
-  font-size: 8.2pt;
+  font-size: 3.9vmin;
   font-weight: normal;
   max-width: 35%;
 }
 
 .bawah {
-  font-size: 7.8pt;
+  font-size: 3.7vmin;
   white-space: nowrap;
 }
 
 .bawah * {
-  margin-left: 12px;
+  margin-left: 4.2vmin;
 }
 
 .bawah *:first-child {
@@ -123,43 +125,42 @@ header img {
 }
 
 .bawah img {
-  max-width: 13.8px;
-  max-height: 13.1px;
-  margin-top: -3.2px;
-  margin-right: 5px;
+  max-height: 4.6vmin;
+  margin-top: -1.1vmin;
+  margin-right: 1.8vmin;
   vertical-align: middle;
 }
 
 #cari {
   position: relative;
-  height: 33.5px;
-  max-width: 232.6px;
-  margin-top: 35px;
-  margin-bottom: 30.5px;
+  height: 11.8vmin;
+  max-width: 82vmin;
+  margin-top: 11.7vmin;
+  margin-bottom: 10vmin;
 }
 
 #cari input {
   position: absolute;
   height: 100%;
   width: 100%;
-  border-radius: 25px;
+  border-radius: 999999999vmin;
   border: none;
   outline: 0;
-  padding: 0 45px 2px 18px;
-  font-size: 9.3pt;
+  padding: 0 0 0.35vmin 4.4vmin;
+  font-size: 4.35vmin;
   color: #3d3846;
 }
 
 #cari .icon {
   position: absolute;
-  right: 10px;
-  top: 10px;
+  right: 3.5vmin;
+  top: 3.5vmin;
   background-color: transparent;
   border: none;
 }
 
 #cari img {
-  height: 13.9px;
+  height: 4.9vmin;
 }
 
 #cari .icon:hover {
