@@ -5,14 +5,12 @@
   box-sizing: border-box
 }
 
-html {
-  background-repeat: no-repeat;
-  -webkit-background-size: 100% 100%;
-  background-size: 100% 100%;
-  background-image: -webkit-gradient(linear, left top, right top, from(#62a0ea), to(#5acca9));
-  background-image: -webkit-linear-gradient(right, #5acca9, #62a0ea);
-  background-image: -o-linear-gradient(right, #5acca9, #62a0ea);
-  background-image: linear-gradient(to right, #62a0ea, #5acca9);
+body {
+  background-repeat: repeat-y;
+  background-image: -webkit-gradient(linear, left top, right top, from(#62a0ea), to(#5cc1b9));
+  background-image: -webkit-linear-gradient(right, #5cc1b9, #62a0ea);
+  background-image: -o-linear-gradient(right, #5cc1b9, #62a0ea);
+  background-image: linear-gradient(to right, #62a0ea, #5cc1b9);
   font-family: "Open Sans";
   padding-left: 6.5vw;
   padding-right: 6.5vw
@@ -181,7 +179,11 @@ header img {
 }
 
 @media (min-width:500px) {
-  html {
+  body {
+    background-image: -webkit-gradient(linear, left top, right top, from(#62a0ea), to(#5acca9));
+    background-image: -webkit-linear-gradient(right, #5acca9, #62a0ea);
+    background-image: -o-linear-gradient(right, #5acca9, #62a0ea);
+    background-image: linear-gradient(to right, #62a0ea, #5acca9);
     padding-left: 20pt;
     padding-right: 20pt
   }
