@@ -13,6 +13,9 @@ body {
   background-attachment: fixed;
   background-size: 100% 100%;
   font-family: "Open Sans";
+}
+
+#isi {
   transform: scale(1.25);
   transform-origin: top;
   width: 75%;
