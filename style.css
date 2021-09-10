@@ -143,7 +143,7 @@ header img {
   position: absolute;
   height: 100%;
   width: 100%;
-  border-radius: 999999999vmin;
+  border-radius: 999999999px;
   border: none;
   outline: 0;
   padding: 0 0 0.35vmin 4.4vmin;
@@ -165,6 +165,12 @@ header img {
 
 #cari .icon:hover {
   cursor: pointer;
+}
+
+#cari input::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
 #cari input::-webkit-input-placeholder {
