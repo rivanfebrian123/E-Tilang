@@ -7,8 +7,10 @@
 
 html {
   background-repeat: no-repeat;
+  /*
   -webkit-background-size: 100% 100%;
   background-size: 100% 100%;
+  */
   background-size: contain;
   background-attachment: fixed;
   background-image: -webkit-gradient(linear, left top, right bottom, from(#62a0ea), to(#57e389));
