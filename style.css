@@ -17,29 +17,29 @@ body {
 }
 
 #isi {
-  padding-left: 6.5vmin;
-  padding-right: 6.5vmin;
+  padding-left: 6.5vw;
+  padding-right: 6.5vw;
 }
 
 header {
   text-align: center;
-  margin-top: 17vmin;
+  margin-top: 17vw;
 }
 
 header img {
-  width: 44vmin;
+  width: 44vw;
 }
 
 .bubble {
   position: relative;
   background: rgba(0, 0, 0, 0.6);
   color: white;
-  padding: 3vmin 4vmin 3vmin 4vmin;
-  left: 19.2vmin;
-  margin-bottom: −2.63vmin;
-  border-radius: 2.1vmin;
+  padding: 3vw 4vw 3vw 4vw;
+  left: 19.2vw;
+  margin-bottom: −2.63vw;
+  border-radius: 2.1vw;
   display: table;
-  font-size: 4vmin;
+  font-size: 4vw;
   font-weight: bold;
 }
 
@@ -47,17 +47,17 @@ header img {
   content: "";
   position: absolute;
   top: 100%;
-  left: 14vmin;
-  border-top: 3vmin solid rgba(0, 0, 0, 0.6);
-  border-left: 3vmin solid transparent;
-  border-right: 3vmin solid transparent;
+  left: 14vw;
+  border-top: 3vw solid rgba(0, 0, 0, 0.6);
+  border-left: 3vw solid transparent;
+  border-right: 3vw solid transparent;
 }
 
 .hasil {
   background-color: white;
-  border-radius: 4vmin;
-  padding: 3.9vmin 4.2vmin 3.9vmin 4.2vmin;
-  margin-bottom: 6.5vmin;
+  border-radius: 4vw;
+  padding: 3.9vw 4.2vw 3.9vw 4.2vw;
+  margin-bottom: 6.5vw;
   color: #3d3846;
 }
 
@@ -85,29 +85,29 @@ header img {
 }
 
 .atas {
-  margin-bottom: 2vmin;
+  margin-bottom: 2vw;
 }
 
 .atas h3 {
   font-weight: normal;
-  font-size: 5.8vmin;
-  margin-right: 3.5vmin;
+  font-size: 5.8vw;
+  margin-right: 3.5vw;
 }
 
 .atas h4 {
   color: #9a9996;
-  font-size: 3.9vmin;
+  font-size: 3.9vw;
   font-weight: normal;
   max-width: 35%;
 }
 
 .bawah {
-  font-size: 3.7vmin;
+  font-size: 3.7vw;
   white-space: nowrap;
 }
 
 .bawah * {
-  margin-left: 4.2vmin;
+  margin-left: 4.2vw;
 }
 
 .bawah *:first-child {
@@ -115,18 +115,18 @@ header img {
 }
 
 .bawah img {
-  max-height: 4.6vmin;
-  margin-top: -1.1vmin;
-  margin-right: 1.8vmin;
+  max-height: 4.6vw;
+  margin-top: -1.1vw;
+  margin-right: 1.8vw;
   vertical-align: middle;
 }
 
 #cari {
   position: relative;
-  height: 11.8vmin;
-  max-width: 82vmin;
-  margin-top: 11.7vmin;
-  margin-bottom: 10vmin;
+  height: 11.8vw;
+  max-width: 82vw;
+  margin-top: 11.7vw;
+  margin-bottom: 10vw;
 }
 
 #cari input {
@@ -136,21 +136,21 @@ header img {
   border-radius: 999999999px;
   border: none;
   outline: 0;
-  padding: 0 0 0.35vmin 4.4vmin;
-  font-size: 4.35vmin;
+  padding: 0 0 0.35vw 4.4vw;
+  font-size: 4.35vw;
   color: #3d3846;
 }
 
 #cari .icon {
   position: absolute;
-  right: 3.5vmin;
-  top: 3.5vmin;
+  right: 3.5vw;
+  top: 3.5vw;
   background-color: transparent;
   border: none;
 }
 
 #cari img {
-  height: 4.9vmin;
+  height: 4.9vw;
 }
 
 #cari .icon:hover {
@@ -183,8 +183,8 @@ header img {
   opacity: 1;
 }
 
-@media (min-width: 600px) and (min-height: 500px) {
-  /* min-height perlu di sini biar pas keyboard muncul, ngga ngaruh */
+@media (min-width: 600px) and (min-height: 400px) {
+  /* min-height perlu di sini biar pas keyboard muncul, ngga ikut ngaruh */
   body {
     background: none;
   }
