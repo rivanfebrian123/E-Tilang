@@ -21,16 +21,6 @@ body {
   padding-right: 6.5vmin;
 }
 
-/*
-  -webkit-transform: scale(1.25);
-      -ms-transform: scale(1.25);
-          transform: scale(1.25);
-  -webkit-transform-origin: top;
-      -ms-transform-origin: top;
-          transform-origin: top;
-  width: 75%;
-*/
-
 header {
   text-align: center;
   margin-top: 17vmin;
@@ -143,7 +133,8 @@ header img {
   position: absolute;
   height: 100%;
   width: 100%;
-  border-radius: 999999999vmin;
+  border-radius: 999999999px;
+    border-radius: 999999999vmin;
   border: none;
   outline: 0;
   padding: 0 0 0.35vmin 4.4vmin;
@@ -185,4 +176,11 @@ header img {
 #cari input::placeholder {
   color: #9a9996;
   opacity: 1;
+}
+
+@media (min-width: 600px) and (min-height: 500px) {
+  /* min-height perlu di sini biar pas keyboard muncul, ngga ngaruh */
+  body {
+    background: none;
+  }
 }
