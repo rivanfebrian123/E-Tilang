@@ -11,7 +11,7 @@ body {
   background-image: -o-linear-gradient(right bottom, #57e389, #62a0ea);
   background-image: linear-gradient(to right bottom, #62a0ea, #57e389);
   background-attachment: fixed;
-  background-size: cover;
+  background-size: contain;
   font-family: "Open Sans";
 }
 
@@ -23,6 +23,7 @@ body {
       -ms-transform-origin: top;
           transform-origin: top;
   width: 75%;
+  padding-bottom: 4.5px;
 }
 
 header {
@@ -60,8 +61,8 @@ header img {
 .hasil {
   background-color: white;
   max-width: 266.6px;
-  border-radius: 20px;
-  padding: 12px 17px 12px 17px;
+  border-radius: 11.2px;
+  padding: 10px 14px 10px 14px;
   margin-bottom: 18px;
   color: #3d3846;
 }
@@ -90,7 +91,7 @@ header img {
 }
 
 .atas {
-  margin-bottom: 12px;
+  margin-bottom: 5.4px;
 }
 
 .atas h3 {
