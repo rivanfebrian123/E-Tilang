@@ -131,7 +131,7 @@ header {
   opacity: 1
 }
 
-@media (max-width:500px) {
+@media (max-width:411px) {
   body {
     background-image: -webkit-gradient(linear, left top, right top, from(#62a0ea), to(#5cc1b9));
     background-image: -webkit-linear-gradient(right, #5cc1b9, #62a0ea);
@@ -203,7 +203,7 @@ header {
   }
 }
 
-@media (min-width:500px) {
+@media (min-width:412px) {
   body {
     background-image: -webkit-gradient(linear, left top, right top, from(#62a0ea), to(#5acca9));
     background-image: -webkit-linear-gradient(right, #5acca9, #62a0ea);
@@ -273,5 +273,20 @@ header {
   }
   #cari img {
     height: 11.8pt
+  }
+}
+
+@media (max-width:340px) {
+  #cari input {
+    font-size: 4.8vw;
+    padding: 0 0 .4vw 3.8vw
+  }
+
+  .atas h4 {
+    font-size: 4.4vw
+  }
+
+  .bawah {
+    font-size: 4.4vw
   }
 }
