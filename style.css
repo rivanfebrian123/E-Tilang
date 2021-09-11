@@ -11,30 +11,18 @@ body {
   background-image: -webkit-linear-gradient(right, #5cc1b9, #62a0ea);
   background-image: -o-linear-gradient(right, #5cc1b9, #62a0ea);
   background-image: linear-gradient(to right, #62a0ea, #5cc1b9);
-  font-family: "Open Sans";
-  padding-left: 6.5vw;
-  padding-right: 6.5vw
+  font-family: "Open Sans"
 }
 
 header {
-  text-align: center;
-  margin-top: 17vw
-}
-
-header img {
-  width: 44vw
+  text-align: center
 }
 
 .bubble {
   position: relative;
   background: rgba(0, 0, 0, .6);
   color: #fff;
-  padding: 3vw 3.8vw 3vw 3.8vw;
-  left: 18vw;
-  margin-bottom: -2.63vw;
-  border-radius: 2.3vw;
   display: table;
-  font-size: 4vw;
   font-weight: 700
 }
 
@@ -42,17 +30,13 @@ header img {
   content: "";
   position: absolute;
   top: 100%;
-  left: 18.9vw;
-  border-top: 3vw solid rgba(0, 0, 0, .6);
-  border-left: 3vw solid transparent;
-  border-right: 3vw solid transparent
+  border-top: 0 solid rgba(0, 0, 0, .6);
+  border-left: 0 solid transparent;
+  border-right: 0 solid transparent
 }
 
 .hasil {
   background-color: #fff;
-  border-radius: 4vw;
-  padding: 3vw 4.8vw 4vw 4.8vw;
-  margin-bottom: 6.5vw;
   color: #3d3846
 }
 
@@ -79,30 +63,18 @@ header img {
   text-overflow: ellipsis
 }
 
-.atas {
-  margin-bottom: 2vw
-}
-
 .atas h3 {
-  font-weight: 400;
-  font-size: 5.8vw;
-  margin-right: 3.5vw
+  font-weight: 400
 }
 
 .atas h4 {
   color: #9a9996;
-  font-size: 3.9vw;
   font-weight: 400;
   max-width: 35%
 }
 
 .bawah {
-  font-size: 3.7vw;
   white-space: nowrap
-}
-
-.bawah * {
-  margin-left: 4.2vw
 }
 
 .bawah :first-child {
@@ -110,18 +82,11 @@ header img {
 }
 
 .bawah img {
-  max-height: 4.6vw;
-  margin-top: -1.1vw;
-  margin-right: 1.8vw;
   vertical-align: middle
 }
 
 #cari {
-  position: relative;
-  height: 11.8vw;
-  max-width: 77vw;
-  margin-top: 11.7vw;
-  margin-bottom: 10vw
+  position: relative
 }
 
 #cari input {
@@ -131,21 +96,13 @@ header img {
   border-radius: 999999999px;
   border: none;
   outline: 0;
-  padding: 0 0 .35vw 4.4vw;
-  font-size: 4.35vw;
   color: #3d3846
 }
 
 #cari .icon {
   position: absolute;
-  right: 3.5vw;
-  top: 3.5vw;
   background-color: transparent;
   border: none
-}
-
-#cari img {
-  height: 4.9vw
 }
 
 #cari .icon:hover {
@@ -176,6 +133,74 @@ header img {
 #cari input::placeholder {
   color: #9a9996;
   opacity: 1
+}
+
+@media (max-width:500px) {
+  body {
+    padding-left: 6.5vw;
+    padding-right: 6.5vw
+  }
+  header {
+    margin-top: 17vw
+  }
+  header img {
+    width: 44vw
+  }
+  .bubble {
+    padding: 3vw 3.8vw 3vw 3.8vw;
+    left: 18vw;
+    margin-bottom: -2.63vw;
+    border-radius: 2.3vw;
+    font-size: 4vw
+  }
+  .bubble::after {
+    left: 18.9vw;
+    border-width: 3vw 3vw 0 3vw
+  }
+  .hasil {
+    border-radius: 4vw;
+    padding: 3vw 4.8vw 4vw 4.8vw;
+    margin-bottom: 6.5vw
+  }
+  .atas {
+    margin-bottom: 2vw
+  }
+  .atas h3 {
+    font-size: 5.8vw;
+    margin-right: 3.5vw
+  }
+  .atas h4 {
+    font-size: 3.9vw
+  }
+  .bawah {
+    font-size: 3.7vw
+  }
+  .bawah * {
+    margin-left: 4.2vw
+  }
+  .bawah img {
+    max-height: 4.6vw;
+    margin-top: -1.1vw;
+    margin-right: 1.8vw
+  }
+  #cari {
+    height: 11.8vw;
+    max-width: 77vw;
+    margin-top: 11.7vw;
+    margin-bottom: 10vw
+  }
+  #cari input {
+    padding: 0 0 .35vw 4.4vw;
+    font-size: 4.35vw
+  }
+  #cari .icon {
+    position: absolute;
+    right: 3.5vw;
+    top: 3.5vw
+  }
+  #cari img {
+    height: 4.9vw
+  }
 }
 
 @media (min-width:500px) {
