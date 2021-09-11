@@ -23,6 +23,14 @@ function judulify(teks) {
   }).join(' ');
 }
 
+function unkeyboardify(elemen) {
+  elemen.attr(
+    "readonly", "readonly").attr(
+    "disabled", "true").blur().removeAttr(
+    "readonly").removeAttr(
+    "disabled");
+}
+
 function render(nama, kendaraan, noTilang, denda, pasal, bukti) {
   kendaraan_id = kendaraan.replace(
     /spm/gi, "Sepeda Motor").replace(
@@ -45,8 +53,11 @@ function render(nama, kendaraan, noTilang, denda, pasal, bukti) {
 }
 
 function cari() {
-  const kunci = kuncify($("#kunci").val());
+  const elKunci = $("#kunci");
+  const kunci = kuncify(elKunci.val());
   const daftarItem = $(".item");
+
+  unkeyboardify(elKunci);
 
   daftarItem.each(function() {
     const kepala = $(this).children().eq(0).children()

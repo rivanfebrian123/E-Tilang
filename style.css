@@ -7,10 +7,6 @@
 
 body {
   background-repeat: repeat-y;
-  background-image: -webkit-gradient(linear, left top, right top, from(#62a0ea), to(#5cc1b9));
-  background-image: -webkit-linear-gradient(right, #5cc1b9, #62a0ea);
-  background-image: -o-linear-gradient(right, #5cc1b9, #62a0ea);
-  background-image: linear-gradient(to right, #62a0ea, #5cc1b9);
   font-family: "Open Sans"
 }
 
@@ -137,6 +133,10 @@ header {
 
 @media (max-width:500px) {
   body {
+    background-image: -webkit-gradient(linear, left top, right top, from(#62a0ea), to(#5cc1b9));
+    background-image: -webkit-linear-gradient(right, #5cc1b9, #62a0ea);
+    background-image: -o-linear-gradient(right, #5cc1b9, #62a0ea);
+    background-image: linear-gradient(to right, #62a0ea, #5cc1b9);
     padding-left: 6.5vw;
     padding-right: 6.5vw
   }
