@@ -4,7 +4,10 @@
 //       (backtick [`])
 var http = new XMLHttpRequest();
 http.open("GET", 'data.xls', true);
-http.responseType = 'arraybuffer'
+http.responseType = 'arraybuffer';
+http.setRequestHeader('Cache-Control', 'no-cache, no-store, max-age=0');
+http.setRequestHeader('Expires', 'Tue, 01 Jan 1980 1:00:00 GMT');
+http.setRequestHeader('Pragma', 'no-cache')
 
 function angkaify(angka) {
   bagian = angka.toString().split('.');
