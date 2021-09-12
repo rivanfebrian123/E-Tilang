@@ -137,7 +137,9 @@ body {
     background-image: -webkit-gradient(linear, left top, right top, from(#62a0ea), to(#5cc1b9));
     background-image: -webkit-linear-gradient(right, #5cc1b9, #62a0ea);
     background-image: -o-linear-gradient(right, #5cc1b9, #62a0ea);
-    background-image: linear-gradient(to right, #62a0ea, #5cc1b9);
+    background-image: linear-gradient(to right, #62a0ea, #5cc1b9)
+  }
+  #daftar {
     padding-left: 21.6px;
     padding-right: 21.6px
   }
@@ -208,7 +210,9 @@ body {
     background-image: -webkit-gradient(linear, left top, right top, from(#62a0ea), to(#5acca9));
     background-image: -webkit-linear-gradient(right, #5acca9, #62a0ea);
     background-image: -o-linear-gradient(right, #5acca9, #62a0ea);
-    background-image: linear-gradient(to right, #62a0ea, #5acca9);
+    background-image: linear-gradient(to right, #62a0ea, #5acca9)
+  }
+  #daftar {
     padding-left: 29px;
     padding-right: 29px
   }
