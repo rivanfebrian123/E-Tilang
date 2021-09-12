@@ -81,6 +81,11 @@ body {
   vertical-align: middle
 }
 
+.bawah p {
+  /*! fix buat Android jadul*/
+  max-width: 30.8%
+}
+
 #cari {
   position: relative
 }
@@ -169,7 +174,8 @@ body {
     font-size: 18.2px;
     margin-right: 13px
   }
-  .atas h4, .bawah {
+  .atas h4,
+  .bawah {
     font-size: 14.5px
   }
   .bawah * {

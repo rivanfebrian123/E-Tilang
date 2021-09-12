@@ -85,7 +85,7 @@ http.onload = function() {
   });
   var hasil = [];
 
-  if (http.readyState == 4 || http.status == 200) {
+  if (http.status == 200) {
     excel.SheetNames.forEach(function(nama) {
       XLSX.utils.sheet_to_json(excel.Sheets[nama], {
         header: 1
