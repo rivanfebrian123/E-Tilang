@@ -91,6 +91,7 @@ body {
   width: 100%;
   border-radius: 999999999px;
   border: none;
+  padding-bottom: 0.52%;
   outline: 0;
   color: #3d3846
 }
@@ -191,7 +192,6 @@ body {
   }
   #cari input {
     padding-left: 14px;
-    padding-bottom: 1.5px;
     font-size: 15.2px
   }
   #cari .icon {
@@ -263,7 +263,7 @@ body {
     margin-bottom: 46px
   }
   #cari input {
-    padding-left: 14.6px;
+    padding-left: 15px;
     font-size: 15.9px
   }
   #cari .icon {
