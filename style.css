@@ -7,7 +7,7 @@
 }
 
 body {
-  background-repeat: repeat-y;
+  background-repeat: repeat-y
 }
 
 #kepala {
@@ -79,11 +79,6 @@ body {
 
 .bawah img {
   vertical-align: middle
-}
-
-.bawah p {
-  /*! fix buat Android jadul*/
-  max-width: 30.8%
 }
 
 #cari {
@@ -171,8 +166,10 @@ body {
     margin-bottom: 6px
   }
   .atas h3 {
-    font-size: 18.2px;
-    margin-right: 13px
+    font-size: 18.2px
+  }
+  .atas h3 {
+    margin-right: 11px
   }
   .atas h4,
   .bawah {
@@ -212,69 +209,68 @@ body {
     background-image: -webkit-linear-gradient(right, #5acca9, #62a0ea);
     background-image: -o-linear-gradient(right, #5acca9, #62a0ea);
     background-image: linear-gradient(to right, #62a0ea, #5acca9);
-    padding-left: 20pt;
-    padding-right: 20pt
+    padding-left: 29px;
+    padding-right: 29px
   }
   #kepala {
-    margin-top: 38pt
+    margin-top: 57px
   }
   #kepala img {
-    width: 129pt
+    width: 195px
   }
   .bubble {
-    padding: 8pt 10pt 8pt 10pt;
-    left: 55pt;
-    margin-bottom: -10pt;
-    border-radius: 6pt;
-    font-size: 10.5pt
+    padding: 12px 14px 12px 15.5px;
+    left: 100px;
+    margin-bottom: -14px;
+    border-radius: 10px;
+    font-size: 16px
   }
   .bubble::after {
-    left: 45pt;
-    border-width: 7pt 7pt 0 7pt
+    left: 25%;
+    border-width: 10.8px
   }
   .hasil {
-    border-radius: 12.3pt;
-    padding: 10.5pt 15pt 14pt 15pt;
-    margin-bottom: 20pt;
-    max-width: 430pt
+    border-radius: 18.6px;
+    padding: 13px 20px 19px 20px;
+    margin-bottom: 29.7px;
+    max-width: 639.9px
   }
   .atas {
-    margin-bottom: 8pt
+    margin-bottom: 6.5px
   }
   .atas h3 {
-    font-size: 14.3pt;
-    margin-right: 1.8pt
+    font-size: 21.6px
   }
-  .atas h4 {
-    color: #9a9996;
-    font-size: 9.5pt
+  .atas h3 {
+    margin-right: 18px
   }
+  .atas h4,
   .bawah {
-    font-size: 9.5pt
+    font-size: 14.5px
   }
   .bawah * {
-    margin-left: 11pt
+    margin-left: 18px
   }
   .bawah img {
-    max-height: 12pt;
-    margin-top: -.5pt;
-    margin-right: 4.5pt
+    max-height: 18.2px;
+    margin-top: -2.5px;
+    margin-right: 7px
   }
   #cari {
-    height: 28.5pt;
-    max-width: 198pt;
-    margin-top: 35pt;
-    margin-bottom: 30pt
+    height: 43px;
+    max-width: 299.1px;
+    margin-top: 52px;
+    margin-bottom: 46px
   }
   #cari input {
-    padding: 0 0 1pt 11pt;
-    font-size: 10.5pt
+    padding-left: 14.6px;
+    font-size: 15.9px
   }
   #cari .icon {
-    right: 10pt;
-    top: 8pt
+    right: 14px;
+    top: 12.6px
   }
   #cari img {
-    height: 11.8pt
+    height: 17.9px
   }
 }
