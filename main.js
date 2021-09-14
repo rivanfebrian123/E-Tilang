@@ -8,6 +8,7 @@ http.responseType = 'arraybuffer';
 http.setRequestHeader('Cache-Control', 'no-cache, no-store, max-age=0');
 http.setRequestHeader('Expires', 'Tue, 01 Jan 1980 1:00:00 GMT');
 http.setRequestHeader('Pragma', 'no-cache')
+var timeout = null;
 
 function angkaify(angka) {
   bagian = angka.toString().split('.');
@@ -57,11 +58,8 @@ function render(nama, kendaraan, noTilang, denda, pasal, bukti) {
 }
 
 function cari() {
-  const elKunci = $("#kunci");
-  const kunci = kuncify(elKunci.val());
+  const kunci = kuncify($("#kunci").val());
   const daftarItem = $(".hasil");
-
-  unkeyboardify(elKunci);
 
   daftarItem.each(function() {
     const kepala = $(this).children().eq(0).children()
@@ -70,7 +68,9 @@ function cari() {
     const kunci2 = kuncify(typeof kunci2_[1] == 'undefined' ? kunci2_[0] : kunci2_[1]);
 
     if (kunci1.indexOf(kunci) != -1 || kunci2.indexOf(kunci) != -1) {
-      $(this).show();
+      if (!$(this).hasClass("ngeload")) {
+        $(this).show();
+      }
     } else {
       $(this).hide();
     }
@@ -79,38 +79,40 @@ function cari() {
 
 http.onload = function() {
   const elDaftar = $('#daftar');
-  const elCari = $("#cari");
-  const elSidang = $("#sidang");
   var excel = XLSX.read(http.response, {
     type: 'array'
   });
   var hasil = [];
 
-  if (http.status == 200) {
-    excel.SheetNames.forEach(function(nama) {
-      XLSX.utils.sheet_to_json(excel.Sheets[nama], {
-        header: 1
-      }).forEach(function(kolom) {
-        hasil.push(kolom);
-      });
+  excel.SheetNames.forEach(function(nama) {
+    XLSX.utils.sheet_to_json(excel.Sheets[nama], {
+      header: 1
+    }).forEach(function(kolom) {
+      hasil.push(kolom);
     });
+  });
 
-    elSidang.text("Sidang: " + judulify(hasil[2][3].replace("SIDANG PADA TANGGAL ", "")));
+  $("#sidang").text("Sidang: " + judulify(hasil[2][3].replace("SIDANG PADA TANGGAL ", "")));
 
-    hasil.forEach(function(i) {
-      // nama, kendaraan, noTilang, denda, pasal, bukti
-      if (typeof i[0] === 'number' && typeof i[2] === 'string') {
-        elDaftar.append(render(i[2], i[4], i[1], i[7] + i[8], i[5], i[6]))
-      }
-    });
+  hasil.forEach(function(i) {
+    // nama, kendaraan, noTilang, denda, pasal, bukti
+    if (typeof i[0] === 'number' && typeof i[2] === 'string') {
+      elDaftar.append(render(i[2], i[4], i[1], i[7] + i[8], i[5], i[6]))
+    }
+  });
 
-    elCari.on("submit", function(event) {
-      event.preventDefault();
-      cari();
-    });
-  } else {
-    location.reload();
-  }
+  $("#cari").submit(function(event) {
+    event.preventDefault();
+    unkeyboardify($("#kunci"));
+  });
+
+  $("#cari").keyup(function(event) {
+    event.preventDefault();
+    clearTimeout(timeout);
+    timeout = setTimeout(cari, 200);
+  });
+
+  $(".ngeload").hide();
 }
 
 $(function() {

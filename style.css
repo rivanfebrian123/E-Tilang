@@ -37,7 +37,14 @@ body {
 }
 
 .ngeload {
-
+  background-color: rgba(255, 255, 255, 0.8);
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(0, transparent), color-stop(50%, #fff), to(transparent));
+  background-image: linear-gradient(to right, transparent 0, #fff 50%, transparent 100%);
+  background-size: 50% 100%;
+  background-repeat: repeat-y;
+  -webkit-animation: lewat 1s ease-out 2s infinite;
+          animation: lewat 1s ease-out 2s infinite;
+  cursor: wait
 }
 
 .flex {
@@ -55,14 +62,14 @@ body {
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-orient: horizontal;
-      -ms-flex-direction: row;
-          flex-direction: row
+  -ms-flex-direction: row;
+  flex-direction: row
 }
 
 .baris {
   -webkit-box-orient: vertical;
-      -ms-flex-direction: column;
-          flex-direction: column
+  -ms-flex-direction: column;
+  flex-direction: column
 }
 
 .flex * {
@@ -108,7 +115,7 @@ body {
   width: 100%;
   border-radius: 999999999px;
   border: none;
-  padding-bottom: 0.52%;
+  padding-bottom: .52%;
   outline: 0;
   color: #3d3846
 }
@@ -291,5 +298,23 @@ body {
   }
   #cari img {
     height: 17.9px
+  }
+}
+
+@-webkit-keyframes lewat {
+  from {
+    background-position: -100% 0
+  }
+  to {
+    background-position: 200% 0
+  }
+}
+
+@keyframes lewat {
+  from {
+    background-position: -100% 0
+  }
+  to {
+    background-position: 200% 0
   }
 }
