@@ -36,16 +36,33 @@ body {
   color: #3d3846
 }
 
+.ngeload {
+
+}
+
 .flex {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-direction: normal;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
-  justify-content: space-between;
+  justify-content: space-between
+}
+
+.kolom {
   -webkit-box-align: center;
   -ms-flex-align: center;
-  align-items: center
+  align-items: center;
+  -webkit-box-orient: horizontal;
+      -ms-flex-direction: row;
+          flex-direction: row
+}
+
+.baris {
+  -webkit-box-orient: vertical;
+      -ms-flex-direction: column;
+          flex-direction: column
 }
 
 .flex * {
@@ -134,7 +151,6 @@ body {
 
 @media (max-width:499px) {
   body {
-    background-image: -webkit-gradient(linear, left top, right top, from(#62a0ea), to(#5cc1b9));
     background-image: -webkit-linear-gradient(right, #5cc1b9, #62a0ea);
     background-image: -o-linear-gradient(right, #5cc1b9, #62a0ea);
     background-image: linear-gradient(to right, #62a0ea, #5cc1b9)
@@ -162,11 +178,9 @@ body {
   }
   .hasil {
     border-radius: 13.5px;
-    padding: 9px 13.8px 13px 13.8px;
-    margin-bottom: 21.6px
-  }
-  .atas {
-    margin-bottom: 6px
+    padding: 9.3px 15px 12px 15px;
+    margin-bottom: 21.6px;
+    height: 72.7px
   }
   .atas h3 {
     font-size: 18.2px
@@ -185,6 +199,10 @@ body {
     max-height: 15.3px;
     margin-top: -1.5px;
     margin-right: 4.4px
+  }
+  .bawah p {
+    /*! fix untuk Webview jadul (KitKat) */
+    max-width: 32%
   }
   #cari {
     height: 36.9px;
@@ -207,7 +225,6 @@ body {
 
 @media (min-width:500px) {
   body {
-    background-image: -webkit-gradient(linear, left top, right top, from(#62a0ea), to(#5acca9));
     background-image: -webkit-linear-gradient(right, #5acca9, #62a0ea);
     background-image: -o-linear-gradient(right, #5acca9, #62a0ea);
     background-image: linear-gradient(to right, #62a0ea, #5acca9)
@@ -235,12 +252,10 @@ body {
   }
   .hasil {
     border-radius: 18.6px;
-    padding: 13px 20px 19px 20px;
+    padding: 16px 23px 19px 23px;
     margin-bottom: 29.7px;
-    max-width: 639.9px
-  }
-  .atas {
-    margin-bottom: 6.5px
+    max-width: 639.9px;
+    height: 98.6px
   }
   .atas h3 {
     font-size: 21.6px

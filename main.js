@@ -44,11 +44,12 @@ function render(nama, kendaraan, noTilang, denda, pasal, bukti) {
     /plat/gi, "Plat")
 
   return '' +
-    '<div class="item hasil"><div class="atas flex">' +
+    '<div class="hasil flex baris">' +
+    '<div class="atas flex kolom">' +
     '  <h3 class="elipsis">' + nama + '</h3>' +
     '  <h4 class="elipsis">' + kendaraan_id + '</h4>' +
     '</div>' +
-    '<div class="bawah flex">' +
+    '<div class="bawah flex kolom">' +
     '  <p><img src="images/uang.svg"/>' + angkaify(denda) + '</p>' +
     '  <p class="elipsis"><img src="images/palu.svg"/>' + pasal + '</p>' +
     '  <p class="elipsis"><img src="images/dompet.svg"/>' + bukti + '</p>' +
@@ -58,7 +59,7 @@ function render(nama, kendaraan, noTilang, denda, pasal, bukti) {
 function cari() {
   const elKunci = $("#kunci");
   const kunci = kuncify(elKunci.val());
-  const daftarItem = $(".item");
+  const daftarItem = $(".hasil");
 
   unkeyboardify(elKunci);
 
