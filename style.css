@@ -7,7 +7,9 @@
 }
 
 body {
-  background-repeat: repeat-y
+  background-repeat: repeat-y;
+  margin-left: calc(100vw - 100%);
+  margin-right: 0
 }
 
 #kepala {
@@ -34,17 +36,6 @@ body {
 .hasil {
   background-color: #fff;
   color: #3d3846
-}
-
-.ngeload {
-  background-color: rgba(255, 255, 255, 0.8);
-  background-image: -webkit-gradient(linear, left top, right top, color-stop(0, transparent), color-stop(50%, #fff), to(transparent));
-  background-image: linear-gradient(to right, transparent 0, #fff 50%, transparent 100%);
-  background-size: 50% 100%;
-  background-repeat: repeat-y;
-  -webkit-animation: lewat 1s ease-out 2s infinite;
-          animation: lewat 1s ease-out 2s infinite;
-  cursor: wait
 }
 
 .flex {
@@ -106,18 +97,19 @@ body {
 }
 
 #cari {
-  position: relative
+  position: relative;
+  border-radius: 999999999px;
 }
 
 #cari input {
   position: absolute;
   height: 100%;
   width: 100%;
-  border-radius: 999999999px;
   border: none;
   padding-bottom: .52%;
   outline: 0;
-  color: #3d3846
+  color: #3d3846;
+  border-radius: 999999999px
 }
 
 #cari .icon {
@@ -156,6 +148,24 @@ body {
   opacity: 1
 }
 
+.load {
+  background-color: rgba(255, 255, 255, 0.8);
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(0, transparent), color-stop(50%, #fff), to(transparent));
+  background-image: linear-gradient(to right, transparent 0, #fff 50%, transparent 100%);
+  background-size: 50% 100%;
+  background-repeat: repeat-y;
+  -webkit-animation: lewat 1s ease-out 2s infinite;
+          animation: lewat 1s ease-out 2s infinite;
+}
+
+.load * {
+  display: none
+}
+
+.load:hover {
+  cursor: wait
+}
+
 @media (max-width:499px) {
   body {
     background-image: -webkit-linear-gradient(right, #5cc1b9, #62a0ea);
@@ -170,7 +180,8 @@ body {
     margin-top: 41.3px
   }
   #kepala img {
-    width: 151.8px
+    width: 151.8px;
+    height: 59.0667px
   }
   .bubble {
     padding: 9px 10px 9px 11px;
@@ -244,7 +255,8 @@ body {
     margin-top: 57px
   }
   #kepala img {
-    width: 195px
+    width: 195px;
+    height: 75.8833px
   }
   .bubble {
     padding: 12px 14px 12px 15.5px;
