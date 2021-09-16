@@ -154,7 +154,13 @@
   }
   .ambang #cari {
     top: 17.5px;
-    max-width: 480px;
+    max-width: 480px
+  }
+}
+
+@media (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .bawah div {
+    max-width: initial
   }
 }
 
