@@ -4,7 +4,7 @@
     background-image: -o-linear-gradient(right, #5cc1b9, #62a0ea);
     background-image: linear-gradient(to right, #62a0ea, #5cc1b9)
   }
-  #daftar {
+  #daftar, #navigasi {
     padding-left: 21.6px;
     padding-right: 21.6px
   }
@@ -50,7 +50,7 @@
     margin-right: 4.4px
   }
   .bawah div {
-    /*! fix untuk Webview jadul (KitKat) */
+    /*! fix untuk Webview jadul (< KitKat)*/
     max-width: 31.5%
   }
   #cari, .pad {
@@ -83,7 +83,7 @@
     background-image: -o-linear-gradient(right, #5acca9, #62a0ea);
     background-image: linear-gradient(to right, #62a0ea, #5acca9)
   }
-  #daftar {
+  #daftar, #navigasi {
     padding-left: 29px;
     padding-right: 29px
   }
@@ -130,7 +130,7 @@
     margin-right: 7px
   }
   .bawah div {
-    /*! fix untuk Webview jadul (KitKat) */
+    /*! fix untuk Webview jadul (< KitKat)*/
     max-width: 37%
   }
   #cari, .pad {
@@ -155,5 +155,29 @@
   .ambang #cari {
     top: 17.5px;
     max-width: 480px;
+  }
+}
+
+@supports (display: flex) {
+  .bawah div {
+    max-width: initial
+  }
+}
+
+@-webkit-keyframes lewat {
+  from {
+    background-position: -100% 0
+  }
+  to {
+    background-position: 200% 0
+  }
+}
+
+@keyframes lewat {
+  from {
+    background-position: -100% 0
+  }
+  to {
+    background-position: 200% 0
   }
 }

@@ -61,7 +61,9 @@ body {
   -webkit-box-direction: normal;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
-  justify-content: space-between
+  justify-content: space-between;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap
 }
 
 .kolom {
@@ -203,7 +205,7 @@ body {
 .ambang {
   position: fixed;
   background-color: rgba(94, 182, 201, 0.8);
-  box-shadow: 0 0px 25px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0px 25px rgba(0, 0, 0, 0.45);
   width: 100%;
   top: 0;
   z-index: 999999999
@@ -228,22 +230,4 @@ body {
 
 .ambang #cari input::placeholder {
   color: #888;
-}
-
-@-webkit-keyframes lewat {
-  from {
-    background-position: -100% 0
-  }
-  to {
-    background-position: 200% 0
-  }
-}
-
-@keyframes lewat {
-  from {
-    background-position: -100% 0
-  }
-  to {
-    background-position: 200% 0
-  }
 }
