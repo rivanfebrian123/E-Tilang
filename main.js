@@ -61,7 +61,7 @@ function render(nama, kendaraan, noTilang, denda, pasal, bukti) {
 }
 
 function cari() {
-  const kunci_ = $("#kunci").val();
+  var kunci_ = $("#kunci").val();
 
   if (teks === kunci_) {
     return null;
@@ -70,15 +70,15 @@ function cari() {
   console.log(teks);
   console.log(kunci_);
 
-  const kunci = kuncify(kunci_);
-  const daftarItem = $(".hasil");
-  const elDaftar = $("#daftar").addClass("sembunyi");
+  var kunci = kuncify(kunci_);
+  var daftarItem = $(".hasil");
+  var elDaftar = $("#daftar").addClass("sembunyi");
 
   daftarItem.each(function() {
-    const kepala = $(this).children().eq(0).children();
-    const kunci1 = kuncify(kepala.eq(0).text());
-    const kunci2_ = kepala.eq(1).text().split('|');
-    const kunci2 = kuncify(typeof kunci2_[1] == 'undefined' ? kunci2_[0] : kunci2_[1]);
+    var kepala = $(this).children().eq(0).children();
+    var kunci1 = kuncify(kepala.eq(0).text());
+    var kunci2_ = kepala.eq(1).text().split('|');
+    var kunci2 = kuncify(typeof kunci2_[1] == 'undefined' ? kunci2_[0] : kunci2_[1]);
 
     if (kunci1.indexOf(kunci) != -1 || kunci2.indexOf(kunci) != -1) {
       if (!$(this).hasClass("load")) {
@@ -106,7 +106,7 @@ function navigasi() {
 }
 
 http.onload = function() {
-  const elDaftar = $('#daftar');
+  var elDaftar = $('#daftar');
   var excel = XLSX.read(http.response, {
     type: 'array'
   });
