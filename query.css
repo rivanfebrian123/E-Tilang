@@ -49,7 +49,7 @@
     margin-top: -1.5px;
     margin-right: 4.4px
   }
-  @supports (not (display: flex)) or (not (display: -ms-flexbox)) {
+  @supports (not (display: flex)) and (not (display: -ms-flexbox)) {
     .bawah div {
       max-width: 31.5%
     }
@@ -130,7 +130,7 @@
     margin-top: -2.5px;
     margin-right: 7px
   }
-  @supports (not (display: flex)) or (not (display: -ms-flexbox)) {
+  @supports (not (display: flex)) and (not (display: -ms-flexbox)) {
     .bawah div {
       max-width: 37%
     }
