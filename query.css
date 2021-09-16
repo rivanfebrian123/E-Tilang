@@ -49,9 +49,10 @@
     margin-top: -1.5px;
     margin-right: 4.4px
   }
-  .bawah div {
-    /*! fix untuk Webview jadul (< KitKat)*/
-    max-width: 31.5%
+  @supports (not (display: flex)) or (not (display: -ms-flexbox)) {
+    .bawah div {
+      max-width: 31.5%
+    }
   }
   #cari, .pad {
     height: 36.9px;
@@ -129,9 +130,10 @@
     margin-top: -2.5px;
     margin-right: 7px
   }
-  .bawah div {
-    /*! fix untuk Webview jadul (< KitKat)*/
-    max-width: 37%
+  @supports (not (display: flex)) or (not (display: -ms-flexbox)) {
+    .bawah div {
+      max-width: 37%
+    }
   }
   #cari, .pad {
     height: 43px;
@@ -155,18 +157,6 @@
   .ambang #cari {
     top: 17.5px;
     max-width: 480px
-  }
-}
-
-@media (-ms-high-contrast: active), (-ms-high-contrast: none) {
-  .bawah div {
-    max-width: initial
-  }
-}
-
-@supports (display: flex) {
-  .bawah div {
-    max-width: initial
   }
 }
 
