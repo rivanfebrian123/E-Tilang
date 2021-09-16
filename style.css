@@ -3,13 +3,24 @@
   padding: 0;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: "Open Sans"
+  font-family: "Open Sans";
+  scrollbar-face-color: #3d3846
+}
+
+::-webkit-scrollbar {
+  width: 10px
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #3d3846;
+  border-radius: 999999999px
 }
 
 body {
   background-repeat: repeat-y;
   margin-left: calc(100vw - 100%);
-  margin-right: 0
+  margin-right: 0;
+  overflow-y: scroll
 }
 
 #kepala {
@@ -98,7 +109,7 @@ body {
 
 #cari {
   position: relative;
-  border-radius: 999999999px;
+  border-radius: 999999999px
 }
 
 #cari input {
@@ -149,13 +160,13 @@ body {
 }
 
 .load {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, .8);
   background-image: -webkit-gradient(linear, left top, right top, color-stop(0, transparent), color-stop(50%, #fff), to(transparent));
   background-image: linear-gradient(to right, transparent 0, #fff 50%, transparent 100%);
   background-size: 50% 100%;
   background-repeat: repeat-y;
   -webkit-animation: lewat 1s ease-out 2s infinite;
-          animation: lewat 1s ease-out 2s infinite;
+  animation: lewat 1s ease-out 2s infinite
 }
 
 .load * {
@@ -167,6 +178,14 @@ body {
 }
 
 @media (max-width:499px) {
+  * {
+    scrollbar-color: #3d3846 #5cc1b9;
+    scrollbar-base-color: #5cc1b9;
+    scrollbar-track-color: #5cc1b9
+  }
+  ::-webkit-scrollbar-track {
+    background-color: #5cc1b9
+  }
   body {
     background-image: -webkit-linear-gradient(right, #5cc1b9, #62a0ea);
     background-image: -o-linear-gradient(right, #5cc1b9, #62a0ea);
@@ -196,14 +215,12 @@ body {
   }
   .hasil {
     border-radius: 13.5px;
-    padding: 9.3px 15px 12px 15px;
+    padding: 9.3px 15px 12px;
     margin-bottom: 21.6px;
     height: 72.7px
   }
   .atas h3 {
-    font-size: 18.2px
-  }
-  .atas h3 {
+    font-size: 18.2px;
     margin-right: 11px
   }
   .atas h4,
@@ -242,6 +259,14 @@ body {
 }
 
 @media (min-width:500px) {
+  * {
+    scrollbar-color: #3d3846 #5acca9;
+    scrollbar-base-color: #5acca9;
+    scrollbar-track-color: #5acca9
+  }
+  ::-webkit-scrollbar-track {
+    background-color: #5acca9
+  }
   body {
     background-image: -webkit-linear-gradient(right, #5acca9, #62a0ea);
     background-image: -o-linear-gradient(right, #5acca9, #62a0ea);
@@ -271,15 +296,13 @@ body {
   }
   .hasil {
     border-radius: 18.6px;
-    padding: 16px 23px 19px 23px;
+    padding: 16px 23px 19px;
     margin-bottom: 29.7px;
     max-width: 639.9px;
     height: 98.6px
   }
   .atas h3 {
-    font-size: 21.6px
-  }
-  .atas h3 {
+    font-size: 21.6px;
     margin-right: 18px
   }
   .atas h4,
