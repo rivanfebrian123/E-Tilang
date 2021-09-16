@@ -46,15 +46,16 @@ function render(nama, kendaraan, noTilang, denda, pasal, bukti) {
 
   return '' +
     '<div class="hasil flex baris">' +
-    '<div class="atas flex kolom">' +
-    '  <h3 class="elipsis">' + nama + '</h3>' +
-    '  <h4 class="elipsis">' + kendaraan_id + '</h4>' +
-    '</div>' +
-    '<div class="bawah flex kolom">' +
-    '  <p><img src="images/uang.svg"/>' + angkaify(denda) + '</p>' +
-    '  <p class="elipsis"><img src="images/palu.svg"/>' + pasal + '</p>' +
-    '  <p class="elipsis"><img src="images/dompet.svg"/>' + bukti + '</p>' +
-    '</div></div>';
+    '  <div class="atas flex kolom">' +
+    '    <h3 class="elipsis">' + nama + '</h3>' +
+    '    <h4 class="elipsis">' + kendaraan_id + '</h4>' +
+    '  </div>' +
+    '  <div class="bawah flex kolom">' +
+    '    <div><p><img src="images/uang.svg"/>' + angkaify(denda) + '</p></div>' +
+    '    <div><p class="elipsis"><img src="images/palu.svg"/>' + pasal + '</p></div>' +
+    '    <div><p class="elipsis"><img src="images/dompet.svg"/>' + bukti + '</p></div>' +
+    '  </div>' +
+    '</div>';
 }
 
 function cari() {

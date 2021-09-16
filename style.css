@@ -218,9 +218,9 @@ body {
     margin-top: -1.5px;
     margin-right: 4.4px
   }
-  .bawah p {
+  .bawah div {
     /*! fix untuk Webview jadul (KitKat) */
-    max-width: 32%
+    max-width: 31.5%
   }
   #cari {
     height: 36.9px;
@@ -293,6 +293,10 @@ body {
     max-height: 18.2px;
     margin-top: -2.5px;
     margin-right: 7px
+  }
+  .bawah div {
+    /*! fix untuk Webview jadul (KitKat) */
+    max-width: 37%
   }
   #cari {
     height: 43px;
