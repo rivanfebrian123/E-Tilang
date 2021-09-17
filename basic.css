@@ -87,22 +87,22 @@ body {
 
 .elipsis {
   overflow: hidden;
-  white-space: nowrap;
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis
 }
 
-.atas h3 {
+.atas h3,
+.atas h4 {
   font-weight: 400
 }
 
 .atas h4 {
   color: #9a9996;
-  font-weight: 400;
   max-width: 35%
 }
 
-.bawah {
+.bawah,
+.elipsis {
   white-space: nowrap
 }
 
@@ -124,8 +124,6 @@ body {
 }
 
 #navigasi {
-  -webkit-transition: background-color 0.75s;
-  transition: background-color 0.75s;
   -webkit-transition: box-shadow 1s;
   transition: box-shadow 1s
 }
@@ -133,25 +131,30 @@ body {
 #cari {
   -webkit-transition: max-width 1s;
   transition: max-width 1s;
-  position: relative;
+  position: relative
+}
+
+#cari .icon,
+#cari input {
+  position: absolute;
+  border: 0
+}
+
+#cari,
+#cari input {
   border-radius: 999999999px
 }
 
 #cari input {
-  position: absolute;
   height: 100%;
   width: 100%;
-  border: none;
   padding-bottom: .52%;
   outline: 0;
-  color: #3d3846;
-  border-radius: 999999999px
+  color: #3d3846
 }
 
 #cari .icon {
-  position: absolute;
-  background-color: transparent;
-  border: none
+  background-color: transparent
 }
 
 #cari .icon:hover {
@@ -204,30 +207,30 @@ body {
 
 .ambang {
   position: fixed;
-  background-color: rgba(94, 182, 201, 0.8);
-  box-shadow: 0 0px 25px rgba(0, 0, 0, 0.45);
+  background-color: rgba(94, 182, 201, .8);
+  box-shadow: 0 0 25px rgba(0, 0, 0, .45);
   width: 100%;
   top: 0;
   z-index: 999999999
 }
 
 .ambang #kunci {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, .9);
   color: #241f31
 }
 
 .ambang #cari input::-webkit-input-placeholder {
-  color: #888;
+  color: #888
 }
 
 .ambang #cari input::-moz-placeholder {
-  color: #888;
+  color: #888
 }
 
 .ambang #cari input:-ms-input-placeholder {
-  color: #888;
+  color: #888
 }
 
 .ambang #cari input::placeholder {
-  color: #888;
+  color: #888
 }

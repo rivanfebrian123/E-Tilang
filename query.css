@@ -1,10 +1,29 @@
+@-webkit-keyframes lewat {
+  0% {
+    background-position: -100% 0
+  }
+  to {
+    background-position: 200% 0
+  }
+}
+
+@keyframes lewat {
+  0% {
+    background-position: -100% 0
+  }
+  to {
+    background-position: 200% 0
+  }
+}
+
 @media (max-width:499px) {
   body {
     background-image: -webkit-linear-gradient(right, #5cc1b9, #62a0ea);
     background-image: -o-linear-gradient(right, #5cc1b9, #62a0ea);
     background-image: linear-gradient(to right, #62a0ea, #5cc1b9)
   }
-  #daftar, #navigasi {
+  #daftar,
+  #navigasi {
     padding-left: 21.6px;
     padding-right: 21.6px
   }
@@ -50,10 +69,10 @@
     margin-right: 4.4px
   }
   .bawah div {
-  /* fix Webview lama */
     max-width: 31.5%
   }
-  #cari, .pad {
+  #cari,
+  .pad {
     height: 36.9px;
     max-width: 75vw;
     margin-bottom: 32px
@@ -84,7 +103,8 @@
     background-image: -o-linear-gradient(right, #5acca9, #62a0ea);
     background-image: linear-gradient(to right, #62a0ea, #5acca9)
   }
-  #daftar, #navigasi {
+  #daftar,
+  #navigasi {
     padding-left: 29px;
     padding-right: 29px
   }
@@ -131,10 +151,10 @@
     margin-right: 7px
   }
   .bawah div {
-  /* fix Webview lama */
     max-width: 37%
   }
-  #cari, .pad {
+  #cari,
+  .pad {
     height: 43px;
     max-width: 299.1px;
     margin-bottom: 46px
@@ -159,31 +179,14 @@
   }
 }
 
-@-webkit-keyframes lewat {
-  from {
-    background-position: -100% 0
-  }
-  to {
-    background-position: 200% 0
-  }
-}
-
-@keyframes lewat {
-  from {
-    background-position: -100% 0
-  }
-  to {
-    background-position: 200% 0
-  }
-}
-
-@supports (display: flex) or (display: -ms-flexbox) {
+@supports (display:flex) or (display:-ms-flexbox) {
   .bawah div {
     max-width: unset
   }
 }
 
-@media (-ms-high-contrast: none), (-ms-high-contrast: active) {
+@media (-ms-high-contrast:none),
+(-ms-high-contrast:active) {
   .bawah div {
     max-width: unset
   }
