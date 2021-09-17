@@ -49,10 +49,9 @@
     margin-top: -1.5px;
     margin-right: 4.4px
   }
-  @supports (not (display: flex)) and (not (display: -ms-flexbox)) {
-    .bawah div {
-      max-width: 31.5%
-    }
+  .bawah div {
+  /* fix Webview lama */
+    max-width: 31.5%
   }
   #cari, .pad {
     height: 36.9px;
@@ -131,10 +130,9 @@
     margin-top: -2.5px;
     margin-right: 7px
   }
-  @supports (not (display: flex)) and (not (display: -ms-flexbox)) {
-    .bawah div {
-      max-width: 37%
-    }
+  .bawah div {
+  /* fix Webview lama */
+    max-width: 37%
   }
   #cari, .pad {
     height: 43px;
@@ -176,5 +174,17 @@
   }
   to {
     background-position: 200% 0
+  }
+}
+
+@supports (display: flex) or (display: -ms-flexbox) {
+  .bawah div {
+    max-width: unset
+  }
+}
+
+@media (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .bawah div {
+    max-width: unset
   }
 }
