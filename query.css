@@ -74,7 +74,8 @@
     height: 61px
   }
   .ambang #cari {
-    top: 12px
+    top: 12px;
+    max-width: 100vw
   }
 }
 

@@ -213,7 +213,7 @@ body {
 
 .ambang #kunci {
   background-color: rgba(255, 255, 255, 0.9);
-  color: black
+  color: #241f31
 }
 
 .ambang #cari input::-webkit-input-placeholder {

@@ -10,7 +10,7 @@ http.setRequestHeader('Expires', 'Tue, 01 Jan 1980 1:00:00 GMT');
 http.setRequestHeader('Pragma', 'no-cache');
 var timeout = null;
 var offset = null;
-var teks = null;
+var teks = "";
 
 function angkaify(angka) {
   var bagian = angka.toString().split('.');
@@ -53,9 +53,9 @@ function render(nama, kendaraan, noTilang, denda, pasal, bukti) {
     '    <h4 class="elipsis">' + kendaraan_id + '</h4>' +
     '  </div>' +
     '  <div class="bawah flex kolom">' +
-    '    <div><img src="images/uang.svg"/>' + angkaify(denda) + '</div>' +
-    '    <div class="elipsis"><img src="images/palu.svg"/>' + pasal + '</div>' +
-    '    <div class="elipsis"><img src="images/dompet.svg"/>' + bukti + '</div>' +
+    '    <div><span><img src="images/uang.svg"/></span>' + angkaify(denda) + '</div>' +
+    '    <div class="elipsis"><span><img src="images/palu.svg"/></span>' + pasal + '</div>' +
+    '    <div class="elipsis"><span><img src="images/dompet.svg"/></span>' + bukti + '</div>' +
     '  </div>' +
     '</div>';
 }
@@ -132,25 +132,23 @@ http.onload = function() {
   $("#cari").submit(function(event) {
     event.preventDefault();
     unkeyboardify($("#kunci"));
-  });
-
-  $("#cari").keyup(function(event) {
+  }).keyup(function(event) {
     event.preventDefault();
     clearTimeout(timeout);
     timeout = setTimeout(cari, 300);
-  });
+  }).removeClass("load");
 
-  $("#cari").removeClass("load");
   $(".load").hide();
+  $("#kunci").focus();
 };
 
 $(function() {
   http.send();
 
-  offset = $("#navigasi-pad").offset().top - ($("#kunci").height() / 2) + 6.5;
+  offset = $("#navigasi-pad").offset().top - ($("#kunci").height() / 3.1);
 
   $(window).resize(function() {
-    offset = $("#navigasi-pad").offset().top - ($("#kunci").height() / 2) + 6.5;
+    offset = $("#navigasi-pad").offset().top - ($("#kunci").height() / 3.1);
     navigasi();
   });
 
