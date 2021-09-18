@@ -9,38 +9,46 @@
   scrollbar-base-color: #1c363c;
   scrollbar-track-color: #1c363c;
 }
+
 ::-webkit-scrollbar-thumb {
   border-radius: 999999999px;
   background-color: #d7edf1;
 }
+
 ::-webkit-scrollbar-track {
   background-color: #1c363c;
 }
+
 ::-webkit-scrollbar {
   width: 10px;
 }
+
 body {
   background-repeat: repeat-y;
   overflow-y: scroll;
 }
+
 #kepala {
   text-align: center;
+
   .bubble {
     position: relative;
-    background: rgba(0, 0, 0, .6);
+    background: rgba(0, 0, 0, 0.6);
     color: #fff;
     display: table;
     font-weight: 700;
+
     &::after {
       content: "";
       position: absolute;
       top: 100%;
-      border-top: 0 solid rgba(0, 0, 0, .6);
+      border-top: 0 solid rgba(0, 0, 0, 0.6);
       border-left: 0 solid transparent;
       border-right: 0 solid transparent;
     }
   }
 }
+
 .flex {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -51,75 +59,92 @@ body {
   justify-content: space-between;
   -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
+
   * {
     margin: 0;
   }
+
+  &.kolom {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+
+  &.baris {
+    -webkit-box-orient: vertical;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
 }
-.flex.kolom {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-orient: horizontal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-}
-.flex.baris {
-  -webkit-box-orient: vertical;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
+
 .elipsis {
   overflow: hidden;
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
 .sembunyi {
   opacity: 0;
 }
+
 #daftar {
   -webkit-transition: opacity 300ms;
   transition: opacity 300ms;
+
   .hasil {
     background-color: #fff;
     color: #3d3846;
+
     .atas {
       h3 {
         font-weight: 400;
       }
+
       h4 {
         font-weight: 400;
         color: #9a9996;
         max-width: 35%;
       }
     }
+
     .bawah {
       white-space: nowrap;
+
       :first-child {
         margin-left: 0;
       }
+
       img {
         vertical-align: middle;
       }
     }
   }
 }
+
 #navigasi {
   -webkit-transition: box-shadow 1s;
   transition: box-shadow 1s;
+
   #cari {
     -webkit-transition: max-width 1s;
     transition: max-width 1s;
     position: relative;
     border-radius: 999999999px;
+
     .icon {
       position: absolute;
       border: 0;
       background-color: transparent;
+
       &:hover {
         cursor: pointer;
       }
     }
+
     input {
       position: absolute;
       border: 0;
@@ -129,50 +154,55 @@ body {
       padding-bottom: .52%;
       outline: 0;
       color: #3d3846;
+
       &::-ms-clear {
         display: none;
         width: 0;
         height: 0;
       }
+
       &::-webkit-input-placeholder, &::-moz-placeholder, &:-ms-input-placeholder, &::placeholder {
         color: #9a9996;
         opacity: 1;
       }
     }
   }
-}
-#navigasi.ambang {
-  position: fixed;
-  background-color: rgba(94, 182, 201, .8);
-  box-shadow: 0 0 25px rgba(0, 0, 0, .45);
-  width: 100%;
-  top: 0;
-  z-index: 999999999;
-  #kunci {
-    background-color: rgba(255, 255, 255, .9);
-    color: #241f31;
-  }
-  #cari {
-    input {
+
+  &.ambang {
+    position: fixed;
+    background-color: rgba(94, 182, 201, 0.8);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.45);
+    width: 100%;
+    top: 0;
+    z-index: 999999999;
+
+    #kunci {
+      background-color: rgba(255, 255, 255, 0.9);
+      color: #241f31;
+    }
+
+    #cari input {
       &::-webkit-input-placeholder, &::-moz-placeholder, &:-ms-input-placeholder, &::placeholder {
         color: #888;
       }
     }
   }
 }
+
 .load {
-  background-color: rgba(255, 255, 255, .8);
+  background-color: rgba(255, 255, 255, 0.8);
   background-image: -webkit-gradient(linear, left top, right top, color-stop(0, transparent), color-stop(50%, #fff), to(transparent));
   background-image: linear-gradient(to right, transparent 0, #fff 50%, transparent 100%);
   background-size: 50% 100%;
   background-repeat: repeat-y;
   -webkit-animation: lewat 1s ease-out 2s infinite;
   animation: lewat 1s ease-out 2s infinite;
+
   * {
     display: none;
   }
+
   &:hover {
     cursor: wait;
   }
 }
-
