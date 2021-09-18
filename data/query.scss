@@ -71,14 +71,14 @@
           -webkit-box-align: unset;
           -ms-flex-align: unset;
           align-items: unset;
-          @include kolom;
+          @include baris;
 
           * {
             margin-left: 0;
           }
         }
 
-        h3 {
+        h4 {
           display: none;
         }
       }
