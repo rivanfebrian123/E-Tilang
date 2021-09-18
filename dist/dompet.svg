@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="3.5422mm" height="3.295mm" version="1.1" viewBox="0 0 3.5422 3.295" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(1386.3 -782.41)">
+<g transform="matrix(.026705 0 0 .026705 -1370.2 770.85)" stroke-width=".91226">
+<path d="m-501.5 451.39h20.572c0.83335 0 1.5042 0.67127 1.5042 1.5051v41.992" fill="none" stroke="#3d3846" stroke-linecap="round" stroke-width="7.2348" style="paint-order:fill markers stroke"/>
+<path transform="scale(.26458)" d="m-2014.9 1691h-240.49c-11.205 0-20.691 9.4865-20.691 20.684v369.76c0 11.197 9.4867 20.684 20.691 20.684h437.77c11.205 0 20.684-9.4867 20.684-20.684v-97.271h-30v87.955h-419.14v-351.13h179.25" color="#000000" fill="#3d3846" stroke-width="3.4479" style="-inkscape-stroke:none;paint-order:fill markers stroke"/>
+<g transform="translate(-668.21 358.02)" stroke-width=".91226">
+<ellipse transform="scale(-1)" cx="-161.4" cy="-151.94" rx="5.2648" ry="5.2678" fill="#3584e4" style="paint-order:fill markers stroke"/>
+<path d="m160.68 138.05h34.297v27.781h-34.297c-7.8335 0-14.14-6.1952-14.14-13.891 0-7.6954 6.3064-13.891 14.14-13.891z" fill="none" stroke="#3d3846" stroke-linecap="round" stroke-width="7.3118" style="paint-order:fill markers stroke"/>
+</g>
+<g fill="none" stroke-linecap="round">
+<path d="m-567.21 467.11 53.841-31.102c0.7217-0.4169 1.6382-0.1712 2.0548 0.5509l17.629 30.551" stroke="#3584e4" stroke-width="6.0342" style="paint-order:fill markers stroke"/>
+<path d="m-577.59 467.16h93.839" stroke="#3d3846" stroke-width="8.5946"/>
+</g>
+</g>
+</g>
+</svg>
