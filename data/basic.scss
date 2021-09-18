@@ -118,8 +118,12 @@ body {
     .bawah {
       white-space: nowrap;
 
-      :first-child {
-        margin-left: 0;
+      div:last-child {
+        margin-right: 0;
+      }
+
+      .id {
+        display: none;
       }
 
       img {

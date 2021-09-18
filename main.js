@@ -53,6 +53,7 @@ function render(nama, kendaraan, noTilang, denda, pasal, bukti) {
     '    <h4 class="elipsis">' + kendaraan_id + '</h4>' +
     '  </div>' +
     '  <div class="bawah flex kolom">' +
+    '    <div class="id elipsis"><span><img src="dist/id.svg"/></span>' + kendaraan_id + '</div>' +
     '    <div><span><img src="dist/uang.svg"/></span>' + angkaify(denda) + '</div>' +
     '    <div class="elipsis"><span><img src="dist/palu.svg"/></span>' + pasal + '</div>' +
     '    <div class="elipsis"><span><img src="dist/dompet.svg"/></span>' + bukti + '</div>' +

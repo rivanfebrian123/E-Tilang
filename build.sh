@@ -11,4 +11,5 @@ SCOUR_APP="scour --enable-viewboxing --enable-id-stripping --enable-comment-stri
 # ${SCOUR_APP} -i data/uang.svg -o dist/uang.svg
 sassc data/query.scss dist/query.css -t compressed
 
+git add .
 python3 -m http.server
