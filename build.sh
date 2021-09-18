@@ -9,7 +9,6 @@ SCOUR_APP="scour --enable-viewboxing --enable-id-stripping --enable-comment-stri
 # ${SCOUR_APP} -i data/dompet.svg -o dist/dompet.svg
 # ${SCOUR_APP} -i data/palu.svg -o dist/palu.svg
 # ${SCOUR_APP} -i data/uang.svg -o dist/uang.svg
-sassc data/basic.scss dist/basic.css -t compressed
 sassc data/query.scss dist/query.css -t compressed
 
 python3 -m http.server

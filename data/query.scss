@@ -1,3 +1,5 @@
+@import "basic.scss";
+
 @-webkit-keyframes "lewat" {
   0% {
     background-position: -100% 0;
@@ -69,9 +71,7 @@
           -webkit-box-align: unset;
           -ms-flex-align: unset;
           align-items: unset;
-          -webkit-box-orient: vertical;
-          -ms-flex-direction: column;
-          flex-direction: column;
+          @include kolom;
 
           * {
             margin-left: 0;

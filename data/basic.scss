@@ -1,3 +1,9 @@
+@mixin kolom {
+  -webkit-box-orient: horizontal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
 * {
   margin: 0 auto;
   padding: 0;
@@ -68,9 +74,7 @@ body {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    -webkit-box-orient: horizontal;
-    -ms-flex-direction: row;
-    flex-direction: row;
+    @include kolom;
   }
 
   &.baris {
