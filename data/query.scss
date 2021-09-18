@@ -59,8 +59,8 @@
           margin-right: 4.4px;
 
           img {
+            height: 15.3px;
             margin-top: -1.5px;
-            max-height: 15.3px;
           }
         }
 
@@ -207,7 +207,7 @@
 
         span {
           img {
-            max-height: 18.2px;
+            height: 18.2px;
             margin-top: -2.5px;
           }
 
@@ -294,6 +294,6 @@
 
 @media (-ms-high-contrast: none), (-ms-high-contrast: active) {
   #daftar .hasil .bawah div {
-    max-width: initial;
+    max-width: auto;
   }
 }
