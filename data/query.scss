@@ -1,35 +1,22 @@
 @import "basic.scss";
 
-@-webkit-keyframes "lewat" {
-  0% {
-    background-position: -100% 0;
-  }
-
-  to {
-    background-position: 200% 0;
-  }
+@mixin pad-mobile {
+  height: 36.9px;
+  margin-bottom: 32px;
 }
 
-@keyframes "lewat" {
-  0% {
-    background-position: -100% 0;
-  }
-
-  to {
-    background-position: 200% 0;
-  }
+@mixin pad-desktop {
+  height: 43px;
+  margin-bottom: 46px;
 }
 
 @media (max-width: 499px) {
   body {
-    background-image: -webkit-linear-gradient(right, #5cc1b9, #62a0ea);
-    background-image: -o-linear-gradient(right, #5cc1b9, #62a0ea);
-    background-image: linear-gradient(to right, #62a0ea, #5cc1b9);
+    @include bg-gradasi(#62a0ea, #5cc1b9);
   }
 
   #daftar {
-    padding-left: 21.6px;
-    padding-right: 21.6px;
+    padding: 0 21.6px;
 
     .hasil {
       border-radius: 13.5px;
@@ -65,7 +52,7 @@
         }
 
         div {
-          /*! fix untuk webkit*/
+          // fix untuk webkit
           max-width: 31.5%;
         }
       }
@@ -79,12 +66,12 @@
           align-items: initial;
           @include baris;
 
-          * {
+          >* {
             margin-right: 0;
           }
 
           div {
-            /*! fix untuk webkit*/
+            // fix untuk webkit
             max-width: 100%;
 
             span {
@@ -106,13 +93,11 @@
   }
 
   #navigasi {
-    padding-left: 21.6px;
-    padding-right: 21.6px;
+    padding: 0 21.6px;
 
     #cari {
-      height: 36.9px;
+      @include pad-mobile;
       max-width: 75vw;
-      margin-bottom: 32px;
 
       input {
         padding-left: 14px;
@@ -140,11 +125,11 @@
   }
 
   #kepala {
-    margin-top: 41.3px;
-    margin-bottom: 29px;
+    margin: 41.3px 0 29px 0;
 
-    .bubble {
-      padding: 9px 10px 9px 11px;
+    #bubble {
+      padding: 0 8.7px 0 11px;
+      height: 35px;
       left: 12vw;
       margin-bottom: -9.5px;
       border-radius: 7px;
@@ -163,22 +148,17 @@
   }
 
   #navigasi-pad.pad {
-    height: 36.9px;
-    max-width: 75vw;
-    margin-bottom: 32px;
+    @include pad-mobile;
   }
 }
 
 @media (min-width: 500px) {
   body {
-    background-image: -webkit-linear-gradient(right, #5acca9, #62a0ea);
-    background-image: -o-linear-gradient(right, #5acca9, #62a0ea);
-    background-image: linear-gradient(to right, #62a0ea, #5acca9);
+    @include bg-gradasi(#62a0ea, #5acca9);
   }
 
   #daftar {
-    padding-left: 29px;
-    padding-right: 29px;
+    padding: 0 29.7px;
 
     .hasil {
       border-radius: 18.6px;
@@ -215,7 +195,7 @@
         }
 
         div {
-          /*! fix untuk webkit*/
+          // fix untuk webkit
           max-width: 37%;
         }
       }
@@ -223,13 +203,11 @@
   }
 
   #navigasi {
-    padding-left: 29px;
-    padding-right: 29px;
+    padding: 0 29.7px;
 
     #cari {
-      height: 43px;
+      @include pad-desktop;
       max-width: 299.1px;
-      margin-bottom: 46px;
 
       input {
         padding-left: 15px;
@@ -257,16 +235,16 @@
   }
 
   #kepala {
-    margin-top: 57px;
-    margin-bottom: 52px;
+    margin: 57px 0 52px 0;
 
     img {
       width: 195px;
       height: 75.8833px;
     }
 
-    .bubble {
-      padding: 12px 14px 12px 15.5px;
+    #bubble {
+      padding: 0 12px 0 14.3px;
+      height: 45px;
       left: 100px;
       margin-bottom: -14px;
       border-radius: 10px;
@@ -280,9 +258,7 @@
   }
 
   #navigasi-pad.pad {
-    height: 43px;
-    max-width: 299.1px;
-    margin-bottom: 46px;
+    @include pad-desktop;
   }
 }
 
