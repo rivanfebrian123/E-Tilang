@@ -1,5 +1,8 @@
 @import "basic.scss";
 
+$jarak-desktop: 29.7px;
+$jarak-mobile: 21.6px;
+
 @mixin pad-mobile {
   height: 36.9px;
   margin-bottom: 32px;
@@ -12,16 +15,16 @@
 
 @media (max-width: 499px) {
   body {
-    @include bg-gradasi(#62a0ea, #5cc1b9);
+    @include bg-gradasi($warna_bg1, $warna_bg3);
   }
 
   #daftar {
-    padding: 0 21.6px;
+    padding: 0 $jarak-mobile;
 
     .hasil {
       border-radius: 13.5px;
       padding: 9.3px 15px 12px;
-      margin-bottom: 21.6px;
+      margin-bottom: $jarak-mobile;
       height: 72.7px;
 
       .atas {
@@ -93,7 +96,7 @@
   }
 
   #navigasi {
-    padding: 0 21.6px;
+    padding: 0 $jarak-mobile;
 
     #cari {
       @include pad-mobile;
@@ -154,16 +157,16 @@
 
 @media (min-width: 500px) {
   body {
-    @include bg-gradasi(#62a0ea, #5acca9);
+    @include bg-gradasi($warna_bg1, $warna_bg2);
   }
 
   #daftar {
-    padding: 0 29.7px;
+    padding: 0 $jarak-desktop;
 
     .hasil {
       border-radius: 18.6px;
       padding: 16px 23px 19px;
-      margin-bottom: 29.7px;
+      margin-bottom: $jarak-desktop;
       max-width: 639.9px;
       height: 98.6px;
 
@@ -203,7 +206,7 @@
   }
 
   #navigasi {
-    padding: 0 29.7px;
+    padding: 0 $jarak-desktop;
 
     #cari {
       @include pad-desktop;
@@ -262,14 +265,8 @@
   }
 }
 
-@supports (display: flex) or (display: -ms-flexbox) {
+@include reset-flex {
   #daftar .hasil .bawah div {
-    max-width: initial;
-  }
-}
-
-@media (-ms-high-contrast: none), (-ms-high-contrast: active) {
-  #daftar .hasil .bawah div {
-    max-width: auto;
+    max-width: none;
   }
 }

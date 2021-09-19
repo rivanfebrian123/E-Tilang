@@ -1,0 +1,148 @@
+$bulat: 999999999px;
+$teratas: 999999999;
+
+@mixin reset-flex {
+  @supports (display: flex) or (display: -ms-flexbox) {
+    @content;
+  }
+
+  @media (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @content;
+  }
+}
+
+@mixin keyframes($nama) {
+  @-webkit-keyframes #{$nama} {
+    @content;
+  }
+
+  @keyframes #{$nama} {
+    @content;
+  }
+}
+
+@mixin placeholder() {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+
+  &::-moz-placeholder {
+    @content;
+  }
+
+  &:-ms-input-placeholder {
+    @content;
+  }
+
+  &::placeholder {
+    @content;
+  }
+}
+
+@mixin bg-gradasi($warna1, $warna2) {
+  background-image: -webkit-linear-gradient(right, $warna2, $warna1);
+  background-image: -o-linear-gradient(right, $warna2, $warna1);
+  background-image: linear-gradient(to right, $warna1, $warna2);
+}
+
+@mixin baris {
+  -webkit-box-orient: vertical;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+@mixin scrollbar($warna1, $warna2) {
+  scrollbar-color: $warna1 $warna2;
+  scrollbar-face-color: $warna1;
+  scrollbar-base-color: $warna2;
+  scrollbar-track-color: $warna2;
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: $bulat;
+    background-color: $warna1;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: $warna2;
+  }
+
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+}
+
+* {
+  margin: 0 auto;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+
+  >* {
+    margin: 0;
+  }
+
+  &.kolom {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+
+  &.baris {
+    @include baris;
+  }
+}
+
+.elipsis {
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sembunyi {
+  opacity: 0;
+}
+
+
+@include keyframes("lewat") {
+  from {
+    background-position: -100% 0;
+  }
+
+  to {
+    background-position: 200% 0;
+  }
+}
+
+.load {
+  background-color: rgba(white, 0.8) !important;
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(0, transparent), color-stop(50%, white), to(transparent)) !important;
+  background-image: linear-gradient(to right, transparent 0, white 50%, transparent 100%) !important;
+  background-size: 50% 100% !important;
+  background-repeat: repeat-y !important;
+  -webkit-animation: lewat 1s ease-out 2s infinite;
+  animation: lewat 1s ease-out 2s infinite;
+
+  * {
+    display: none;
+  }
+
+  &:hover {
+    cursor: wait;
+  }
+}
