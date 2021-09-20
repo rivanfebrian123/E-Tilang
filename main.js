@@ -82,9 +82,7 @@ function cari() {
     var kunci2 = kuncify(typeof kunci2_[1] == 'undefined' ? kunci2_[0] : kunci2_[1]);
 
     if (kunci1.indexOf(kunci) != -1 || kunci2.indexOf(kunci) != -1) {
-      if (!$(this).hasClass("load")) {
-        $(this).show();
-      }
+      $(this).show();
     } else {
       $(this).hide();
     }
@@ -139,7 +137,7 @@ http.onload = function() {
     timeout = setTimeout(cari, 300);
   }).removeClass("load");
 
-  $(".load").hide();
+  $(".load").remove();
   $("#kunci").focus();
 };
 
