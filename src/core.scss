@@ -114,10 +114,31 @@ $teratas: 999999999;
   white-space: nowrap;
 }
 
-.sembunyi {
-  opacity: 0;
+@include keyframes("kedip") {
+  50% {
+    opacity: 0;
+  }
 }
 
+.kedip {
+  -webkit-animation: kedip 600ms linear;
+  animation: kedip 600ms linear;
+}
+
+@include keyframes("fadein") {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadein {
+  -webkit-animation: fadein 400ms ease-in;
+  animation: fadein 400ms ease-in;
+}
 
 @include keyframes("lewat") {
   from {

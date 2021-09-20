@@ -27,6 +27,10 @@ $jarak-mobile: 21.6px;
       margin-bottom: $jarak-mobile;
       height: 72.7px;
 
+      &:hover {
+        cursor: pointer;
+      }
+
       .atas {
         h3 {
           font-size: 18.2px;

@@ -11,6 +11,14 @@ http.setRequestHeader('Pragma', 'no-cache');
 var timeout = null;
 var offset = null;
 var teks = "";
+var terpilih = null;
+var animend = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
+
+function animify(elemen, kelas) {
+  elemen.addClass(kelas).one(animend, function() {
+    elemen.removeClass(kelas);
+  });
+}
 
 function angkaify(angka) {
   var bagian = angka.toString().split('.');
@@ -41,12 +49,12 @@ function render(nama, kendaraan, noTilang, denda, pasal, bukti) {
   var kendaraan_id = kendaraan.replace(
     /spm/gi, "Sepeda Motor").replace(
     /l.truck/gi, "Light Truck") + ' | ' + noTilang;
-  bukti = bukti.replace(
+  var bukti = bukti.replace(
     /ran/gi, "Kendaraan").replace(
     /tnp/gi, "Tanpa").replace(
     /plat/gi, "Plat");
 
-  return '' +
+  var hasil = $('' +
     '<div class="hasil flex baris">' +
     '  <div class="atas flex kolom">' +
     '    <h3 class="elipsis">' + nama + '</h3>' +
@@ -58,7 +66,20 @@ function render(nama, kendaraan, noTilang, denda, pasal, bukti) {
     '    <div class="elipsis"><span><img src="dist/palu.svg"/></span>' + pasal + '</div>' +
     '    <div class="elipsis"><span><img src="dist/dompet.svg"/></span>' + bukti + '</div>' +
     '  </div>' +
-    '</div>';
+    '</div>');
+
+  hasil.click(function() {
+    terpilih = $(this).hasClass("pilih");
+    $(".pilih").removeClass("pilih");
+
+    if (!terpilih) {
+      $(this).addClass("pilih");
+    }
+
+    animify($(this).children().eq(1), "fadein");
+  });
+
+  return hasil;
 }
 
 function cari() {
@@ -73,7 +94,7 @@ function cari() {
 
   var kunci = kuncify(kunci_);
   var daftarItem = $(".hasil");
-  var elDaftar = $("#daftar").addClass("sembunyi");
+  var elDaftar = animify($("#daftar"), "kedip");
 
   daftarItem.each(function() {
     var kepala = $(this).children().eq(0).children();
@@ -88,9 +109,6 @@ function cari() {
     }
   });
 
-  setTimeout(function() {
-    elDaftar.removeClass("sembunyi");
-  }, 300);
   teks = $("#kunci").val();
 }
 

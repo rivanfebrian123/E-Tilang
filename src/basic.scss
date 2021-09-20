@@ -60,6 +60,8 @@ html {
   transition: opacity 300ms;
 
   .hasil {
+    -webkit-transition: height 300ms;
+    transition: height 300ms;
     background-color: white;
     color: $warna_teks1;
 
