@@ -15,9 +15,11 @@ var terpilih = null;
 var animend = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
 
 function animify(elemen, kelas) {
-  elemen.addClass(kelas).one(animend, function() {
-    elemen.removeClass(kelas);
-  });
+  if (!elemen.hasClass(kelas)) {
+    elemen.addClass(kelas).one(animend, function() {
+      elemen.removeClass(kelas);
+    });
+  }
 }
 
 function angkaify(angka) {
@@ -94,7 +96,7 @@ function cari() {
 
   var kunci = kuncify(kunci_);
   var daftarItem = $(".hasil");
-  var elDaftar = animify($("#daftar"), "kedip");
+  var elDaftar = animify($("#daftar"), "fadein");
 
   daftarItem.each(function() {
     var kepala = $(this).children().eq(0).children();
@@ -152,7 +154,7 @@ http.onload = function() {
   }).keyup(function(event) {
     event.preventDefault();
     clearTimeout(timeout);
-    timeout = setTimeout(cari, 300);
+    timeout = setTimeout(cari, 225);
   }).removeClass("load");
 
   $(".load").remove();

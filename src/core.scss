@@ -1,6 +1,10 @@
 $bulat: 999999999px;
 $teratas: 999999999;
 
+@function hapus-unit($angka) {
+  @return $angka / ($angka * 0 + 1);
+}
+
 @mixin reset-flex {
   @supports (display: flex) or (display: -ms-flexbox) {
     @content;
@@ -9,6 +13,16 @@ $teratas: 999999999;
   @media (-ms-high-contrast: none), (-ms-high-contrast: active) {
     @content;
   }
+}
+
+@mixin animation($animasi) {
+  -webkit-animation: $animasi;
+  animation: $animasi;
+}
+
+@mixin transition($transisi) {
+  -webkit-transition: $transisi;
+  transition: $transisi;
 }
 
 @mixin keyframes($nama) {
@@ -21,7 +35,7 @@ $teratas: 999999999;
   }
 }
 
-@mixin placeholder() {
+@mixin placeholder {
   &::-webkit-input-placeholder {
     @content;
   }
@@ -71,6 +85,12 @@ $teratas: 999999999;
   }
 }
 
+@mixin align-items($posisi){
+  -webkit-box-align: $posisi;
+  -ms-flex-align: $posisi;
+  align-items: $posisi;
+}
+
 * {
   margin: 0 auto;
   padding: 0;
@@ -94,9 +114,7 @@ $teratas: 999999999;
   }
 
   &.kolom {
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
+    @include align-items(center);
     -webkit-box-orient: horizontal;
     -ms-flex-direction: row;
     flex-direction: row;
@@ -114,17 +132,6 @@ $teratas: 999999999;
   white-space: nowrap;
 }
 
-@include keyframes("kedip") {
-  50% {
-    opacity: 0;
-  }
-}
-
-.kedip {
-  -webkit-animation: kedip 600ms linear;
-  animation: kedip 600ms linear;
-}
-
 @include keyframes("fadein") {
   from {
     opacity: 0;
@@ -136,8 +143,7 @@ $teratas: 999999999;
 }
 
 .fadein {
-  -webkit-animation: fadein 400ms ease-in;
-  animation: fadein 400ms ease-in;
+  @include animation(fadein 467ms ease-in);
 }
 
 @include keyframes("lewat") {
@@ -156,8 +162,7 @@ $teratas: 999999999;
   background-image: linear-gradient(to right, transparent 0, white 50%, transparent 100%) !important;
   background-size: 50% 100% !important;
   background-repeat: repeat-y !important;
-  -webkit-animation: lewat 1s ease-out 2s infinite;
-  animation: lewat 1s ease-out 2s infinite;
+  @include animation(lewat 1s ease-out 2s infinite);
 
   * {
     display: none;

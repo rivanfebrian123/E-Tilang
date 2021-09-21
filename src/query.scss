@@ -2,18 +2,14 @@
 
 $jarak-desktop: 29.7px;
 $jarak-mobile: 21.6px;
+$ukuran-mobile: 600px;
 
-@mixin pad-mobile {
-  height: 36.9px;
-  margin-bottom: 32px;
-}
+@media (max-width: $ukuran-mobile) {
+  %pad-mobile {
+    height: 36.9px;
+    margin-bottom: 32px;
+  }
 
-@mixin pad-desktop {
-  height: 43px;
-  margin-bottom: 46px;
-}
-
-@media (max-width: 499px) {
   body {
     @include bg-gradasi($warna_bg1, $warna_bg3);
   }
@@ -68,9 +64,7 @@ $jarak-mobile: 21.6px;
         height: 120px;
 
         .bawah {
-          -webkit-box-align: initial;
-          -ms-flex-align: initial;
-          align-items: initial;
+          @include align-items(start);
           @include baris;
 
           >* {
@@ -103,7 +97,7 @@ $jarak-mobile: 21.6px;
     padding: 0 $jarak-mobile;
 
     #cari {
-      @include pad-mobile;
+      @extend %pad-mobile;
       max-width: 75vw;
 
       input {
@@ -155,11 +149,16 @@ $jarak-mobile: 21.6px;
   }
 
   #navigasi-pad.pad {
-    @include pad-mobile;
+    @extend %pad-mobile;
   }
 }
 
-@media (min-width: 500px) {
+@media (min-width: $ukuran-mobile + 1px) {
+  %pad-desktop {
+    height: 43px;
+    margin-bottom: 46px;
+  }
+
   body {
     @include bg-gradasi($warna_bg1, $warna_bg2);
   }
@@ -213,7 +212,7 @@ $jarak-mobile: 21.6px;
     padding: 0 $jarak-desktop;
 
     #cari {
-      @include pad-desktop;
+      @extend %pad-desktop;
       max-width: 299.1px;
 
       input {
@@ -265,7 +264,7 @@ $jarak-mobile: 21.6px;
   }
 
   #navigasi-pad.pad {
-    @include pad-desktop;
+    @extend %pad-desktop;
   }
 }
 

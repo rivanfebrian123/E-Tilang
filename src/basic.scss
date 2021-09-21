@@ -56,12 +56,10 @@ html {
 }
 
 #daftar {
-  -webkit-transition: opacity 300ms;
-  transition: opacity 300ms;
+  @include transition(opacity 300ms);
 
   .hasil {
-    -webkit-transition: height 300ms;
-    transition: height 300ms;
+    @include transition(height 300ms);
     background-color: white;
     color: $warna_teks1;
 
@@ -96,12 +94,10 @@ html {
 }
 
 #navigasi {
-  -webkit-transition: box-shadow 1s;
-  transition: box-shadow 1s;
+  @include transition(box-shadow 1s);
 
   #cari {
-    -webkit-transition: max-width 1s;
-    transition: max-width 1s;
+    @include transition(max-width 1s);
     position: relative;
     border-radius: $bulat;
 
