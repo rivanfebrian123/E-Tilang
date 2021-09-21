@@ -4,60 +4,55 @@ $jarak-desktop: 29.7px;
 $jarak-mobile: 21.6px;
 $ukuran-mobile: 600px;
 
-@media (max-width: $ukuran-mobile) {
-  %pad-mobile {
-    height: 36.9px;
-    margin-bottom: 32px;
+@mixin navigasi ($jarak, $pad, $tinggi, $lebar, $gambar, $font, $ambang, $l_ambang) {
+  padding: 0 $jarak;
+  margin-bottom: $pad;
+
+  #cari {
+    height: $tinggi;
+    max-width: $lebar;
+
+    input {
+      padding: 0 ($tinggi * 0.98) interpolado(36.9px, 43px, 1.7px, 0, $tinggi) ($tinggi * 0.36);
+      font-size: $font;
+    }
+
+    .icon {
+      right: $tinggi * 0.3;
+      top: tengahkan($tinggi, $gambar);
+
+      img {
+        height: $gambar;
+      }
+    }
   }
 
+  &.ambang {
+    padding: 0 $jarak;
+    height: $ambang;
+
+    #cari {
+      top: tengahkan($ambang, $tinggi);
+      max-width: $l_ambang;
+    }
+  }
+
+  @at-root #navigasi-pad.pad {
+    height: $pad + $tinggi;
+  }
+}
+
+@media (max-width: $ukuran-mobile) {
   body {
     @include bg-gradasi($warna_bg1, $warna_bg3);
   }
 
   #daftar {
-    padding: 0 $jarak-mobile;
+    @include daftar($jarak-mobile, 15px, 13.5px, 72.7px, none, 18.2px, 14.5px, 15.3px);
 
     .hasil {
-      border-radius: 13.5px;
-      padding: 9.3px 15px 12px;
-      margin-bottom: $jarak-mobile;
-      height: 72.7px;
-
       &:hover {
         cursor: pointer;
-      }
-
-      .atas {
-        h3 {
-          font-size: 18.2px;
-          margin-right: 11px;
-        }
-
-        h4 {
-          font-size: 14.5px;
-        }
-      }
-
-      .bawah {
-        font-size: 14.5px;
-
-        >* {
-          margin-right: 11px;
-        }
-
-        span {
-          margin-right: 4.4px;
-
-          img {
-            height: 15.3px;
-            margin-top: -1.6px;
-          }
-        }
-
-        div {
-          // fix untuk webkit
-          max-width: 31.5%;
-        }
       }
 
       &.pilih {
@@ -94,35 +89,7 @@ $ukuran-mobile: 600px;
   }
 
   #navigasi {
-    padding: 0 $jarak-mobile;
-
-    #cari {
-      @extend %pad-mobile;
-      max-width: 75vw;
-
-      input {
-        padding-left: 14px;
-        font-size: 15.2px;
-      }
-
-      .icon {
-        right: 10px;
-        top: 11.5px;
-      }
-
-      img {
-        height: 15px;
-      }
-    }
-
-    &.ambang {
-      height: 61px;
-
-      #cari {
-        top: 12px;
-        max-width: 100vw;
-      }
-    }
+    @include navigasi ($jarak-mobile, 32px, 36.9px, 75vw, 15px, 15.2px, 61px, 100vw);
   }
 
   #kepala {
@@ -147,97 +114,19 @@ $ukuran-mobile: 600px;
       height: 59.0667px;
     }
   }
-
-  #navigasi-pad.pad {
-    @extend %pad-mobile;
-  }
 }
 
 @media (min-width: $ukuran-mobile + 1px) {
-  %pad-desktop {
-    height: 43px;
-    margin-bottom: 46px;
-  }
-
   body {
     @include bg-gradasi($warna_bg1, $warna_bg2);
   }
 
   #daftar {
-    padding: 0 $jarak-desktop;
-
-    .hasil {
-      border-radius: 18.6px;
-      padding: 16px 23px 19px;
-      margin-bottom: $jarak-desktop;
-      max-width: 639.9px;
-      height: 98.6px;
-
-      .atas {
-        h3 {
-          font-size: 21.6px;
-          margin-right: 18px;
-        }
-
-        h4 {
-          font-size: 14.5px;
-        }
-      }
-
-      .bawah {
-        font-size: 14.5px;
-
-        >* {
-          margin-right: 18px;
-        }
-
-        span {
-          img {
-            height: 18.2px;
-            margin-top: -2.5px;
-          }
-
-          margin-right: 7px;
-        }
-
-        div {
-          // fix untuk webkit
-          max-width: 37%;
-        }
-      }
-    }
+    @include daftar($jarak-desktop, 23px, 18.6px, 98.6px, 639.9px, 21.6px, 14.5px, 18.2px);
   }
 
   #navigasi {
-    padding: 0 $jarak-desktop;
-
-    #cari {
-      @extend %pad-desktop;
-      max-width: 299.1px;
-
-      input {
-        padding-left: 15px;
-        font-size: 15.9px;
-      }
-
-      .icon {
-        right: 14px;
-        top: 12.6px;
-      }
-
-      img {
-        height: 17.9px;
-      }
-    }
-
-    &.ambang {
-      height: 80px;
-
-      #cari {
-        top: 17.5px;
-        max-width: 480px;
-      }
-    }
+    @include navigasi ($jarak-desktop, 46px, 43px, 299.1px, 17.9px, 15.9px, 80px, 480px);
   }
 
   #kepala {
@@ -261,10 +150,6 @@ $ukuran-mobile: 600px;
         border-width: 10.8px;
       }
     }
-  }
-
-  #navigasi-pad.pad {
-    @extend %pad-desktop;
   }
 }
 

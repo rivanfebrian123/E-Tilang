@@ -5,6 +5,22 @@ $teratas: 999999999;
   @return $angka / ($angka * 0 + 1);
 }
 
+@function tengahkan($ukuran_kontainer, $ukuran_isi) {
+  @return ($ukuran_kontainer - $ukuran_isi) / 2;
+}
+
+@function duocentile($angka1, $angka2, $skala) {
+  @return $angka1 + (($angka2 - $angka1) * $skala);
+}
+
+@function scalio($angka1, $angka2, $patokan) {
+  @return ($patokan - $angka1) / ($angka2 - $angka1);
+}
+
+@function interpolado($sumber1, $sumber2, $target1, $target2, $patokan) {
+  @return duocentile($target1, $target2, scalio($sumber1, $sumber2, $patokan));
+}
+
 @mixin reset-flex {
   @supports (display: flex) or (display: -ms-flexbox) {
     @content;
