@@ -17,48 +17,39 @@ var animend =
 
 function animify(elemen, kelas) {
   if (!elemen.hasClass(kelas)) {
-    elemen.addClass(kelas)
-      .one(animend, function () {
-        elemen.removeClass(kelas);
-      });
+    elemen.addClass(kelas).one(animend, function() {
+      elemen.removeClass(kelas);
+    });
   }
 }
 
 function angkaify(angka) {
-  var bagian = angka.toString()
-    .split('.');
+  var bagian = angka.toString().split('.');
   bagian[0] = bagian[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
   return bagian.join(',');
 }
 
 function kuncify(kunci) {
-  return kunci.replace(/\s+/g, '')
-    .toLowerCase();
+  return kunci.replace(/\s+/g, '').toLowerCase();
 }
 
 function judulify(teks) {
-  return teks.toLowerCase()
-    .split(' ')
-    .map(function (kata) {
-      return kata[0].toUpperCase() + kata.slice(1);
-    })
-    .join(' ');
+  return teks.toLowerCase().split(' ').map(function(kata) {
+    return kata[0].toUpperCase() + kata.slice(1);
+  }).join(' ');
 }
 
 function unkeyboardify(elemen) {
-  elemen.attr("readonly", "readonly")
-    .attr("disabled", "true")
-    .blur()
-    .removeAttr("readonly")
-    .removeAttr("disabled");
+  elemen.attr("readonly", "readonly").attr("disabled", "true").blur()
+    .removeAttr("readonly").removeAttr("disabled");
 }
 
 function render(nama, kendaraan, noTilang, denda, pasal, bukti) {
-  var kendaraan_id = kendaraan.replace(/spm/gi, "Sepeda Motor")
-    .replace(/l.truck/gi, "Light Truck") + ' | ' + noTilang;
-  var bukti = bukti.replace(/ran/gi, "Kendaraan")
-    .replace(/tnp/gi, "Tanpa")
-    .replace(/plat/gi, "Plat");
+  var kendaraan_id = kendaraan.replace(/spm/gi, "Sepeda Motor").replace(
+    /l.truck/gi, "Light Truck") + ' | ' + noTilang;
+  bukti = bukti.replace(/ran/gi, "Kendaraan").replace(/tnp/gi, "Tanpa").replace(
+    /plat/gi, "Plat");
+
   var hasil = $('<div class="hasil flex baris"><div class="atas flex kolom">' +
     '<h3 class="elipsis">' + nama + '</h3><h4 class="elipsis">' +
     kendaraan_id + '</h4></div><div class="bawah flex kolom">' +
@@ -68,124 +59,110 @@ function render(nama, kendaraan, noTilang, denda, pasal, bukti) {
     '<img src="dist/palu.svg"/></span>' + pasal +
     '</div><div class="elipsis"><span><img src="dist/dompet.svg"/></span>' +
     bukti + '</div></div></div>');
-  hasil.click(function () {
-    terpilih = $(this)
-      .hasClass("pilih");
-    $(".pilih")
-      .removeClass("pilih");
+
+  hasil.click(function() {
+    terpilih = $(this).hasClass("pilih");
+    $(".pilih").removeClass("pilih");
     if (!terpilih) {
-      $(this)
-        .addClass("pilih");
+      $(this).addClass("pilih");
     }
-    animify($(this)
-      .children()
-      .eq(1), "fadein");
+    animify($(this).children().eq(1), "fadein");
   });
+
   return hasil;
 }
 
 function cari() {
-  var kunci_ = $("#kunci")
-    .val();
+  var kunci_ = $("#kunci").val();
+
   if (teks === kunci_) {
     return null;
   }
+
   var kunci = kuncify(kunci_);
-  var daftarItem = $(".hasil");
-  var elDaftar = animify($("#daftar"), "fadein");
-  daftarItem.each(function () {
-    var kepala = $(this)
-      .children()
-      .eq(0)
-      .children();
-    var kunci1 = kuncify(kepala.eq(0)
-      .text());
-    var kunci2_ = kepala.eq(1)
-      .text()
-      .split('|');
+
+  animify($("#daftar"), "fadein");
+
+  $(".hasil").each(function() {
+    var kepala = $(this).children().eq(0).children();
+    var kunci1 = kuncify(kepala.eq(0).text());
+    var kunci2_ = kepala.eq(1).text().split('|');
     var kunci2 = kuncify(typeof kunci2_[1] == 'undefined' ? kunci2_[0] :
       kunci2_[1]);
+
     if (kunci1.indexOf(kunci) != -1 || kunci2.indexOf(kunci) != -1) {
-      $(this)
-        .show();
+      $(this).show();
     } else {
-      $(this)
-        .hide();
+      $(this).hide();
     }
   });
-  teks = $("#kunci")
-    .val();
+  teks = $("#kunci").val();
 }
 
 function updateOffset() {
-  offset = $("#navigasi-pad")
-    .offset()
-    .top - ($("#kunci")
-      .height() / 3.1);
+  offset = $("#navigasi-pad").offset().top - ($("#kunci").height() / 3.1);
 }
 
 function updateNavigasi() {
-  if ($(window)
-    .scrollTop() > offset) {
-    $("#navigasi")
-      .addClass("ambang");
-    $("#navigasi-pad")
-      .addClass("pad");
+  if ($(window).scrollTop() > offset) {
+    $("#navigasi").addClass("ambang");
+    $("#navigasi-pad").addClass("pad");
   } else {
-    $("#navigasi")
-      .removeClass("ambang");
-    $("#navigasi-pad")
-      .removeClass("pad");
+    $("#navigasi").removeClass("ambang");
+    $("#navigasi-pad").removeClass("pad");
   }
 }
-http.onload = function () {
+http.onload = function() {
   var elDaftar = $('#daftar');
+  var elCari = $("#cari");
   var excel = XLSX.read(http.response, {
     type: 'array'
   });
   var hasil = [];
-  excel.SheetNames.forEach(function (nama) {
+
+  excel.SheetNames.forEach(function(nama) {
     XLSX.utils.sheet_to_json(excel.Sheets[nama], {
-        header: 1
-      })
-      .forEach(function (kolom) {
-        hasil.push(kolom);
-      });
+      header: 1
+    }).forEach(function(kolom) {
+      hasil.push(kolom);
+    });
   });
-  $("#sidang")
-    .text("Sidang: " + judulify(hasil[2][3].replace("SIDANG PADA TANGGAL ",
-      "")));
-  hasil.forEach(function (i) {
+
+  $("#sidang").text("Sidang: " + judulify(hasil[2][3].replace(
+    "SIDANG PADA TANGGAL ", "")));
+
+  hasil.forEach(function(i) {
     // nama, kendaraan, noTilang, denda, pasal, bukti
     if (typeof i[0] === 'number' && typeof i[2] === 'string') {
       elDaftar.append(render(i[2], i[4], i[1], i[7] + i[8], i[5], i[6]));
     }
   });
-  $("#cari")
-    .submit(function (event) {
-      event.preventDefault();
-      unkeyboardify($("#kunci"));
-    })
-    .keyup(function (event) {
-      event.preventDefault();
-      clearTimeout(timeout);
-      timeout = setTimeout(cari, 225);
-    })
-    .removeClass("load");
-  $(".load")
-    .remove();
-  $("#kunci")
-    .focus();
+
+  elCari.submit(function(event) {
+    event.preventDefault();
+    unkeyboardify($("#kunci"));
+  });
+
+  elCari.keyup(function(event) {
+    event.preventDefault();
+    clearTimeout(timeout);
+    timeout = setTimeout(cari, 225);
+  });
+
+  elCari.removeClass("load");
+  $(".load").remove();
+  $("#kunci").focus();
 };
-$(function () {
+
+$(function() {
   http.send();
   updateOffset();
-  $(window)
-    .resize(function () {
-      updateOffset()
-      updateNavigasi();
-    });
-  $(window)
-    .scroll(navigasi);
+
+  $(window).resize(function() {
+    updateOffset();
+    updateNavigasi();
+  });
+
+  $(window).scroll(updateNavigasi);
   updateNavigasi();
 });
