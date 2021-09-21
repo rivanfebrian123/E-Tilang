@@ -4,6 +4,51 @@ $jarak-desktop: 29.7px;
 $jarak-mobile: 21.6px;
 $ukuran-mobile: 600px;
 
+@mixin daftar($jarak, $pad, $rad, $tinggi, $lebar, $font_h3, $font_h4, $gambar) {
+  padding: 0 $jarak;
+
+  .hasil {
+    border-radius: $rad;
+    padding: ($pad * 0.66) $pad ($pad * 0.81);
+    margin-bottom: $jarak;
+    max-width: $lebar;
+    height: $tinggi;
+
+    .atas {
+      h3 {
+        font-size: $font_h3;
+        margin-right: $pad * 0.76;
+      }
+
+      h4 {
+        font-size: $font_h4;
+      }
+    }
+
+    .bawah {
+      font-size: $font_h4;
+
+      >* {
+        margin-right: $pad * 0.76;
+      }
+
+      > div {
+        // fix untuk webkit
+        max-width: hapus-unit($tinggi) * 0.4 * 1%;
+
+        span {
+          margin-right: $pad * 0.3;
+
+          img {
+            height: $gambar;
+            margin-top: $pad * 0.11 * -1;
+          }
+        }
+      }
+    }
+  }
+}
+
 @mixin navigasi ($jarak, $pad, $tinggi, $lebar, $gambar, $font, $ambang, $l_ambang) {
   padding: 0 $jarak;
   margin-bottom: $pad;
@@ -13,7 +58,7 @@ $ukuran-mobile: 600px;
     max-width: $lebar;
 
     input {
-      padding: 0 ($tinggi * 0.98) interpolado(36.9px, 43px, 1.7px, 0, $tinggi) ($tinggi * 0.36);
+      padding: 0 ($tinggi * 0.98) interpolado(36.9px, 43px, 1.6px, 0, $tinggi) ($tinggi * 0.36);
       font-size: $font;
     }
 
@@ -39,6 +84,29 @@ $ukuran-mobile: 600px;
 
   @at-root #navigasi-pad.pad {
     height: $pad + $tinggi;
+  }
+}
+
+@mixin kepala($pad_atas, $pad_bawah, $tinggi_bubble, $kiri, $kiri_panah, $font, $l_gambar, $t_gambar) {
+  margin: $pad_atas 0 $pad_bawah 0;
+
+  #bubble {
+    padding: 0 ($tinggi_bubble * 0.26) 0 ($tinggi_bubble * 0.32);
+    height: $tinggi_bubble;
+    left: $kiri;
+    margin-bottom: $tinggi_bubble * 0.29 * -1;
+    border-radius: $tinggi_bubble * 0.21;
+    font-size: $font;
+
+    &::after {
+      left: $kiri_panah;
+      border-width: $tinggi_bubble * 0.23;
+    }
+  }
+
+  img {
+    width: $l_gambar;
+    height: $t_gambar;
   }
 }
 
@@ -100,26 +168,7 @@ $ukuran-mobile: 600px;
   }
 
   #kepala {
-    margin: 41.3px 0 29px 0;
-
-    #bubble {
-      padding: 0 8.7px 0 11px;
-      height: 35px;
-      left: 12vw;
-      margin-bottom: -9.5px;
-      border-radius: 7px;
-      font-size: 14px;
-
-      &::after {
-        left: 44%;
-        border-width: 8px;
-      }
-    }
-
-    img {
-      width: 151.8px;
-      height: 59.0667px;
-    }
+    @include kepala(41.3px, 29px, 35px, 12vw, 44%, 14px, 151.8px, 59.0667px);
   }
 }
 
@@ -137,26 +186,7 @@ $ukuran-mobile: 600px;
   }
 
   #kepala {
-    margin: 57px 0 52px 0;
-
-    img {
-      width: 195px;
-      height: 75.8833px;
-    }
-
-    #bubble {
-      padding: 0 12px 0 14.3px;
-      height: 45px;
-      left: 100px;
-      margin-bottom: -14px;
-      border-radius: 10px;
-      font-size: 16px;
-
-      &::after {
-        left: 25%;
-        border-width: 10.8px;
-      }
-    }
+    @include kepala(57px, 52px, 45px, 100px, 25%, 16px, 195px, 75.8833px);
   }
 }
 

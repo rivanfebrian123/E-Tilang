@@ -93,51 +93,6 @@ html {
   }
 }
 
-@mixin daftar($jarak, $pad, $rad, $tinggi, $lebar, $font_h3, $font_h4, $gambar) {
-  padding: 0 $jarak;
-
-  .hasil {
-    border-radius: $rad;
-    padding: ($pad * 0.66) $pad ($pad * 0.81);
-    margin-bottom: $jarak;
-    max-width: $lebar;
-    height: $tinggi;
-
-    .atas {
-      h3 {
-        font-size: $font_h3;
-        margin-right: $pad * 0.76;
-      }
-
-      h4 {
-        font-size: $font_h4;
-      }
-    }
-
-    .bawah {
-      font-size: $font_h4;
-
-      >* {
-        margin-right: $pad * 0.76;
-      }
-
-      > div {
-        // fix untuk webkit
-        max-width: hapus-unit($tinggi) * 0.4 * 1%;
-
-        span {
-          margin-right: $pad * 0.3;
-
-          img {
-            height: $gambar;
-            margin-top: $pad * 0.11 * -1;
-          }
-        }
-      }
-    }
-  }
-}
-
 #navigasi {
   @include transition(box-shadow 1s);
 
