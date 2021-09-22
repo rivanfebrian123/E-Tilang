@@ -4,7 +4,16 @@ $jarak-desktop: 29.7px;
 $jarak-mobile: 21.6px;
 $ukuran-mobile: 600px;
 
-@mixin daftar($jarak, $pad, $rad, $tinggi, $lebar, $font_h3, $font_h4, $gambar) {
+@mixin daftar(
+  $jarak,
+  $pad,
+  $rad,
+  $tinggi,
+  $lebar,
+  $font_h3,
+  $font_h4,
+  $gambar
+) {
   padding: 0 $jarak;
 
   .hasil {
@@ -28,7 +37,7 @@ $ukuran-mobile: 600px;
     .bawah {
       font-size: $font_h4;
 
-      >* {
+      > * {
         margin-right: $pad * 0.76;
       }
 
@@ -49,7 +58,16 @@ $ukuran-mobile: 600px;
   }
 }
 
-@mixin navigasi ($jarak, $pad, $tinggi, $lebar, $gambar, $font, $ambang, $l_ambang) {
+@mixin navigasi(
+  $jarak,
+  $pad,
+  $tinggi,
+  $lebar,
+  $gambar,
+  $font,
+  $ambang,
+  $l_ambang
+) {
   padding: 0 $jarak;
   margin-bottom: $pad;
 
@@ -58,7 +76,8 @@ $ukuran-mobile: 600px;
     max-width: $lebar;
 
     input {
-      padding: 0 ($tinggi * 0.98) interpolado(36.9px, 43px, 1.6px, 0, $tinggi) ($tinggi * 0.36);
+      padding: 0 ($tinggi * 0.98) interpolado(36.9px, 43px, 1.6px, 0, $tinggi)
+        ($tinggi * 0.36);
       font-size: $font;
     }
 
@@ -87,7 +106,16 @@ $ukuran-mobile: 600px;
   }
 }
 
-@mixin kepala($pad_atas, $pad_bawah, $tinggi_bubble, $kiri, $kiri_panah, $font, $l_gambar, $t_gambar) {
+@mixin kepala(
+  $pad_atas,
+  $pad_bawah,
+  $tinggi_bubble,
+  $kiri,
+  $kiri_panah,
+  $font,
+  $l_gambar,
+  $t_gambar
+) {
   margin: $pad_atas 0 $pad_bawah 0;
 
   #bubble {
@@ -123,7 +151,16 @@ $ukuran-mobile: 600px;
   }
 
   #daftar {
-    @include daftar($jarak-mobile, 15px, 13.5px, 72.7px, none, 18.2px, 14.5px, 15.3px);
+    @include daftar(
+      $jarak-mobile,
+      15px,
+      13.5px,
+      72.7px,
+      none,
+      18.2px,
+      14.5px,
+      15.3px
+    );
 
     .hasil {
       &:hover {
@@ -131,23 +168,29 @@ $ukuran-mobile: 600px;
       }
 
       &.pilih {
-        height: 120px;
+        height: 152.8px;
 
         .bawah {
           @include align-items(start);
           @include baris;
 
-          >* {
-            margin-right: 0;
-          }
-
           div {
+            margin: 0 7px 0 0;
             // fix untuk webkit
             max-width: 100%;
 
+            @supports (-moz-appearance: none) {
+              margin-bottom: 5.5px;
+            }
+
             span {
               display: inline-block;
-              width: 26px;
+              width: 30px;
+              margin-right: 0;
+            }
+
+            &:last-child {
+              margin-bottom: 0;
             }
           }
 
@@ -164,7 +207,16 @@ $ukuran-mobile: 600px;
   }
 
   #navigasi {
-    @include navigasi ($jarak-mobile, 32px, 36.9px, 75vw, 15px, 15.2px, 61px, 100vw);
+    @include navigasi(
+      $jarak-mobile,
+      32px,
+      36.9px,
+      75vw,
+      15px,
+      15.2px,
+      61px,
+      100vw
+    );
   }
 
   #kepala {
@@ -178,11 +230,29 @@ $ukuran-mobile: 600px;
   }
 
   #daftar {
-    @include daftar($jarak-desktop, 23px, 18.6px, 98.6px, 639.9px, 21.6px, 14.5px, 18.2px);
+    @include daftar(
+      $jarak-desktop,
+      23px,
+      18.6px,
+      98.6px,
+      639.9px,
+      21.6px,
+      14.5px,
+      18.2px
+    );
   }
 
   #navigasi {
-    @include navigasi ($jarak-desktop, 46px, 43px, 299.1px, 17.9px, 15.9px, 80px, 480px);
+    @include navigasi(
+      $jarak-desktop,
+      46px,
+      43px,
+      299.1px,
+      17.9px,
+      15.9px,
+      80px,
+      480px
+    );
   }
 
   #kepala {
