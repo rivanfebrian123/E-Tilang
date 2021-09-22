@@ -102,7 +102,7 @@ $teratas: 999999999;
 }
 
 @mixin align-items($posisi) {
-  -webkit-box-align: $posisi;
+  -webkit-box-align: if($posisi == start, initial, $posisi);
   -ms-flex-align: $posisi;
   align-items: $posisi;
 }
