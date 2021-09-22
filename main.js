@@ -164,6 +164,7 @@ http.onload = function () {
 };
 
 $(function () {
+  var ua = navigator.userAgent.toLowerCase();
   elDaftar = $("#daftar");
   elCari = $("#cari");
   elKunci = $("#kunci");
@@ -173,6 +174,11 @@ $(function () {
 
   http.send();
   updateOffset();
+
+  if (ua.indexOf("x11") != -1 || ua.indexOf("linux") != -1 || ua.indexOf(
+      "android") != -1) {
+    $("body").addClass("fix-unix");
+  }
 
   $(window).resize(function () {
     updateOffset();

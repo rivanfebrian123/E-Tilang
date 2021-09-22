@@ -12,6 +12,6 @@ SCOUR_APP+="--indent=none --strip-xml-space --create-groups"
 # ${SCOUR_APP} -i src/palu.svg -o dist/palu.svg
 # ${SCOUR_APP} -i src/uang.svg -o dist/uang.svg
 sassc src/query.scss dist/query.css -t compressed
-# slimit main.js -m -t > dist/main.js
+slimit main.js -m -t > dist/main.js
 
 python3 -m http.server

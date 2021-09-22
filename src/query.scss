@@ -175,13 +175,9 @@ $ukuran-mobile: 600px;
           @include baris;
 
           div {
-            margin: 0 0 7px 0;
+            margin: 0 0 7.1px 0;
             // fix untuk webkit
             max-width: 100%;
-
-            @supports (-moz-appearance: none) {
-              margin-bottom: 5.5px;
-            }
 
             span {
               display: inline-block;
@@ -190,7 +186,7 @@ $ukuran-mobile: 600px;
             }
 
             &:last-child {
-              margin-bottom: 0;
+              margin-bottom: 0 !important;
             }
           }
 
