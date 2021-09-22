@@ -13,12 +13,6 @@ $warna_bg2: #5acca9;
 $warna_bg3: #5cc1b9;
 $font: "Open Sans";
 
-@mixin fix-div-bawah {
-  #daftar .hasil.pilih .bawah div {
-    margin-bottom: 5.4px;
-  }
-}
-
 html {
   @include scrollbar($warna_aksen2, $warna_aksen3);
   font-family: $font;
@@ -31,14 +25,18 @@ html {
     background-repeat: repeat-y;
     overflow-y: scroll;
 
-    &.fix-unix {
+    &.fix-dekstop-unix {
       @supports (-moz-appearance: none) {
-        @include fix-div-bawah;
+        #daftar .hasil.pilih .bawah div {
+          margin-bottom: 5.4px;
+        }
       }
     }
 
-    &.fix-apple {
-      @include fix-div-bawah;
+    &.fix-hp-apple {
+      #daftar .hasil.pilih .bawah div {
+        margin-bottom: 4.2px;
+      }
     }
   }
 }
