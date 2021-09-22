@@ -37,11 +37,8 @@ $ukuran-mobile: 600px;
     .bawah {
       font-size: $font_h4;
 
-      > * {
-        margin-right: $pad * 0.76;
-      }
-
       > div {
+        margin-right: $pad * 0.76;
         // fix untuk webkit
         max-width: hapus-unit($tinggi) * 0.4 * 1%;
 
@@ -174,7 +171,7 @@ $ukuran-mobile: 600px;
           @include align-items(start);
           @include baris;
 
-          div {
+          > div {
             margin: 0 0 7.1px 0;
             // fix untuk webkit
             max-width: 100%;

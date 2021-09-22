@@ -13,6 +13,12 @@ $warna_bg2: #5acca9;
 $warna_bg3: #5cc1b9;
 $font: "Open Sans";
 
+@mixin fix-div-bawah {
+  #daftar .hasil.pilih .bawah div {
+    margin-bottom: 5.4px;
+  }
+}
+
 html {
   @include scrollbar($warna_aksen2, $warna_aksen3);
   font-family: $font;
@@ -27,10 +33,12 @@ html {
 
     &.fix-unix {
       @supports (-moz-appearance: none) {
-        #daftar .hasil.pilih .bawah div {
-          margin-bottom: 5.4px;
-        }
+        @include fix-div-bawah;
       }
+    }
+
+    &.fix-apple {
+      @include fix-div-bawah;
     }
   }
 }

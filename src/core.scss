@@ -105,6 +105,8 @@ $teratas: 999999999;
   -webkit-box-align: if($posisi == start, initial, $posisi);
   -ms-flex-align: $posisi;
   align-items: $posisi;
+  -ms-flex-line-pack: $posisi;
+  align-content: $posisi;
 }
 
 * {
