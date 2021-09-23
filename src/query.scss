@@ -186,13 +186,13 @@ $ukuran-mobile: 600px;
               margin-bottom: 0 !important;
             }
 
-            @at-root body.fix-unix & {
+            body.fix-unix & {
               @supports (-moz-appearance: none) {
                 margin-bottom: 5.4px;
               }
             }
 
-            @at-root body.fix-hp-apple & {
+            body.fix-hp-apple & {
               margin-bottom: 4.25px;
             }
           }

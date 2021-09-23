@@ -26,7 +26,7 @@ $teratas: 999999999;
     @content;
   }
 
-  _:-ms-fullscreen, :root {
+  _:-ms-fullscreen &, :root & {
     @content;
   }
 }
