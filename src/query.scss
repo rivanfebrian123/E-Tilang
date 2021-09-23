@@ -145,6 +145,20 @@ $ukuran-mobile: 600px;
     -ms-user-select: none;
     user-select: none;
     @include bg-gradasi($warna_bg1, $warna_bg3);
+
+    &.fix-unix {
+      @supports (-moz-appearance: none) {
+        #daftar .hasil.pilih .bawah div {
+          margin-bottom: 5.4px;
+        }
+      }
+    }
+
+    &.fix-hp-apple {
+      #daftar .hasil.pilih .bawah div {
+        margin-bottom: 4.25px;
+      }
+    }
   }
 
   #daftar {

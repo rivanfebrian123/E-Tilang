@@ -24,20 +24,6 @@ html {
   body {
     background-repeat: repeat-y;
     overflow-y: scroll;
-
-    &.fix-unix {
-      @supports (-moz-appearance: none) {
-        #daftar .hasil.pilih .bawah div {
-          margin-bottom: 5.4px;
-        }
-      }
-    }
-
-    &.fix-hp-apple {
-      #daftar .hasil.pilih .bawah div {
-        margin-bottom: 4.25px;
-      }
-    }
   }
 }
 
@@ -167,4 +153,3 @@ html {
     }
   }
 }
-

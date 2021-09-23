@@ -3,7 +3,7 @@
 //       objek, dan fungsi; misal fitur for...of, spread (...) dan template string
 //       (backtick [`])
 var http = new XMLHttpRequest();
-http.open("GET", 'data.xls', true);
+http.open("GET", 'data.xlsx', true);
 http.responseType = 'arraybuffer';
 http.setRequestHeader('Cache-Control', 'no-cache, no-store, max-age=0');
 http.setRequestHeader('Expires', 'Tue, 01 Jan 1980 1:00:00 GMT');
@@ -162,6 +162,10 @@ http.onload = function () {
   $(".load").remove();
   elKunci.focus();
 };
+
+http.onerror = function name() {
+  location.reload();
+}
 
 $(function () {
   var ua = navigator.userAgent.toLowerCase();
