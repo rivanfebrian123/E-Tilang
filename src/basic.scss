@@ -11,7 +11,8 @@ $warna_nav: #5eb6c9;
 $warna_bg1: #62a0ea;
 $warna_bg2: #5acca9;
 $warna_bg3: #5cc1b9;
-$font: "Open Sans";
+$font: "Open Sans", "Segoe UI", "Sans Francisco", "Helvetica Neue",
+  "Lucida Grande", "Roboto", sans-serif;
 
 html {
   @include scrollbar($warna_aksen2, $warna_aksen3);
@@ -153,3 +154,4 @@ html {
     }
   }
 }
+

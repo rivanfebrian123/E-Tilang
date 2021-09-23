@@ -166,7 +166,7 @@ $teratas: 999999999;
 
 @include keyframes("lewat") {
   from {
-    background-position: -100% 0;
+    background-position: -200% 0;
   }
 
   to {
@@ -175,20 +175,20 @@ $teratas: 999999999;
 }
 
 .load {
-  background-color: rgba(white, 0.8) !important;
+  background-color: #dfeff6 !important;
   background-image: -webkit-gradient(
     linear,
     left top,
     right top,
-    color-stop(0, transparent),
+    color-stop(0, #dfeff6),
     color-stop(50%, white),
-    to(transparent)
+    to(#dfeff6)
   ) !important;
   background-image: linear-gradient(
     to right,
-    transparent 0,
+    #dfeff6 0,
     white 50%,
-    transparent 100%
+    #dfeff6 100%
   ) !important;
   background-size: 50% 100% !important;
   background-repeat: repeat-y !important;
