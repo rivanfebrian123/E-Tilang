@@ -39,7 +39,7 @@ $ukuran-mobile: 600px;
 
       > div {
         margin-right: $pad * 0.76;
-        // fix untuk webkit
+        // fix untuk webkit android dan ie
         max-width: hapus-unit($tinggi) * 0.4 * 1%;
 
         span {
@@ -145,20 +145,6 @@ $ukuran-mobile: 600px;
     -ms-user-select: none;
     user-select: none;
     @include bg-gradasi($warna_bg1, $warna_bg3);
-
-    &.fix-unix {
-      @supports (-moz-appearance: none) {
-        #daftar .hasil.pilih .bawah div {
-          margin-bottom: 5.4px;
-        }
-      }
-    }
-
-    &.fix-hp-apple {
-      #daftar .hasil.pilih .bawah div {
-        margin-bottom: 4.25px;
-      }
-    }
   }
 
   #daftar {
@@ -187,8 +173,8 @@ $ukuran-mobile: 600px;
 
           > div {
             margin: 0 0 7.1px 0;
-            // fix untuk webkit
-            max-width: 100%;
+            // fix untuk webkit android dan ie
+            max-width: 100% !important;
 
             span {
               display: inline-block;
@@ -199,6 +185,16 @@ $ukuran-mobile: 600px;
             &:last-child {
               margin-bottom: 0 !important;
             }
+
+            @at-root body.fix-unix & {
+              @supports (-moz-appearance: none) {
+                margin-bottom: 5.4px;
+              }
+            }
+
+            @at-root body.fix-hp-apple & {
+              margin-bottom: 4.25px;
+            }
           }
 
           .id {
@@ -208,6 +204,12 @@ $ukuran-mobile: 600px;
 
         h4 {
           display: none;
+        }
+      }
+
+      @include reset-flex {
+        .bawah div {
+          max-width: none;
         }
       }
     }
@@ -264,11 +266,5 @@ $ukuran-mobile: 600px;
 
   #kepala {
     @include kepala(57px, 52px, 45px, 100px, 25%, 16px, 195px, 75.8833px);
-  }
-}
-
-@include reset-flex {
-  #daftar .hasil .bawah div {
-    max-width: none;
   }
 }
