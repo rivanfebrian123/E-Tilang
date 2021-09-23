@@ -40,11 +40,7 @@ $ukuran-mobile: 600px;
       > div {
         margin-right: $pad * 0.76;
         // fix untuk webkit android dan ie
-        max-width: calc(66.66% - #{$pad * 6.06});
-
-        @supports (display: flex) {
-          max-width: calc(100vw - 33.33% - #{$pad * 11.37});
-        }
+        max-width: calc(50% - #{$pad * 3.25});
 
         span {
           margin-right: $pad * 0.3;
