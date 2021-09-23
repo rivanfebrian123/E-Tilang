@@ -25,7 +25,7 @@ html {
     background-repeat: repeat-y;
     overflow-y: scroll;
 
-    &.fix-dekstop-unix {
+    &.fix-unix {
       @supports (-moz-appearance: none) {
         #daftar .hasil.pilih .bawah div {
           margin-bottom: 5.4px;
@@ -35,7 +35,7 @@ html {
 
     &.fix-hp-apple {
       #daftar .hasil.pilih .bawah div {
-        margin-bottom: 4.2px;
+        margin-bottom: 4.25px;
       }
     }
   }
