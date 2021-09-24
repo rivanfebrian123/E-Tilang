@@ -39,6 +39,8 @@ $ukuran-mobile: 600px;
 
       > div {
         margin-right: $pad * 0.76;
+        // fix untuk samsung internet
+        max-width: hapus-unit($tinggi) * 0.4 * 1%;
         // fix untuk webkit android dan ie
         max-width: calc(50% - #{$pad * 3.25});
 

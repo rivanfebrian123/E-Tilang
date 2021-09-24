@@ -7,6 +7,11 @@ Nomor tilang dan nomor polisi tidak termasuk.
 ## Debugging
 https://rivanfebrian123.github.io/e-tilang
 
+## File data pelanggar
+**Nama file :** `data.xlsx`
+
+**Format :** Excel 2007+
+
 ## Dependensi
 - Modul http.server Python, untuk testing
 - Scour, untuk compress SVG

@@ -70,8 +70,8 @@ function render(nama, kendaraan, noTilang, denda, pasal, bukti) {
 
   hasil.click(function () {
     terpilih = $(this).hasClass("pilih");
-    $(".pilih").removeClass("pilih");
     animify($(this).children().eq(1), "fadein");
+    $(".pilih").removeClass("pilih");
 
     if (!terpilih) {
       $(this).addClass("pilih");
