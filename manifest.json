@@ -1,8 +1,8 @@
 {
   "name": "E-Tilang Kota Tegal",
   "short_name": "E-Tilang",
-  "start_url": "/",
-  "scope": "/",
+  "start_url": ".",
+  "scope": "./",
   "icons": [
     {
       "src": "favicon.png",
