@@ -18,7 +18,7 @@ html {
   @include scrollbar($warna_aksen2, $warna_aksen3);
   font-family: $font;
   // pwa ios
-  height: -webkit-fill-available;
+  width: -webkit-fill-available;
 
   input {
     font-family: $font;
@@ -27,7 +27,7 @@ html {
   body {
     background-repeat: repeat-y;
     // pwa ios
-    min-height: -webkit-fill-available;
+    width: -webkit-fill-available;
     // menstabilkan rendering teks antar browser dan perangkat
     line-height: 1.375;
     // fix untuk webkit
