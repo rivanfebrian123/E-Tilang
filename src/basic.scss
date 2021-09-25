@@ -17,6 +17,8 @@ $font: "Open Sans", "Segoe UI", "Sans Francisco", "Helvetica Neue",
 html {
   @include scrollbar($warna_aksen2, $warna_aksen3);
   font-family: $font;
+  // pwa ios
+  height: -webkit-fill-available;
 
   input {
     font-family: $font;
@@ -24,7 +26,12 @@ html {
 
   body {
     background-repeat: repeat-y;
-    overflow-y: scroll;
+    // pwa ios
+    min-height: -webkit-fill-available;
+    // menstabilkan rendering teks antar browser dan perangkat
+    line-height: 1.375;
+    // fix untuk webkit
+    padding-bottom: 0.1px;
   }
 }
 

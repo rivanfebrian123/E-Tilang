@@ -147,6 +147,9 @@ $ukuran-mobile: 600px;
     -ms-user-select: none;
     user-select: none;
     @include bg-gradasi($warna_bg1, $warna_bg3);
+    // fix untuk safari ios
+    overflow: auto;
+    --webkit-overflow-scrolling: touch;
   }
 
   #daftar {
@@ -228,6 +231,7 @@ $ukuran-mobile: 600px;
 @media (min-width: $ukuran-mobile + 1px) {
   body {
     @include bg-gradasi($warna_bg1, $warna_bg2);
+    overflow-y: scroll;
   }
 
   #daftar {
