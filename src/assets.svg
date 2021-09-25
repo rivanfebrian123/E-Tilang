@@ -38,6 +38,18 @@
      id="defs5548">
     <linearGradient
        inkscape:collect="always"
+       id="linearGradient1020">
+      <stop
+         style="stop-color:#62a0ea;stop-opacity:1"
+         offset="0"
+         id="stop1016" />
+      <stop
+         style="stop-color:#33d17a;stop-opacity:1"
+         offset="1"
+         id="stop1018" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
        id="linearGradient2912">
       <stop
          style="stop-color:#3584e4;stop-opacity:1"
@@ -50,12 +62,12 @@
     </linearGradient>
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2912"
+       xlink:href="#linearGradient1020"
        id="linearGradient927"
-       x1="-1917.3444"
-       y1="626.21228"
-       x2="-1882.6982"
-       y2="659.90131"
+       x1="-1912.2177"
+       y1="628.3468"
+       x2="-1880.9795"
+       y2="661.17542"
        gradientUnits="userSpaceOnUse" />
     <linearGradient
        inkscape:collect="always"
