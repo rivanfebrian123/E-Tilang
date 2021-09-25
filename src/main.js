@@ -52,22 +52,30 @@ function unkeyboardify(elemen) {
     .removeAttr("readonly").removeAttr("disabled");
 }
 
+function spanImg(namaFile) {
+  return '<span><img src="dist/' + namaFile + '"/></span>';
+}
+
 function render(nama, kendaraan, noTilang, denda, pasal, bukti) {
-  var kendaraan_id = kendaraan.replace(/spm/gi, "Sepeda Motor").replace(
+  var kenID = kendaraan.replace(/spm/gi, "Sepeda Motor").replace(
     /l.truck/gi, "Light Truck") + ' | ' + noTilang;
   bukti = bukti.replace(/ran/gi, "Kendaraan").replace(/tnp/gi, "Tanpa").replace(
     /plat/gi, "Plat");
+  var hasil = $('<div class="hasil flex baris"></div');
+  var atas = $('<div class="atas flex kolom"></div>');
+  var bawah = $('<div class="bawah flex kolom"></div>');
 
-  var hasil = $('<div class="hasil flex baris"><div class="atas flex kolom">' +
-    '<h3 class="elipsis">' + nama + '</h3><h4 class="elipsis">' +
-    kendaraan_id + '</h4></div><div class="bawah flex kolom">' +
-    '<div class="id elipsis"><span><img src="dist/id.svg"/></span>' +
-    kendaraan_id + '</div><div><span>' + '<img src="dist/uang.svg"/></span>' +
-    angkaify(denda) + '</div><div class="elipsis"><span>' +
-    '<img src="dist/palu.svg"/></span>' + pasal +
-    '</div><div class="elipsis"><span><img src="dist/dompet.svg"/></span>' +
-    bukti + '</div></div></div>');
+  atas.append('<h3 class="elipsis">' + nama + '</h3>');
+  atas.append('<h4 class="elipsis">' + kenID + '</h4>');
+  bawah.append('<div class="id elipsis">' + spanImg('id.svg') + kenID +
+    '</div>');
+  bawah.append('<div>' + spanImg('uang.svg') + angkaify(denda) + '</div>');
+  bawah.append('<div class="elipsis">' + spanImg('palu.svg') + pasal +
+  '</div>');
+  bawah.append('<div class="elipsis">' + spanImg('dompet.svg') + bukti +
+    '</div>');
 
+  hasil.append(atas).append(bawah);
   hasil.click(function () {
     terpilih = $(this).hasClass("pilih");
     animify($(this).children().eq(1), "fadein");
