@@ -187,14 +187,6 @@ $(function () {
   http.send();
   updateOffset();
 
-  if (ua.indexOf("iphone") != -1 | ua.indexOf("ipad") != -1 || ua.indexOf(
-      "ipod") != -1) {
-    $("body").addClass("fix-hp-apple");
-  } else if (ua.indexOf("x11") != -1 || ua.indexOf("linux") != -1 || ua
-    .indexOf("android") != -1 || ua.indexOf("mac") != -1) {
-    $("body").addClass("fix-unix");
-  }
-
   $(window).resize(function () {
     updateOffset();
     updateNavigasi();

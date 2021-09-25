@@ -187,16 +187,6 @@ $ukuran-mobile: 600px;
             &:last-child {
               margin-bottom: 0 !important;
             }
-
-            body.fix-unix & {
-              @supports (-moz-appearance: none) {
-                margin-bottom: 5.4px;
-              }
-            }
-
-            body.fix-hp-apple & {
-              margin-bottom: 4.25px;
-            }
           }
 
           .id {

@@ -146,8 +146,6 @@ $teratas: 999999999;
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
   white-space: nowrap;
-  // fix untuk IE 10
-  display: block;
 }
 
 @include keyframes("fadein") {
