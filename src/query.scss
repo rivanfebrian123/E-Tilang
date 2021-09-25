@@ -141,15 +141,11 @@ $ukuran-mobile: 600px;
   body {
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
-    -webkit-overflow-scrolling: auto;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
     @include bg-gradasi($warna_bg1, $warna_bg3);
-    // fix untuk safari ios
-    overflow: auto;
-    --webkit-overflow-scrolling: touch;
   }
 
   #daftar {
