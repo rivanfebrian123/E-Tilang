@@ -21,7 +21,7 @@ SASSC="sassc -t compressed --omit-map-comment"
 # inkscape src/assets.svg -i pin -o dist/ikon-pin.svg.ori
 # ${SCOUR} -i dist/ikon-pin.svg.ori -o dist/ikon-pin.svg
 
-# slimit -m -t src/main.js > dist/main.js
+slimit -m -t src/main.js > dist/main.js
 ${SASSC} src/query.scss dist/query.css
 
 rm -rf dist/*.ori

@@ -71,7 +71,7 @@ function render(nama, kendaraan, noTilang, denda, pasal, bukti) {
     '</div>');
   bawah.append('<div>' + spanImg('uang.svg') + angkaify(denda) + '</div>');
   bawah.append('<div class="elipsis">' + spanImg('palu.svg') + pasal +
-  '</div>');
+    '</div>');
   bawah.append('<div class="elipsis">' + spanImg('dompet.svg') + bukti +
     '</div>');
 
@@ -194,4 +194,15 @@ $(function () {
 
   $(window).scroll(updateNavigasi);
   updateNavigasi();
+
+  if (['iPhone', 'iPad', 'iPod'].includes(navigator.platform) || (navigator
+      .userAgent.includes('Mac') && 'ontouched' in document)) {
+    $(this).on("touchmove", function (event) {
+      event.preventDefault();
+    });
+
+    $("input").focus(function (event) {
+      document.body.scrollTop = 0;
+    });
+  }
 });
