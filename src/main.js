@@ -125,6 +125,7 @@ function updateOffset() {
 
 function updateIos() {
   elNavigasi.css("top", document.body.scrollTop + "px !important");
+  elKunci.attr("placeholder", document.body.scrollTop);
 }
 
 function updateNavigasi() {
