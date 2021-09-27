@@ -115,6 +115,26 @@ $teratas: 999999999;
   box-sizing: border-box;
 }
 
+html {
+  @at-root img {
+    display: inherit;
+  }
+
+  @at-root button.ikon {
+    background-color: transparent;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  @at-root ::-ms-clear {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}
+
 .flex {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -124,6 +144,10 @@ $teratas: 999999999;
   justify-content: space-between;
   -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
+
+  span {
+    display: inline-block;
+  }
 
   > * {
     margin: 0;
@@ -199,4 +223,30 @@ $teratas: 999999999;
   &:hover {
     cursor: wait;
   }
+}
+
+@mixin isi-fleksibel {
+  display: table;
+
+  > * {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+@mixin isi-bersih {
+  > * {
+    position: absolute;
+    border: 0;
+    outline: 0;
+  }
+}
+
+@mixin pwa {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }

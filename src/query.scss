@@ -80,7 +80,7 @@ $ukuran-mobile: 600px;
       font-size: $font;
     }
 
-    .icon {
+    .ikon {
       right: $tinggi * 0.3;
       top: tengahkan($tinggi, $gambar);
 
@@ -139,12 +139,7 @@ $ukuran-mobile: 600px;
 
 @media (max-width: $ukuran-mobile) {
   body {
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    @include pwa;
     @include bg-gradasi($warna_bg1, $warna_bg3);
   }
 
@@ -175,16 +170,15 @@ $ukuran-mobile: 600px;
           > div {
             margin: 0 0 7.1px 0;
             // fix untuk webkit android dan ie
-            max-width: 100% !important;
+            max-width: 100%;
 
             span {
-              display: inline-block;
               width: 30px;
               margin-right: 0;
             }
 
             &:last-child {
-              margin-bottom: 0 !important;
+              margin-bottom: 0;
             }
           }
 
@@ -227,7 +221,6 @@ $ukuran-mobile: 600px;
 @media (min-width: $ukuran-mobile + 1px) {
   body {
     @include bg-gradasi($warna_bg1, $warna_bg2);
-    overflow-y: scroll;
   }
 
   #daftar {

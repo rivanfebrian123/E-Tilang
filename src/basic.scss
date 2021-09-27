@@ -12,20 +12,20 @@ $warna_bg1: #62a0ea;
 $warna_bg2: #5acca9;
 $warna_bg3: #5cc1b9;
 $font: "Open Sans", "Segoe UI", "Sans Francisco", "Helvetica Neue",
-  "Lucida Grande", "Roboto", sans-serif;
+  "Lucida Grande", "Roboto", "Helvetica", sans-serif;
 
 html {
   @include scrollbar($warna_aksen2, $warna_aksen3);
   font-family: $font;
 
-  input {
-    font-family: $font;
-  }
-
   body {
     background-repeat: repeat-y;
-    // menstabilkan rendering teks antar browser dan perangkat
-    line-height: 1.375;
+    // mengurangi jumping scroll
+    overflow-y: scroll;
+
+    input {
+      font-family: $font;
+    }
   }
 }
 
@@ -34,8 +34,8 @@ html {
     position: relative;
     background: $warna_aksen1;
     color: white;
-    display: table;
-    font-weight: 700;
+    font-weight: bold;
+    @include isi-fleksibel;
 
     &::after {
       content: "";
@@ -45,21 +45,10 @@ html {
       border-left: 0 solid transparent;
       border-right: 0 solid transparent;
     }
-
-    > * {
-      display: table-cell;
-      vertical-align: middle;
-    }
-  }
-
-  img {
-    display: block;
   }
 }
 
 #daftar {
-  @include transition(opacity 300ms);
-
   .hasil {
     @include transition(height 300ms);
     background-color: white;
@@ -67,11 +56,11 @@ html {
 
     .atas {
       h3 {
-        font-weight: 400;
+        font-weight: normal;
       }
 
       h4 {
-        font-weight: 400;
+        font-weight: normal;
         color: $warna_teks_dim1;
         max-width: 35%;
       }
@@ -80,16 +69,18 @@ html {
     .bawah {
       white-space: nowrap;
 
-      div:last-child {
-        margin-right: 0;
+      > div {
+        span img {
+          vertical-align: middle;
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
       }
 
       .id {
         display: none;
-      }
-
-      span img {
-        vertical-align: middle;
       }
     }
   }
@@ -100,33 +91,15 @@ html {
 
   #cari {
     @include transition(max-width 1s);
+    @include isi-bersih;
     position: relative;
     border-radius: $bulat;
 
-    .icon {
-      position: absolute;
-      border: 0;
-      background-color: transparent;
-
-      &:hover {
-        cursor: pointer;
-      }
-    }
-
     input {
-      position: absolute;
-      border: 0;
       border-radius: $bulat;
       height: 100%;
       width: 100%;
-      outline: 0;
       color: $warna_teks1;
-
-      &::-ms-clear {
-        display: none;
-        width: 0;
-        height: 0;
-      }
 
       @include placeholder {
         color: $warna_teks_dim1;
@@ -155,4 +128,3 @@ html {
     }
   }
 }
-
