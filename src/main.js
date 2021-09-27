@@ -15,8 +15,8 @@ var teks = "";
 var terpilih = null;
 var animend =
   "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
-var ios = ['iPhone', 'iPad', 'iPod'].includes(navigator.platform) ||
-  (navigator.userAgent.includes('Mac') && 'ontouched' in document)
+var ios = ['iPhone', 'iPad', 'iPod'].indexOf(navigator.platform) != -1 ||
+  (navigator.userAgent.indexOf('Mac') != -1 && 'ontouched' in document)
 
 var elDaftar = null;
 var elCari = null;
@@ -203,7 +203,7 @@ $(function () {
   updateNavigasi();
 
   if (ios) {
-    $(this).on("touchmove", function (event) {
+    $(document).on("touchmove", function (event) {
       event.preventDefault();
     });
 
