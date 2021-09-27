@@ -114,6 +114,7 @@ html {
     box-shadow: 0 0 25px rgba(black, 0.45);
     width: 100%;
     top: 0;
+    top: env(safe-area-inset-top);
     z-index: $teratas;
 
     #kunci {

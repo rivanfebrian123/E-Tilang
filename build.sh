@@ -18,11 +18,11 @@ SASSC="sassc -t compressed --omit-map-comment"
 # optipng -o7 dist/ikon-app.png
 # optipng -o7 dist/ikon-tab.png
 
-# inkscape src/assets.svg -i pin -o dist/ikon-pin-ori.svg
-# ${SCOUR} -i dist/ikon-pin-ori.svg -o dist/ikon-pin.svg
-# rm -rf dist/ikon-pin-ori.svg
+# inkscape src/assets.svg -i pin -o dist/ikon-pin.svg.ori
+# ${SCOUR} -i dist/ikon-pin.svg.ori -o dist/ikon-pin.svg
 
 # slimit -m -t src/main.js > dist/main.js
 ${SASSC} src/query.scss dist/query.css
 
+rm -rf dist/*.ori
 python3 -m http.server

@@ -44,6 +44,10 @@ $ukuran-mobile: 600px;
         // fix untuk webkit android dan ie
         max-width: calc(50% - #{$pad * 3.25});
 
+        @include reset-flex {
+          max-width: none;
+        }
+
         span {
           margin-right: $pad * 0.3;
 
@@ -91,7 +95,6 @@ $ukuran-mobile: 600px;
   }
 
   &.ambang {
-    padding: 0 $jarak;
     height: $ambang;
 
     #cari {
@@ -168,7 +171,7 @@ $ukuran-mobile: 600px;
           @include baris;
 
           > div {
-            margin: 0 0 7.1px 0;
+            margin: 0 0 7.35px 0;
             // fix untuk webkit android dan ie
             max-width: 100%;
 
@@ -189,12 +192,6 @@ $ukuran-mobile: 600px;
 
         h4 {
           display: none;
-        }
-      }
-
-      @include reset-flex {
-        .bawah div {
-          max-width: none;
         }
       }
     }

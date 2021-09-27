@@ -116,6 +116,9 @@ $teratas: 999999999;
 }
 
 html {
+  // menstabilkan jarak teks antar perangkat dan browser
+  line-height: 1.37;
+
   @at-root img {
     display: inherit;
   }
