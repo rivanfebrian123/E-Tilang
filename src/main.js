@@ -182,7 +182,6 @@ http.onerror = function name() {
 }
 
 $(function () {
-  var ua = navigator.userAgent.toLowerCase();
   elDaftar = $("#daftar");
   elCari = $("#cari");
   elKunci = $("#kunci");
@@ -192,6 +191,7 @@ $(function () {
 
   http.send();
   updateOffset();
+  updateNavigasi();
   updateIos();
 
   $(window).resize(function () {
@@ -200,15 +200,12 @@ $(function () {
   });
 
   $(window).scroll(updateNavigasi);
-  updateNavigasi();
 
   if (ios) {
     $(document).on("touchmove", function (event) {
       event.preventDefault();
     });
 
-    $("input").focus(function (event) {
-      updateIos();
-    });
+    $("input").focus(updateIos);
   }
 });
