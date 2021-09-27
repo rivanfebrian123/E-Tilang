@@ -124,7 +124,7 @@ function updateOffset() {
 }
 
 function updateIos() {
-  elNavigasi.css("top", $(window).scrollTop() + "px !important");
+  elNavigasi.css("top", $(window).scrollTop() + "px");
   elKunci.attr("placeholder", $(window).scrollTop());
 }
 
