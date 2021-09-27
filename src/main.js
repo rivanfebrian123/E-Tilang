@@ -15,6 +15,8 @@ var teks = "";
 var terpilih = null;
 var animend =
   "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
+var ios = ['iPhone', 'iPad', 'iPod'].includes(navigator.platform) ||
+  (navigator.userAgent.includes('Mac') && 'ontouched' in document)
 
 var elDaftar = null;
 var elCari = null;
@@ -121,6 +123,10 @@ function updateOffset() {
   offset = elNavigasiPad.offset().top - (elKunci.height() / 3.1);
 }
 
+function updateIos() {
+  document.body.scrollTop = 0;
+}
+
 function updateNavigasi() {
   if ($(window).scrollTop() > offset) {
     elNavigasi.addClass("ambang");
@@ -186,6 +192,7 @@ $(function () {
 
   http.send();
   updateOffset();
+  updateIos();
 
   $(window).resize(function () {
     updateOffset();
@@ -195,14 +202,13 @@ $(function () {
   $(window).scroll(updateNavigasi);
   updateNavigasi();
 
-  if (['iPhone', 'iPad', 'iPod'].includes(navigator.platform) || (navigator
-      .userAgent.includes('Mac') && 'ontouched' in document)) {
+  if (ios) {
     $(this).on("touchmove", function (event) {
       event.preventDefault();
     });
 
     $("input").focus(function (event) {
-      document.body.scrollTop = 0;
+      updateIos();
     });
   }
 });
