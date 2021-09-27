@@ -124,7 +124,7 @@ function updateOffset() {
 }
 
 function updateIos() {
-  document.body.scrollTop = 0;
+  elNavigasi.css("top", document.body.scrollTop + "px !important");
 }
 
 function updateNavigasi() {
@@ -134,6 +134,10 @@ function updateNavigasi() {
   } else {
     elNavigasi.removeClass("ambang");
     elNavigasiPad.removeClass("pad");
+  }
+
+  if (ios) {
+    updateIos();
   }
 }
 
@@ -192,7 +196,6 @@ $(function () {
   http.send();
   updateOffset();
   updateNavigasi();
-  updateIos();
 
   $(window).resize(function () {
     updateOffset();
@@ -202,6 +205,8 @@ $(function () {
   $(window).scroll(updateNavigasi);
 
   if (ios) {
+    updateIos();
+
     $(document).on("touchmove", function (event) {
       event.preventDefault();
     });
