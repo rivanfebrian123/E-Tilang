@@ -126,9 +126,7 @@ function updateOffset() {
 }
 
 function updateNavigasi() {
-  posisi = $(window).scrollTop();
-
-  if (posisi > offset) {
+  if ($(window).scrollTop() > offset) {
     elNavigasi.addClass("ambang");
     elNavigasiPad.addClass("pad");
   } else {
