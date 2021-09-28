@@ -145,6 +145,8 @@ function updateNavigasi() {
     } else {
       posisiTerakhir = posisi;
     }
+
+    elKunci.attr("placeholder", posisi + ', ' + posisiTerakhir);
   }
 }
 
