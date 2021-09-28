@@ -139,7 +139,7 @@ function updateNavigasi() {
 
   if (ios) {
     if (inputTerpilih) {
-      elNavigasi.css("top", posisi + "px");
+      elNavigasi.css("top", (posisi - 270) + "px");
     } else {
       posisiTerakhir = posisi;
     }
