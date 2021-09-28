@@ -139,7 +139,7 @@ function updateNavigasi() {
 
   if (ios) {
     if (inputTerpilih) {
-      if (posisiTerakhir < posisi) {
+      if (posisiTerakhir < posisi && posisi < ($(window).innerHeight() + posisiTerakhir)) {
         elNavigasi.css("top", (posisi - posisiTerakhir) + "px");
       }
     } else {
@@ -218,6 +218,7 @@ $(function () {
 
     $("input").blur(function() {
       inputTerpilih = false;
+      elNavigasi.css("top", 0);
     });
   }
 
