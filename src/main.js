@@ -10,6 +10,8 @@ http.setRequestHeader('Expires', 'Tue, 01 Jan 1980 1:00:00 GMT');
 http.setRequestHeader('Pragma', 'no-cache');
 
 var timeout = null;
+var posisi = 0;
+var posisiSentuh = 0;
 var offset = null;
 var teks = "";
 var terpilih = null;
@@ -187,20 +189,26 @@ $(function () {
   elNavigasiPad = $("#navigasi-pad");
   elSidang = $("#sidang");
 
-  $(window).resize(function () {
+  $(this).resize(function () {
     updateOffset();
     updateNavigasi();
   });
 
-  $(window).scroll(updateNavigasi);
+  $(this).scroll(updateNavigasi);
 
   if (ios) {
     $("input").focus(function() {
-      $("body").scrollTop(0);
+      $(document.body).scrollTop(0);
     });
 
-    $(window).on("touchmove", function() {
-      unkeyboardify(elKunci);
+    $(this).on("touchmove", function() {
+      posisi = $(this).scrollTop();
+
+      if (posisi != posisiSentuh) {
+        unkeyboardify(elKunci);
+      }
+
+      posisiSentuh = posisi;
     });
   }
 
