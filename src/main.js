@@ -16,7 +16,8 @@ var posisiLama = 0;
 var offsetAmbang = null;
 var offsetSembunyi = null;
 var teks = "";
-var terpilih = null;
+var teksFokus = null;
+var itemTerpilih = null;
 var disentuh = null;
 var animend =
   "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
@@ -88,11 +89,11 @@ function render(nama, kendaraan, noTilang, denda, pasal, bukti) {
 
   hasil.append(atas).append(bawah);
   hasil.click(function () {
-    terpilih = $(this).hasClass("pilih");
+    itemTerpilih = $(this).hasClass("pilih");
     animify($(this).children().eq(1), "fadein");
     $(".pilih").removeClass("pilih");
 
-    if (!terpilih) {
+    if (!itemTerpilih) {
       $(this).addClass("pilih");
     }
   });
@@ -130,36 +131,37 @@ function cari() {
 
 function updateOffset() {
   offsetAmbang = elNavigasiPad.offset().top - (elKunci.height() / 2.5);
-  offsetSembunyi = elDaftar.offset().top - (elKunci.height() * 1.7);
-  console.log(offsetSembunyi);
+  offsetSembunyi = elDaftar.offset().top;
 }
 
 function updateNavigasi() {
   posisi = elWindow.scrollTop();
 
-  // dipakai untuk touch event
+  // dipakai untuk event touchmove
   if (posisi == posisiLama) {
     return null;
   }
 
-  if (posisi > offsetAmbang) {
-    elNavigasi.addClass("ambang");
-    elNavigasiPad.addClass("pad");
-  } else {
+  if (disentuh) {
+    unkeyboardify(elKunci);
+  }
+
+  if (posisi < offsetAmbang) {
     elNavigasi.removeClass("ambang");
     elNavigasiPad.removeClass("pad");
   }
 
-  if (posisi > offsetSembunyi) {
-    if (posisi > posisiLama) {
+  if (posisi > posisiLama) {
+    if (!teksFokus) {
       elNavigasi.addClass("sembunyi");
-    } else if (posisi < posisiLama) {
-      elNavigasi.removeClass("sembunyi");
     }
-  }
 
-  if (disentuh) {
-    unkeyboardify(elKunci);
+    if (posisi > offsetSembunyi) {
+      elNavigasi.addClass("ambang");
+      elNavigasiPad.addClass("pad");
+    }
+  } else {
+    elNavigasi.removeClass("sembunyi");
   }
 
   posisiLama = posisi;
@@ -219,7 +221,6 @@ $(function () {
 
   elWindow.resize(function () {
     updateOffset();
-    updateNavigasi();
   });
 
   elWindow.scroll(updateNavigasi);
@@ -232,13 +233,16 @@ $(function () {
     }, 100);
   });
 
-  if (ios) {
-    $("input").focus(function() {
+  $("input").focus(function() {
+    teksFokus = true;
+
+    if (ios) {
       elBody.scrollTop(0);
-    });
-  }
+    }
+  }).blur(function() {
+    teksFokus = false;
+  });
 
   updateOffset();
-  updateNavigasi();
   http.send();
 });

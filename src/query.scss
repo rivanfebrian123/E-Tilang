@@ -96,7 +96,6 @@ $ukuran-mobile: 600px;
 
   &.ambang {
     height: $ambang;
-    @include transition((top 0.5s, box-shadow 1s));
 
     #cari {
       top: tengahkan($ambang, $tinggi);
