@@ -136,16 +136,6 @@ function updateNavigasi() {
     elNavigasi.removeClass("ambang");
     elNavigasiPad.removeClass("pad");
   }
-
-  if (ios) {
-    if (inputTerpilih) {
-      elNavigasi.css("top", (posisi - 270) + "px");
-    } else {
-      posisiTerakhir = posisi;
-    }
-  }
-
-  elKunci.attr("placeholder", posisi + ', ' + posisiTerakhir + ', ' + $(window).innerHeight());
 }
 
 http.onload = function () {
@@ -185,10 +175,7 @@ http.onload = function () {
 
   elCari.removeClass("load");
   $(".load").remove();
-
-  if (!ios) {
-    elKunci.focus();
-  }
+  elKunci.focus();
 };
 
 http.onerror = function name() {
@@ -211,17 +198,8 @@ $(function () {
   $(window).scroll(updateNavigasi);
 
   if (ios) {
-    // $(document).on("touchmove", function (event) {
-    //   event.preventDefault();
-    // });
-
     $("input").focus(function() {
-      inputTerpilih = true;
-    });
-
-    $("input").blur(function() {
-      inputTerpilih = false;
-      elNavigasi.css("top", 0);
+      $("body").scrollTop(0);
     });
   }
 
