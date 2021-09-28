@@ -9,12 +9,15 @@ http.setRequestHeader('Cache-Control', 'no-cache, no-store, max-age=0');
 http.setRequestHeader('Expires', 'Tue, 01 Jan 1980 1:00:00 GMT');
 http.setRequestHeader('Pragma', 'no-cache');
 
-var timeout = null;
+var timeoutCari = null;
+var timeoutSentuh = null;
 var posisi = 0;
-var posisiSentuh = 0;
-var offset = null;
+var posisiLama = 0;
+var offsetAmbang = null;
+var offsetSembunyi = null;
 var teks = "";
 var terpilih = null;
+var disentuh = null;
 var animend =
   "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
 var ios = ['iPhone', 'iPad', 'iPod'].indexOf(navigator.platform) != -1 ||
@@ -26,6 +29,8 @@ var elKunci = null;
 var elNavigasi = null;
 var elNavigasiPad = null;
 var elSidang = null;
+var elBody = $(document.body);
+var elWindow = $(window);
 
 function animify(elemen, kelas) {
   if (!elemen.hasClass(kelas)) {
@@ -124,17 +129,40 @@ function cari() {
 }
 
 function updateOffset() {
-  offset = elNavigasiPad.offset().top - (elKunci.height() / 3.1);
+  offsetAmbang = elNavigasiPad.offset().top - (elKunci.height() / 2.5);
+  offsetSembunyi = elDaftar.offset().top - (elKunci.height() * 1.7);
+  console.log(offsetSembunyi);
 }
 
 function updateNavigasi() {
-  if ($(window).scrollTop() > offset) {
+  posisi = elWindow.scrollTop();
+
+  // dipakai untuk touch event
+  if (posisi == posisiLama) {
+    return null;
+  }
+
+  if (posisi > offsetAmbang) {
     elNavigasi.addClass("ambang");
     elNavigasiPad.addClass("pad");
   } else {
     elNavigasi.removeClass("ambang");
     elNavigasiPad.removeClass("pad");
   }
+
+  if (posisi > offsetSembunyi) {
+    if (posisi > posisiLama) {
+      elNavigasi.addClass("sembunyi");
+    } else if (posisi < posisiLama) {
+      elNavigasi.removeClass("sembunyi");
+    }
+  }
+
+  if (disentuh) {
+    unkeyboardify(elKunci);
+  }
+
+  posisiLama = posisi;
 }
 
 http.onload = function () {
@@ -168,8 +196,8 @@ http.onload = function () {
 
   elCari.keyup(function (event) {
     event.preventDefault();
-    clearTimeout(timeout);
-    timeout = setTimeout(cari, 225);
+    clearTimeout(timeoutCari);
+    timeoutCari = setTimeout(cari, 225);
   });
 
   elCari.removeClass("load");
@@ -189,26 +217,24 @@ $(function () {
   elNavigasiPad = $("#navigasi-pad");
   elSidang = $("#sidang");
 
-  $(this).resize(function () {
+  elWindow.resize(function () {
     updateOffset();
     updateNavigasi();
   });
 
-  $(this).scroll(updateNavigasi);
+  elWindow.scroll(updateNavigasi);
+
+  elWindow.on("touchmove", function() {
+    disentuh = true;
+    clearTimeout(timeoutSentuh);
+    timeoutSentuh = setTimeout(function() {
+      disentuh = false;
+    }, 100);
+  });
 
   if (ios) {
     $("input").focus(function() {
-      $(document.body).scrollTop(0);
-    });
-
-    $(this).on("touchmove", function() {
-      posisi = $(this).scrollTop();
-
-      if (posisi != posisiSentuh) {
-        unkeyboardify(elKunci);
-      }
-
-      posisiSentuh = posisi;
+      elBody.scrollTop(0);
     });
   }
 
