@@ -11,6 +11,9 @@ http.setRequestHeader('Pragma', 'no-cache');
 
 var timeout = null;
 var offset = null;
+var posisi = 0;
+var posisiTerakhir = 0;
+var inputTerpilih = false;
 var teks = "";
 var terpilih = null;
 var animend =
@@ -123,13 +126,10 @@ function updateOffset() {
   offset = elNavigasiPad.offset().top - (elKunci.height() / 3.1);
 }
 
-function updateIos() {
-  elNavigasi.css("top", $(window).scrollTop() + "px");
-  elKunci.attr("placeholder", $(window).scrollTop());
-}
-
 function updateNavigasi() {
-  if ($(window).scrollTop() > offset) {
+  posisi = $(window).scrollTop();
+
+  if (posisi > offset) {
     elNavigasi.addClass("ambang");
     elNavigasiPad.addClass("pad");
   } else {
@@ -138,7 +138,13 @@ function updateNavigasi() {
   }
 
   if (ios) {
-    updateIos();
+    if (inputTerpilih) {
+      if (posisiTerakhir < posisi) {
+        elNavigasi.css("top", (posisi - posisiTerakhir) + "px");
+      }
+    } else {
+      posisiTerakhir = posisi;
+    }
   }
 }
 
@@ -194,10 +200,6 @@ $(function () {
   elNavigasiPad = $("#navigasi-pad");
   elSidang = $("#sidang");
 
-  http.send();
-  updateOffset();
-  updateNavigasi();
-
   $(window).resize(function () {
     updateOffset();
     updateNavigasi();
@@ -206,12 +208,20 @@ $(function () {
   $(window).scroll(updateNavigasi);
 
   if (ios) {
-    updateIos();
+    // $(document).on("touchmove", function (event) {
+    //   event.preventDefault();
+    // });
 
-    $(document).on("touchmove", function (event) {
-      event.preventDefault();
+    $("input").focus(function() {
+      inputTerpilih = true;
     });
 
-    $("input").focus(updateIos);
+    $("input").blur(function() {
+      inputTerpilih = false;
+    });
   }
+
+  updateOffset();
+  updateNavigasi();
+  http.send();
 });
