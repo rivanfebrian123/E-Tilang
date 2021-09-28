@@ -11,9 +11,6 @@ http.setRequestHeader('Pragma', 'no-cache');
 
 var timeout = null;
 var offset = null;
-var posisi = 0;
-var posisiTerakhir = 0;
-var inputTerpilih = false;
 var teks = "";
 var terpilih = null;
 var animend =
@@ -53,8 +50,10 @@ function judulify(teks) {
 }
 
 function unkeyboardify(elemen) {
+  if (elemen.is(":focus")) {
   elemen.attr("readonly", "readonly").attr("disabled", "true").blur()
     .removeAttr("readonly").removeAttr("disabled");
+  }
 }
 
 function spanImg(namaFile) {
@@ -200,6 +199,10 @@ $(function () {
   if (ios) {
     $("input").focus(function() {
       $("body").scrollTop(0);
+    });
+
+    $(window).on("touchmove", function() {
+      unkeyboardify(elKunci);
     });
   }
 
