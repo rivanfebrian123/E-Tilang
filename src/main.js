@@ -16,9 +16,8 @@ var posisiLama = 0;
 var offsetAmbang = null;
 var offsetSembunyi = null;
 var teks = "";
-var teksFokus = null;
-var itemTerpilih = null;
 var disentuh = null;
+var animasiJalan = null;
 var animend =
   "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
 var ios = ['iPhone', 'iPad', 'iPod'].indexOf(navigator.platform) != -1 ||
@@ -35,8 +34,11 @@ var elWindow = $(window);
 
 function animify(elemen, kelas) {
   if (!elemen.hasClass(kelas)) {
+    animasiJalan = true;
+
     elemen.addClass(kelas).one(animend, function () {
       elemen.removeClass(kelas);
+      animasiJalan = false;
     });
   }
 }
@@ -89,7 +91,7 @@ function render(nama, kendaraan, noTilang, denda, pasal, bukti) {
 
   hasil.append(atas).append(bawah);
   hasil.click(function () {
-    itemTerpilih = $(this).hasClass("pilih");
+    var itemTerpilih = $(this).hasClass("pilih");
     animify($(this).children().eq(1), "fadein");
     $(".pilih").removeClass("pilih");
 
@@ -149,19 +151,17 @@ function updateNavigasi() {
   if (posisi < offsetAmbang) {
     elNavigasi.removeClass("ambang");
     elNavigasiPad.removeClass("pad");
+  } else if (posisi > offsetSembunyi) {
+    elNavigasi.addClass("ambang");
+    elNavigasiPad.addClass("pad");
   }
 
-  if (posisi > posisiLama) {
-    if (!teksFokus) {
+  if (!animasiJalan) {
+    if (posisi > posisiLama) {
       elNavigasi.addClass("sembunyi");
+    } else {
+      elNavigasi.removeClass("sembunyi");
     }
-
-    if (posisi > offsetSembunyi) {
-      elNavigasi.addClass("ambang");
-      elNavigasiPad.addClass("pad");
-    }
-  } else {
-    elNavigasi.removeClass("sembunyi");
   }
 
   posisiLama = posisi;
@@ -204,7 +204,10 @@ http.onload = function () {
 
   elCari.removeClass("load");
   $(".load").remove();
-  elKunci.focus();
+
+  if (ios) {
+    elKunci.focus();
+  }
 };
 
 http.onerror = function name() {
@@ -234,13 +237,9 @@ $(function () {
   });
 
   $("input").focus(function() {
-    teksFokus = true;
-
     if (ios) {
       elBody.scrollTop(0);
     }
-  }).blur(function() {
-    teksFokus = false;
   });
 
   updateOffset();
