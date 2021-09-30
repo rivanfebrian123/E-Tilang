@@ -134,6 +134,10 @@ function cari() {
     }
   });
 
+  if (ios) {
+    elBody.scrollTop(0);
+  }
+
   teks = elKunci.val();
 }
 
@@ -249,10 +253,6 @@ $(function () {
 
   $("input").focus(function () {
     teksFokus = true;
-
-    if (ios) {
-      elBody.scrollTop(0);
-    }
   }).blur(function () {
     teksFokus = false;
   });
