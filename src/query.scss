@@ -103,7 +103,7 @@ $ukuran-mobile: 600px;
     }
 
     &.sembunyi {
-      top: $ambang * -1;
+      top: ($ambang * -1) !important;
     }
   }
 
