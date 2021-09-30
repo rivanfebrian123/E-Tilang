@@ -78,7 +78,7 @@ $ukuran-mobile: 600px;
     height: $tinggi;
     max-width: $lebar;
 
-    input {
+    #kunci {
       padding: 0 ($tinggi * 0.98) interpolado(36.9px, 43px, 1.6px, 0, $tinggi)
         ($tinggi * 0.36);
       font-size: $font;
@@ -103,7 +103,7 @@ $ukuran-mobile: 600px;
     }
 
     &.sembunyi {
-      top: ($ambang * -1) !important;
+      top: ($ambang * -1);
     }
   }
 

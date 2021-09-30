@@ -94,7 +94,11 @@ function render(nama, kendaraan, noTilang, denda, pasal, bukti) {
   hasil.append(atas).append(bawah);
   hasil.click(function () {
     var itemTerpilih = $(this).hasClass("pilih");
-    animify($(this).children().eq(1), "fadein");
+
+    if (mobile) {
+      animify($(this).children().eq(1), "fadein");
+    }
+
     $(".pilih").removeClass("pilih");
 
     if (!itemTerpilih) {

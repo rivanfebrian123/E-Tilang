@@ -22,10 +22,6 @@ html {
     background-repeat: repeat-y;
     // mengurangi jumping scroll
     overflow-y: scroll;
-
-    input {
-      font-family: $font;
-    }
   }
 }
 
@@ -95,10 +91,11 @@ html {
     position: relative;
     border-radius: $bulat;
 
-    input {
+    #kunci {
       border-radius: $bulat;
       height: 100%;
       width: 100%;
+      background-color: white;
       color: $warna_teks1;
 
       @include placeholder {
@@ -114,20 +111,20 @@ html {
     background-color: rgba($warna_nav, 0.8);
     box-shadow: 0 0 25px rgba(black, 0.45);
     width: 100%;
-    top: 0;
-    top: env(safe-area-inset-top);
     z-index: $teratas;
+
+    &:not(.sembunyi) {
+      top: 0;
+    }
 
     &.sembunyi {
       box-shadow: none;
     }
 
-    #kunci {
+    #cari #kunci {
       background-color: rgba(white, 0.9);
       color: $warna_teks2;
-    }
 
-    #cari input {
       @include placeholder {
         color: $warna_teks_dim2;
       }

@@ -124,6 +124,12 @@ html {
       display: inherit;
     }
 
+    input {
+      font-family: inherit;
+      // menstabilkan warna latar di Safari baru dan browser lainnya
+      background-color: inherit;
+    }
+
     button.ikon {
       background-color: transparent;
 
