@@ -18,6 +18,7 @@ var offsetSembunyi = null;
 var teks = "";
 var disentuh = null;
 var animasiJalan = null;
+var teksFokus = null;
 var animend =
   "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
 var ios = ['iPhone', 'iPad', 'iPod'].indexOf(navigator.platform) != -1 ||
@@ -156,7 +157,7 @@ function updateNavigasi() {
     elNavigasiPad.addClass("pad");
   }
 
-  if (!animasiJalan) {
+  if (!animasiJalan && !teksFokus) {
     if (posisi > posisiLama) {
       elNavigasi.addClass("sembunyi");
     } else {
@@ -205,7 +206,7 @@ http.onload = function () {
   elCari.removeClass("load");
   $(".load").remove();
 
-  if (ios) {
+  if (!ios) {
     elKunci.focus();
   }
 };
@@ -237,9 +238,13 @@ $(function () {
   });
 
   $("input").focus(function() {
+    teksFokus = true;
+
     if (ios) {
       elBody.scrollTop(0);
     }
+  }).blur(function() {
+    teksFokus = false;
   });
 
   updateOffset();
