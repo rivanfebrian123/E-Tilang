@@ -154,7 +154,7 @@ function updateOffset() {
 function updateNavigasi() {
   posisi = elWindow.scrollTop();
 
-  // dipakai untuk event touchmove
+  // dipakai untuk event touchmove, terutama saat pengguna hanya memilih teks
   if (posisi == posisiLama) {
     return null;
   }
@@ -249,7 +249,7 @@ $(function () {
     clearTimeout(timeoutSentuh);
     timeoutSentuh = setTimeout(function () {
       disentuh = false;
-    }, 100);
+    }, 175);
   });
 
   $("input").focus(function () {
