@@ -9,6 +9,7 @@ http.setRequestHeader('Cache-Control', 'no-cache, no-store, max-age=0');
 http.setRequestHeader('Expires', 'Tue, 01 Jan 1980 1:00:00 GMT');
 http.setRequestHeader('Pragma', 'no-cache');
 
+var ukuranMobile = 600;
 var timeoutCari = null;
 var timeoutSentuh = null;
 var posisi = 0;
@@ -206,7 +207,7 @@ http.onload = function () {
   elCari.removeClass("load");
   $(".load").remove();
 
-  if (!ios) {
+  if (elWindow.width() > ukuranMobile) {
     elKunci.focus();
   }
 };
