@@ -250,9 +250,9 @@ $(function () {
   $("input").focus(function () {
     teksFokus = true;
 
-    // if (ios) {
-    //   elBody.scrollTop(0);
-    // }
+    if (ios) {
+      elBody.scrollTop(0);
+    }
   }).blur(function () {
     teksFokus = false;
   });
