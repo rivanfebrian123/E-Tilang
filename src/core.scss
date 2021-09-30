@@ -119,22 +119,31 @@ html {
   // menstabilkan jarak teks antar perangkat dan browser
   line-height: 1.37;
 
-  @at-root img {
-    display: inherit;
-  }
-
-  @at-root button.ikon {
-    background-color: transparent;
-
-    &:hover {
-      cursor: pointer;
+  @at-root {
+    img {
+      display: inherit;
     }
-  }
 
-  @at-root ::-ms-clear {
-    display: none;
-    width: 0;
-    height: 0;
+    button.ikon {
+      background-color: transparent;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    ::-ms-clear {
+      display: none;
+      width: 0;
+      height: 0;
+    }
+
+    ::-webkit-search-decoration,
+    ::-webkit-search-cancel-button,
+    ::-webkit-search-results-button,
+    ::-webkit-search-results-decoration {
+      display: none;
+    }
   }
 }
 
