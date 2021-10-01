@@ -143,6 +143,7 @@ function cari() {
   ukuranStabil = true;
 
   if (ios) {
+    window.scrollTo(0, 0);
     elBody.scrollTop(0);
   }
 }
