@@ -19,9 +19,14 @@ var teks = "";
 var disentuh = null;
 var animasiJalan = null;
 var teksFokus = null;
+var animstart =
+  "animationstart webkitAnimationStart oAnimationStart MSAnimationStart " +
+  "transitionstart webkitTransitionStart oTransitionStart MSTransitionStart " +
+  "animationiteration webkitAnimationIteration oAnimationIteration " +
+  "MSAnimationIteration";
 var animend =
   "animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd " +
-  "transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd ";
+  "transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd";
 var ios = ['iPhone', 'iPad', 'iPod'].indexOf(navigator.platform) != -1 ||
   (navigator.userAgent.indexOf('Mac') != -1 && 'ontouched' in document)
 var mobile = null;
@@ -38,11 +43,8 @@ var elWindow = $(window);
 
 function animify(elemen, kelas) {
   if (!elemen.hasClass(kelas)) {
-    animasiJalan = true;
-
     elemen.addClass(kelas).one(animend, function () {
       elemen.removeClass(kelas);
-      animasiJalan = false;
     });
   }
 }
@@ -162,6 +164,12 @@ function updateOffset() {
 function updateNavigasi() {
   posisi = elWindow.scrollTop();
 
+  // agar saat momentum scrolling berhenti tidak berpengaruh pada algoritma
+  // misal menampilkan atau menyembunyikan navigasi saat scroll berhenti
+  if (posisi == posisiLama) {
+    return null;
+  }
+
   if (disentuh) {
     unkeyboardify(elKunci);
   }
@@ -256,6 +264,12 @@ $(function () {
     timeoutSentuh = setTimeout(function () {
       disentuh = false;
     }, 175);
+  });
+
+  elWindow.on(animstart, function () {
+    animasiJalan = true;
+  }).on(animend, function () {
+    animasiJalan = false;
   });
 
   $("input").focus(function () {
