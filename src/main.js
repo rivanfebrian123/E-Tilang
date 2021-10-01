@@ -139,12 +139,12 @@ function cari() {
     }
   });
 
+  teks = elKunci.val();
+  ukuranStabil = true;
+
   if (ios) {
     elBody.scrollTop(0);
   }
-
-  teks = elKunci.val();
-  ukuranStabil = true;
 }
 
 function updateOffset() {
