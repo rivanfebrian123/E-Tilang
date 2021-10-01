@@ -20,9 +20,12 @@ var disentuh = null;
 var animasiJalan = null;
 var teksFokus = null;
 var animend =
-  "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
+  "animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd " +
+  "transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd ";
 var ios = ['iPhone', 'iPad', 'iPod'].indexOf(navigator.platform) != -1 ||
   (navigator.userAgent.indexOf('Mac') != -1 && 'ontouched' in document)
+var mobile = null;
+var ukuranStabil = null;
 
 var elDaftar = null;
 var elCari = null;
@@ -32,7 +35,6 @@ var elNavigasiPad = null;
 var elSidang = null;
 var elBody = $(document.body);
 var elWindow = $(window);
-var mobile = null;
 
 function animify(elemen, kelas) {
   if (!elemen.hasClass(kelas)) {
@@ -72,7 +74,7 @@ function spanImg(namaFile) {
   return '<span><img src="dist/' + namaFile + '"/></span>';
 }
 
-function render(nama, kendaraan, noTilang, denda, pasal, bukti) {
+function renderItem(nama, kendaraan, noTilang, denda, pasal, bukti) {
   var kenID = kendaraan.replace(/spm/gi, "Sepeda Motor").replace(
     /l.truck/gi, "Light Truck") + ' | ' + noTilang;
   bukti = bukti.replace(/ran/gi, "Kendaraan").replace(/tnp/gi, "Tanpa").replace(
@@ -111,6 +113,7 @@ function render(nama, kendaraan, noTilang, denda, pasal, bukti) {
 
 function cari() {
   var kunci_ = elKunci.val();
+  ukuranStabil = false;
 
   if (teks === kunci_) {
     return null;
@@ -139,6 +142,7 @@ function cari() {
   }
 
   teks = elKunci.val();
+  ukuranStabil = true;
 }
 
 function updateOffset() {
@@ -174,7 +178,7 @@ function updateNavigasi() {
   // !teksFokus digunakan agar saat text selection atau keyboard muncul,
   // navigasi tidak langsung tiba2 tersembunyi atau tampil karena
   // efek scroll dari resize window
-  if (mobile && !animasiJalan && !teksFokus) {
+  if (mobile && ukuranStabil && !animasiJalan && !teksFokus) {
     if (posisi > posisiLama) {
       elNavigasi.addClass("sembunyi");
     } else {
@@ -190,6 +194,7 @@ http.onload = function () {
     type: 'array'
   });
   var hasil = [];
+  ukuranStabil = false;
 
   excel.SheetNames.forEach(function (nama) {
     XLSX.utils.sheet_to_json(excel.Sheets[nama], {
@@ -205,7 +210,7 @@ http.onload = function () {
   hasil.forEach(function (i) {
     // nama, kendaraan, noTilang, denda, pasal, bukti
     if (typeof i[0] === 'number' && typeof i[2] === 'string') {
-      elDaftar.append(render(i[2], i[4], i[1], i[7] + i[8], i[5], i[6]));
+      elDaftar.append(renderItem(i[2], i[4], i[1], i[7] + i[8], i[5], i[6]));
     }
   });
 
@@ -226,6 +231,8 @@ http.onload = function () {
   if (!mobile) {
     elKunci.focus();
   }
+
+  ukuranStabil = true;
 };
 
 http.onerror = function name() {
