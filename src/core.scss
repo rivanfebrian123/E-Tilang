@@ -1,5 +1,6 @@
-$bulat: 999999999px;
-$teratas: 999999999;
+// pastikan support 32 bit
+$bulat: 9999999px;
+$teratas: 9999999;
 
 @function hapus-unit($angka) {
   @return $angka / ($angka * 0 + 1);
@@ -75,10 +76,26 @@ $teratas: 999999999;
   background-image: linear-gradient(to right, $warna1, $warna2);
 }
 
+@mixin align-items($posisi) {
+  $_posisi: if($posisi == flex-start, start, $posisi);
+
+  -webkit-box-align: $_posisi;
+  -ms-flex-align: $_posisi;
+  box-align: $_posisi;
+  align-items: $posisi;
+}
+
 @mixin baris {
   -webkit-box-orient: vertical;
   -ms-flex-direction: column;
   flex-direction: column;
+}
+
+@mixin kolom {
+  @include align-items(center);
+  -webkit-box-orient: horizontal;
+  -ms-flex-direction: row;
+  flex-direction: row;
 }
 
 @mixin scrollbar($warna1, $warna2) {
@@ -101,17 +118,11 @@ $teratas: 999999999;
   }
 }
 
-@mixin align-items($posisi) {
-  -webkit-box-align: $posisi;
-  -ms-flex-align: $posisi;
-  box-align: $posisi;
-  align-items: $posisi;
-}
-
 * {
   margin: 0 auto;
   padding: 0;
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -172,10 +183,7 @@ html {
   }
 
   &.kolom {
-    @include align-items(center);
-    -webkit-box-orient: horizontal;
-    -ms-flex-direction: row;
-    flex-direction: row;
+    @include kolom;
   }
 
   &.baris {

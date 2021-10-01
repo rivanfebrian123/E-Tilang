@@ -171,7 +171,7 @@ $ukuran-mobile: 600px;
         height: 152.8px;
 
         .bawah {
-          @include align-items(start);
+          @include align-items(flex-start);
           @include baris;
 
           > div {
