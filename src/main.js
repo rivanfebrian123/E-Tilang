@@ -28,7 +28,8 @@ var animend =
   "animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd " +
   "transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd";
 var ios = ['iPhone', 'iPad', 'iPod'].indexOf(navigator.platform) != -1 ||
-  (navigator.userAgent.indexOf('Mac') != -1 && 'ontouched' in document)
+  (navigator.userAgent.indexOf('Mac') != -1 && 'ontouched' in document);
+var versiIos = -1;
 var mobile = null;
 var ukuranStabil = null;
 
@@ -143,7 +144,10 @@ function cari() {
   ukuranStabil = true;
 
   if (ios) {
-    window.scrollTo(0, 0);
+    if (versiIos == 13) {
+      window.scrollTo(0, 0);
+    }
+
     elBody.scrollTop(0);
   }
 }
@@ -255,6 +259,10 @@ $(function () {
   elNavigasi = $("#navigasi");
   elNavigasiPad = $("#navigasi-pad");
   elSidang = $("#sidang");
+
+  if (ios) {
+    versiIos = parseInt((navigator.appVersion).match(/OS (\d+)/)[1], 10);
+  }
 
   elWindow.resize(updateOffset);
   elWindow.scroll(updateNavigasi);
