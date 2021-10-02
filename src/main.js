@@ -10,6 +10,7 @@ http.setRequestHeader('Cache-Control', 'no-cache, no-store, max-age=0')
 http.setRequestHeader('Expires', 'Tue, 01 Jan 1980 1:00:00 GMT')
 http.setRequestHeader('Pragma', 'no-cache')
 
+var ua = navigator.userAgent
 var timeoutCari = null
 var timeoutSentuh = null
 var posisi = 0
@@ -28,8 +29,9 @@ var animstart =
 var animend = "animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd " +
   "transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd"
 var ios = ['iPhone', 'iPad', 'iPod'].indexOf(navigator.platform) != -1 || (
-  navigator.userAgent.indexOf('Mac') != -1 && 'ontouched' in document)
+  ua.indexOf('Mac') != -1 && 'ontouched' in document)
 var versiIos = -1
+var ie = ua.indexOf('MSIE ') != -1 || ua.indexOf('Trident/') != -1
 var mobile = false
 
 var elDaftar = null
@@ -234,7 +236,7 @@ http.onload = function () {
   elCari.removeClass("load")
   $(".load").remove()
 
-  if (!mobile) {
+  if (!mobile && !ie) {
     elKunci.focus()
   }
 }
