@@ -17,9 +17,9 @@ var posisiLama = 0
 var offsetAmbang = null
 var offsetSembunyi = null
 var teks = ""
-var disentuh = null
-var animasiJalan = null
-var teksFokus = null
+var disentuh = false
+var animasiJalan = false
+var teksFokus = false
 var animstart =
   "animationstart webkitAnimationStart oAnimationStart MSAnimationStart " +
   "transitionstart webkitTransitionStart oTransitionStart MSTransitionStart " +
@@ -30,8 +30,8 @@ var animend = "animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd " +
 var ios = ['iPhone', 'iPad', 'iPod'].indexOf(navigator.platform) != -1 || (
   navigator.userAgent.indexOf('Mac') != -1 && 'ontouched' in document)
 var versiIos = -1
-var mobile = null
-var ukuranStabil = null
+var mobile = false
+var ukuranStabil = false
 
 var elDaftar = null
 var elCari = null
@@ -143,9 +143,9 @@ function cari() {
   if (ios) {
     if (versiIos == 13) {
       window.scrollTo(0, 0)
+    } else {
+      elBody.scrollTop(0)
     }
-
-    elBody.scrollTop(0)
   }
 }
 
