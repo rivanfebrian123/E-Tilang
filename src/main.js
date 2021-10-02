@@ -17,7 +17,7 @@ var posisiLama = 0
 var offsetAmbang = null
 var offsetSembunyi = null
 var teks = ""
-var disentuh = false
+var berinteraksi = false
 var animasiJalan = false
 var teksFokus = false
 var animstart =
@@ -31,7 +31,6 @@ var ios = ['iPhone', 'iPad', 'iPod'].indexOf(navigator.platform) != -1 || (
   navigator.userAgent.indexOf('Mac') != -1 && 'ontouched' in document)
 var versiIos = -1
 var mobile = false
-var ukuranStabil = false
 
 var elDaftar = null
 var elCari = null
@@ -114,7 +113,6 @@ function renderItem(nama, kendaraan, noTilang, denda, pasal, bukti) {
 
 function cari() {
   var kunci_ = elKunci.val()
-  ukuranStabil = false
 
   if (teks === kunci_) {
     return null
@@ -138,7 +136,6 @@ function cari() {
   })
 
   teks = elKunci.val()
-  ukuranStabil = true
 
   if (ios) {
     if (versiIos == 13) {
@@ -171,7 +168,7 @@ function updateNavigasi() {
     return null
   }
 
-  if (disentuh) {
+  if (berinteraksi) {
     unkeyboardify(elKunci)
   }
 
@@ -187,7 +184,7 @@ function updateNavigasi() {
   // !teksFokus digunakan agar saat text selection atau keyboard muncul,
   // navigasi tidak langsung tiba2 tersembunyi atau tampil karena
   // efek scroll dari resize window
-  if (mobile && ukuranStabil && !animasiJalan && !teksFokus) {
+  if (mobile && !animasiJalan && !teksFokus) {
     if (posisi > posisiLama) {
       elNavigasi.addClass("sembunyi")
     } else {
@@ -203,7 +200,6 @@ http.onload = function () {
     type: 'array'
   })
   var hasil = []
-  ukuranStabil = false
 
   excel.SheetNames.forEach(function (nama) {
     XLSX.utils.sheet_to_json(excel.Sheets[nama], {
@@ -241,8 +237,6 @@ http.onload = function () {
   if (!mobile) {
     elKunci.focus()
   }
-
-  ukuranStabil = true
 }
 
 http.onerror = function name() {
@@ -261,14 +255,17 @@ $(function () {
     versiIos = parseInt((navigator.appVersion).match(/OS (\d+)/)[1], 10)
   }
 
+  http.send()
+  updateOffset()
+
   elWindow.resize(updateOffset)
   elWindow.scroll(updateNavigasi)
 
-  elWindow.on("touchmove", function () {
-    disentuh = true
+  elWindow.on("touchmove wheel", function () {
+    berinteraksi = true
     clearTimeout(timeoutSentuh)
     timeoutSentuh = setTimeout(function () {
-      disentuh = false
+      berinteraksi = false
     }, 175)
   })
 
@@ -283,7 +280,4 @@ $(function () {
   }).blur(function () {
     teksFokus = false
   })
-
-  updateOffset()
-  http.send()
 })

@@ -137,6 +137,7 @@ html {
 
     input {
       font-family: inherit;
+      -webkit-appearance: none;
       // menstabilkan warna latar di Safari baru dan browser lainnya
       background-color: inherit;
     }
