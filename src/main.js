@@ -206,8 +206,8 @@ http.onload = function () {
   excel.SheetNames.forEach(function (nama) {
     XLSX.utils.sheet_to_json(excel.Sheets[nama], {
       header: 1
-    }).forEach(function (kolom) {
-      hasil.push(kolom)
+    }).forEach(function (baris) {
+      hasil.push(baris)
     })
   })
 
